@@ -339,7 +339,7 @@ export function Feed() {
     </div>
 
       {/* Botão: passar frases sozinho */}
-      <div className="fixed bottom-24 left-4 z-30">
+      <div className="fixed bottom-36 left-4 z-30">
         <button
           type="button"
           onClick={() => setAutoAdvance((on) => !on)}
