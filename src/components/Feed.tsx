@@ -338,8 +338,8 @@ export function Feed() {
       <div id="feed-sentinel" className="h-1 w-full" aria-hidden />
     </div>
 
-      {/* Botão: passar frases sozinho — próximo ao botão de música */}
-      <div className="fixed bottom-[5.5rem] left-4 z-30 sm:bottom-[5.5rem]">
+      {/* Botão: passar frases sozinho — gap-2 (0,5rem) acima do de música, como na direita */}
+      <div className="fixed bottom-[7.5rem] left-4 z-30 sm:bottom-[7.5rem]">
         <button
           type="button"
           onClick={() => setAutoAdvance((on) => !on)}
