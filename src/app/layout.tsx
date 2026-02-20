@@ -24,10 +24,32 @@ export const viewport: Viewport = {
   userScalable: false,
 };
 
+const SITE_URL = "https://sacrumscroll.com";
+
 export const metadata: Metadata = {
-  title: "SacrumScroll — O Feed da Tradição Católica",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "SacrumScroll — O Feed da Tradição Católica",
+    template: "%s | SacrumScroll",
+  },
   description:
-    "Substitua o scroll mundano por ascese espiritual e beleza sacra. Patrística, Escolástica, Mística e Liturgia.",
+    "Substitua o scroll mundano por ascese espiritual e beleza sacra. Citações da Patrística, Escolástica, Mística e Liturgia. PWA com arte sacra e músicas litúrgicas.",
+  keywords: [
+    "SacrumScroll",
+    "tradição católica",
+    "patrística",
+    "escolástica",
+    "mística",
+    "liturgia",
+    "oração",
+    "santos",
+    "Igreja Católica",
+    "feed espiritual",
+  ],
+  authors: [{ name: "Thácio Siqueira", url: "https://www.thaciosiqueira.com.br" }],
+  creator: "Thácio Siqueira",
+  robots: { index: true, follow: true },
+  alternates: { canonical: "/" },
   manifest: "/manifest.json",
   appleWebApp: { capable: true, statusBarStyle: "black-translucent", title: "SacrumScroll" },
   openGraph: {
@@ -56,6 +78,32 @@ export const metadata: Metadata = {
   },
 };
 
+function JsonLd() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "SacrumScroll",
+    description:
+      "Substitua o scroll mundano por ascese espiritual e beleza sacra. Citações da Patrística, Escolástica, Mística e Liturgia.",
+    url: SITE_URL,
+    applicationCategory: "LifestyleApplication",
+    operatingSystem: "Any",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "BRL" },
+    author: {
+      "@type": "Person",
+      name: "Thácio Siqueira",
+      url: "https://www.thaciosiqueira.com.br",
+    },
+    inLanguage: "pt-BR",
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -64,6 +112,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${cinzel.variable} ${garamond.variable}`}>
       <body className="min-h-screen bg-batina text-pedra font-garamond antialiased">
+        <JsonLd />
         <MusicProvider>
           {children}
         </MusicProvider>

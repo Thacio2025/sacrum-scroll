@@ -18,9 +18,9 @@ export function WelcomeCard() {
         className="flex flex-col items-center gap-4 text-center"
       >
         <BookOpen className="h-14 w-14 text-liturgico" strokeWidth={1.25} />
-        <h1 className="font-cinzel text-3xl font-medium tracking-wide text-liturgico md:text-4xl">
+        <h2 className="font-cinzel text-3xl font-medium tracking-wide text-liturgico md:text-4xl">
           SacrumScroll
-        </h1>
+        </h2>
         <p className="font-cinzel text-lg uppercase tracking-[0.2em] text-pedra/80">
           O Feed da Tradição Católica
         </p>
