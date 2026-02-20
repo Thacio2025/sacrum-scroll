@@ -1,4 +1,4 @@
-export type ContentCategory = "patristic" | "scholastic" | "mystic" | "liturgy";
+export type ContentCategory = "patristic" | "scholastic" | "mystic" | "liturgy" | "scripture";
 
 export interface QuoteCard {
   id: string;

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Cinzel, EB_Garamond } from "next/font/google";
 import "./globals.css";
+import { MusicProvider } from "@/contexts/MusicContext";
 
 const cinzel = Cinzel({
   subsets: ["latin"],
@@ -39,7 +40,9 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${cinzel.variable} ${garamond.variable}`}>
       <body className="min-h-screen bg-batina text-pedra font-garamond antialiased">
-        {children}
+        <MusicProvider>
+          {children}
+        </MusicProvider>
       </body>
     </html>
   );
