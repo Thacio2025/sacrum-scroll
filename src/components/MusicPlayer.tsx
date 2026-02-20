@@ -41,7 +41,7 @@ export function MusicPlayer() {
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="fixed bottom-4 right-4 z-30"
+        className="fixed bottom-4 left-4 z-30"
       >
         <button
           type="button"
@@ -59,7 +59,7 @@ export function MusicPlayer() {
     <motion.div
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="fixed bottom-4 right-4 z-30"
+      className="fixed bottom-4 left-4 z-30"
     >
       <div className="flex items-center gap-2 rounded-lg border border-pedra/20 bg-batina/90 backdrop-blur-sm shadow-lg">
         {/* Botão principal de play/pause */}
