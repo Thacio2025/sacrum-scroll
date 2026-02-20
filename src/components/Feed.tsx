@@ -2,6 +2,7 @@
 
 import { useMemo, useState, useEffect, useRef, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { PlayCircle, PauseCircle } from "lucide-react";
 import { QuoteCard } from "./QuoteCard";
 import { PauseStation } from "./PauseStation";
 import { BufferPause } from "./BufferPause";
@@ -28,16 +29,19 @@ function getAccentColor(): string {
 type FeedItem = "welcome" | "buffer" | "pause" | QuoteCardType;
 
 const CARDS_BEFORE_BUFFER = 5; // após 5 cards, pausa de 15s para carregar imagens
+const AUTO_ADVANCE_INTERVAL_MS = 8000; // 8 segundos por card quando "passar sozinho"
 const STORAGE_KEY = "sacrumscroll-position";
 const REPORTED_STORAGE_KEY = "sacrumscroll-reported";
 const LIKES_STORAGE_KEY = "sacrumscroll-likes";
 
-/** Seed novo a cada abertura do app, para variar as imagens do feed. */
+/** Seed novo a cada abertura do app, para variar as imagens do feed. Nunca persiste em localStorage. */
 function getSessionSeed(): string {
-  if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
-    return crypto.randomUUID();
-  }
-  return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+  const timePart = Date.now().toString(36);
+  const randomPart =
+    typeof crypto !== "undefined" && typeof crypto.randomUUID === "function"
+      ? crypto.randomUUID()
+      : Math.random().toString(36).slice(2, 15);
+  return `${timePart}-${randomPart}`;
 }
 
 function loadReportedIds(): Set<string> {
@@ -91,11 +95,60 @@ export function Feed() {
   const [cardsImageReady, setCardsImageReady] = useState<Record<string, boolean>>({});
   const [reportedCardIds, setReportedCardIds] = useState<Set<string>>(() => new Set());
   const [likedCardIds, setLikedCardIds] = useState<Set<string>>(() => new Set());
+  const [seedVersion, setSeedVersion] = useState(0);
+  const [autoAdvance, setAutoAdvance] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const autoAdvanceIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const accentColor = getAccentColor();
-  /** Seed fixo por sessão: a cada vez que o usuário entra no app, as imagens mudam. */
+  /** Seed por visita: novo a cada abertura; em restauração (bfcache) renovamos e refetch. */
   const sessionSeedRef = useRef<string>(getSessionSeed());
+
+  // Quando a página é restaurada do bfcache (ex.: voltou à aba), nova série de imagens
+  useEffect(() => {
+    const onPageShow = (e: PageTransitionEvent) => {
+      if (!e.persisted) return;
+      sessionSeedRef.current = getSessionSeed();
+      fetchedIds.current = new Set();
+      setCardsWithImages({});
+      setCardsImageLoading({});
+      setCardsImageReady({});
+      setSeedVersion((v) => v + 1);
+    };
+    window.addEventListener("pageshow", onPageShow);
+    return () => window.removeEventListener("pageshow", onPageShow);
+  }, []);
+
+  // Passar frases sozinho: a cada N segundos avança para o próximo card
+  useEffect(() => {
+    if (!autoAdvance) {
+      if (autoAdvanceIntervalRef.current) {
+        clearInterval(autoAdvanceIntervalRef.current);
+        autoAdvanceIntervalRef.current = null;
+      }
+      return;
+    }
+    const advance = () => {
+      const el = scrollRef.current;
+      if (!el || typeof window === "undefined") return;
+      const vh = window.innerHeight;
+      const scrollTop = el.scrollTop;
+      const currentIndex = Math.round(scrollTop / vh);
+      const maxIndex = Math.max(0, Math.floor(el.scrollHeight / vh) - 1);
+      const nextIndex = Math.min(currentIndex + 1, maxIndex);
+      if (nextIndex > currentIndex) {
+        const targetTop = Math.min(nextIndex * vh, el.scrollHeight - vh);
+        el.scrollTo({ top: targetTop, behavior: "smooth" });
+      }
+    };
+    autoAdvanceIntervalRef.current = setInterval(advance, AUTO_ADVANCE_INTERVAL_MS);
+    return () => {
+      if (autoAdvanceIntervalRef.current) {
+        clearInterval(autoAdvanceIntervalRef.current);
+        autoAdvanceIntervalRef.current = null;
+      }
+    };
+  }, [autoAdvance]);
 
   const handleReportImage = useCallback(
     (cardId: string, imageUrl: string | null | undefined, author: string) => {
@@ -218,8 +271,8 @@ export function Feed() {
   const fetchedIds = useRef<Set<string>>(new Set());
   useEffect(() => {
     const quoteCards = items.filter(
-    (x): x is QuoteCardType => x !== "pause" && x !== "welcome" && x !== "buffer"
-  );
+      (x): x is QuoteCardType => x !== "pause" && x !== "welcome" && x !== "buffer"
+    );
     quoteCards.forEach((card) => {
       if (fetchedIds.current.has(card.id)) return;
       fetchedIds.current.add(card.id);
@@ -247,10 +300,11 @@ export function Feed() {
           setCardsImageReady((prev) => ({ ...prev, [card.id]: true }));
         });
     });
-  }, [items]);
+  }, [items, seedVersion]);
 
   return (
-    <div ref={scrollRef} className="snap-container h-screen overflow-y-auto">
+    <>
+      <div ref={scrollRef} className="snap-container h-screen overflow-y-auto">
       <AnimatePresence mode="popLayout">
         {items.map((item, index) =>
           item === "welcome" ? (
@@ -283,5 +337,33 @@ export function Feed() {
       </AnimatePresence>
       <div id="feed-sentinel" className="h-1 w-full" aria-hidden />
     </div>
+
+      {/* Botão: passar frases sozinho */}
+      <div className="fixed bottom-24 left-4 z-30">
+        <button
+          type="button"
+          onClick={() => setAutoAdvance((on) => !on)}
+          className={`flex items-center gap-2 rounded-lg border px-3 py-2.5 font-garamond text-sm shadow-lg transition ${
+            autoAdvance
+              ? "border-liturgico/50 bg-liturgico/20 text-liturgico"
+              : "border-pedra/20 bg-batina/90 backdrop-blur-sm text-pedra hover:bg-batina/80"
+          }`}
+          aria-label={autoAdvance ? "Parar de passar sozinho" : "Passar frases sozinho"}
+          title={autoAdvance ? "Parar" : "Passar frases sozinho"}
+        >
+          {autoAdvance ? (
+            <>
+              <PauseCircle className="h-5 w-5" strokeWidth={1.5} />
+              <span>Parar</span>
+            </>
+          ) : (
+            <>
+              <PlayCircle className="h-5 w-5" strokeWidth={1.5} />
+              <span>Passar sozinho</span>
+            </>
+          )}
+        </button>
+      </div>
+    </>
   );
 }

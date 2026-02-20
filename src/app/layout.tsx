@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Cinzel, EB_Garamond } from "next/font/google";
 import "./globals.css";
 import { MusicProvider } from "@/contexts/MusicContext";
+import { FINGERPRINT, FINGERPRINT_PHRASE } from "@/lib/antiplagio";
 
 const cinzel = Cinzel({
   subsets: ["latin"],
@@ -76,6 +77,9 @@ export const metadata: Metadata = {
       "Substitua o scroll mundano por ascese espiritual e beleza sacra. Patrística, Escolástica, Mística e Liturgia.",
     images: ["https://sacrumscroll.com/og-image.png"],
   },
+  other: {
+    "sacrumscroll-signature": FINGERPRINT,
+  },
 };
 
 function JsonLd() {
@@ -111,7 +115,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${cinzel.variable} ${garamond.variable}`}>
-      <body className="min-h-screen bg-batina text-pedra font-garamond antialiased">
+      <body className="min-h-screen bg-batina text-pedra font-garamond antialiased" data-signature={FINGERPRINT}>
+        {/* Isca antiplágio: invisível na tela, presente no HTML para prova de autoria */}
+        <span
+          aria-hidden
+          className="absolute -left-[9999px] h-px w-px overflow-hidden opacity-0 pointer-events-none"
+          data-fingerprint={FINGERPRINT}
+        >
+          {FINGERPRINT_PHRASE}
+        </span>
         <JsonLd />
         <MusicProvider>
           {children}
