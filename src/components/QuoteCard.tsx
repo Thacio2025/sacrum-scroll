@@ -166,18 +166,18 @@ export function QuoteCard({
         </div>
       )}
 
-      {/* Curtir, Compartilhar, Denunciar (só ícones) e Direção espiritual (com texto) */}
-      <div className="absolute right-4 bottom-20 z-20 flex flex-col gap-2 md:top-[72%] md:-translate-y-1/2 md:bottom-auto">
+      {/* Curtir, Compartilhar, Denunciar (só símbolos, sem retângulo) e Direção espiritual (com texto) */}
+      <div className="absolute right-4 bottom-20 z-20 flex flex-col gap-4 md:top-[72%] md:-translate-y-1/2 md:bottom-auto">
         {onLike && (
           <button
             type="button"
             onClick={onLike}
-            className="flex items-center justify-center rounded border border-pedra/20 bg-batina/35 p-2 font-garamond text-pedra/70 transition hover:border-pedra/40 hover:bg-batina/50 hover:text-pedra"
+            className="flex items-center justify-center p-1 text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] transition hover:scale-110 hover:drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]"
             aria-label={isLiked ? "Desfazer curtida" : "Curtir"}
           >
             <Heart
-              className="h-4 w-4"
-              strokeWidth={1.5}
+              className="h-5 w-5"
+              strokeWidth={isLiked ? 1.2 : 2}
               fill={isLiked ? "currentColor" : "none"}
             />
           </button>
@@ -186,20 +186,20 @@ export function QuoteCard({
           <button
             type="button"
             onClick={handleShare}
-            className="flex items-center justify-center rounded border border-pedra/20 bg-batina/35 p-2 font-garamond text-pedra/70 transition hover:border-pedra/40 hover:bg-batina/50 hover:text-pedra"
+            className="flex items-center justify-center p-1 text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] transition hover:scale-110 hover:drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]"
             aria-label="Compartilhar"
           >
-            <Share2 className="h-4 w-4" strokeWidth={1.5} />
+            <Share2 className="h-5 w-5" strokeWidth={2} />
           </button>
         )}
         {card.imageUrl && onReportImage && (
           <button
             type="button"
             onClick={handleReportClick}
-            className="flex items-center justify-center rounded border border-pedra/20 bg-batina/35 p-2 font-garamond text-pedra/70 transition hover:border-pedra/40 hover:bg-batina/50 hover:text-pedra"
+            className="flex items-center justify-center p-1 text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] transition hover:scale-110 hover:drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]"
             aria-label="Denunciar imagem inapropriada"
           >
-            <Flag className="h-4 w-4" strokeWidth={1.5} />
+            <Flag className="h-5 w-5" strokeWidth={2} />
           </button>
         )}
         <a
