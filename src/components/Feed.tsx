@@ -240,7 +240,7 @@ export function Feed() {
     const onScroll = () => {
       if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
       scrollTimeoutRef.current = setTimeout(() => {
-        checkAndRevertScroll();
+        if (!autoAdvance) checkAndRevertScroll();
         const vh = window.innerHeight;
         const index = Math.round(el.scrollTop / vh);
         if (index >= 0) localStorage.setItem(STORAGE_KEY, String(index));
@@ -251,7 +251,7 @@ export function Feed() {
       el.removeEventListener("scroll", onScroll);
       if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
     };
-  }, [checkAndRevertScroll]);
+  }, [checkAndRevertScroll, autoAdvance]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
