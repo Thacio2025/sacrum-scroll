@@ -97,6 +97,7 @@ export function Feed() {
   const [likedCardIds, setLikedCardIds] = useState<Set<string>>(() => new Set());
   const [seedVersion, setSeedVersion] = useState(0);
   const [autoAdvance, setAutoAdvance] = useState(false);
+  const [passToast, setPassToast] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const autoAdvanceIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -338,12 +339,16 @@ export function Feed() {
       <div id="feed-sentinel" className="h-1 w-full" aria-hidden />
     </div>
 
-      {/* Botão: passar frases sozinho — gap-2 (0,5rem) acima do de música, como na direita */}
-      <div className="fixed bottom-[7.5rem] left-4 z-30 sm:bottom-[7.5rem]">
+      {/* Botão: passar frases sozinho — só ícone; toast breve ao clicar */}
+      <div className="fixed bottom-[9rem] left-4 z-30 sm:bottom-[9rem]">
         <button
           type="button"
-          onClick={() => setAutoAdvance((on) => !on)}
-          className={`flex items-center gap-1.5 rounded border px-2 py-1.5 font-garamond text-xs shadow transition ${
+          onClick={() => {
+            setAutoAdvance((on) => !on);
+            setPassToast(autoAdvance ? "Parar" : "Passar sozinho");
+            setTimeout(() => setPassToast(null), 1500);
+          }}
+          className={`flex items-center justify-center rounded border p-2 shadow transition ${
             autoAdvance
               ? "border-liturgico/40 bg-liturgico/15 text-liturgico hover:bg-liturgico/25"
               : "border-pedra/20 bg-batina/35 text-pedra/70 hover:border-pedra/40 hover:bg-batina/50 hover:text-pedra"
@@ -352,12 +357,20 @@ export function Feed() {
           title={autoAdvance ? "Parar" : "Passar frases sozinho"}
         >
           {autoAdvance ? (
-            <PauseCircle className="h-3.5 w-3.5 shrink-0" strokeWidth={1.5} />
+            <PauseCircle className="h-4 w-4" strokeWidth={1.5} />
           ) : (
-            <PlayCircle className="h-3.5 w-3.5 shrink-0" strokeWidth={1.5} />
+            <PlayCircle className="h-4 w-4" strokeWidth={1.5} />
           )}
-          <span>{autoAdvance ? "Parar" : "Passar sozinho"}</span>
         </button>
+        {passToast && (
+          <div
+            className="absolute bottom-full left-0 mb-2 rounded-full border border-pedra/20 bg-batina/90 px-3 py-1.5 font-garamond text-xs text-pedra shadow-lg whitespace-nowrap"
+            role="status"
+            aria-live="polite"
+          >
+            {passToast}
+          </div>
+        )}
       </div>
     </>
   );

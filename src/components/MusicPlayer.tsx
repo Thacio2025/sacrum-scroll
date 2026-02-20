@@ -8,6 +8,7 @@ import { useMusic } from "@/contexts/MusicContext";
 export function MusicPlayer() {
   const { currentTrack, isPlaying, volume, togglePlay, setVolume, playRandom } = useMusic();
   const [isMuted, setIsMuted] = useState(false);
+  const [showToast, setShowToast] = useState(false);
   const previousVolumeRef = useRef(volume);
 
   useEffect(() => {
@@ -17,9 +18,13 @@ export function MusicPlayer() {
   const handleClick = () => {
     if (!currentTrack) {
       playRandom();
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 1500);
       return;
     }
     togglePlay();
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 1500);
   };
 
   const handleMuteToggle = (e: React.MouseEvent) => {
@@ -42,7 +47,7 @@ export function MusicPlayer() {
       animate={{ opacity: 1, y: 0 }}
       className="fixed bottom-20 left-4 z-30 sm:bottom-20"
     >
-      <div className="flex items-center gap-1.5 rounded border border-pedra/20 bg-batina/35 px-2 py-1.5 shadow transition hover:border-pedra/40 hover:bg-batina/50">
+      <div className="flex items-center gap-1 rounded border border-pedra/20 bg-batina/35 p-2 shadow transition hover:border-pedra/40 hover:bg-batina/50">
         <button
           type="button"
           onClick={handleClick}
@@ -50,16 +55,13 @@ export function MusicPlayer() {
           aria-label={currentTrack ? (isPlaying ? "Pausar música" : "Reproduzir música") : "Tocar música"}
         >
           {!currentTrack ? (
-            <Music className="h-3.5 w-3.5" strokeWidth={1.5} />
+            <Music className="h-4 w-4" strokeWidth={1.5} />
           ) : isPlaying ? (
-            <Pause className="h-3.5 w-3.5" strokeWidth={1.5} />
+            <Pause className="h-4 w-4" strokeWidth={1.5} />
           ) : (
-            <Play className="h-3.5 w-3.5" strokeWidth={1.5} />
+            <Play className="h-4 w-4" strokeWidth={1.5} />
           )}
         </button>
-        <span className="font-garamond text-xs text-pedra/70 min-w-0 max-w-[100px] truncate">
-          {currentTrack ? currentTrack.title : "Tocar música"}
-        </span>
         {currentTrack && (
           <button
             type="button"
@@ -68,13 +70,22 @@ export function MusicPlayer() {
             aria-label={isMutedOrZero ? "Ativar som" : "Silenciar"}
           >
             {isMutedOrZero ? (
-              <VolumeX className="h-3.5 w-3.5" strokeWidth={1.5} />
+              <VolumeX className="h-4 w-4" strokeWidth={1.5} />
             ) : (
-              <Volume2 className="h-3.5 w-3.5" strokeWidth={1.5} />
+              <Volume2 className="h-4 w-4" strokeWidth={1.5} />
             )}
           </button>
         )}
       </div>
+      {showToast && (
+        <div
+          className="absolute bottom-full left-0 mb-2 rounded-full border border-pedra/20 bg-batina/90 px-3 py-1.5 font-garamond text-xs text-pedra shadow-lg whitespace-nowrap"
+          role="status"
+          aria-live="polite"
+        >
+          {currentTrack ? currentTrack.title : "Tocar música"}
+        </div>
+      )}
     </motion.div>
   );
 }

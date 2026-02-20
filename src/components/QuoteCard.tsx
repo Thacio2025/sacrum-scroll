@@ -36,8 +36,15 @@ export function QuoteCard({
 }) {
   const Icon = categoryIcons[card.category];
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [showReportToast, setShowReportToast] = useState(false);
 
   const showImageLoader = imageLoading || (!!card.imageUrl && !imageLoaded);
+
+  const handleReportClick = () => {
+    onReportImage?.();
+    setShowReportToast(true);
+    setTimeout(() => setShowReportToast(false), 1500);
+  };
 
   const handleShare = async () => {
     const title = `${card.author}${card.source ? ` · ${card.source}` : ""}`;
@@ -159,7 +166,7 @@ export function QuoteCard({
         </div>
       )}
 
-      {/* Curtir, Compartilhar, Denunciar e Direção espiritual — lateral direita, mais embaixo */}
+      {/* Curtir, Compartilhar, Denunciar (só ícones) e Direção espiritual (com texto) */}
       <div className="absolute right-4 bottom-20 z-20 flex flex-col gap-2 md:top-[72%] md:-translate-y-1/2 md:bottom-auto">
         {onLike && (
           <button
@@ -188,12 +195,11 @@ export function QuoteCard({
         {card.imageUrl && onReportImage && (
           <button
             type="button"
-            onClick={onReportImage}
-            className="flex items-center gap-1.5 rounded border border-pedra/20 bg-batina/35 px-2 py-1.5 font-garamond text-xs text-pedra/70 transition hover:border-pedra/40 hover:bg-batina/50 hover:text-pedra"
+            onClick={handleReportClick}
+            className="flex items-center justify-center rounded border border-pedra/20 bg-batina/35 p-2 font-garamond text-pedra/70 transition hover:border-pedra/40 hover:bg-batina/50 hover:text-pedra"
             aria-label="Denunciar imagem inapropriada"
           >
-            <Flag className="h-3.5 w-3.5" strokeWidth={1.5} />
-            Denunciar imagem
+            <Flag className="h-4 w-4" strokeWidth={1.5} />
           </button>
         )}
         <a
@@ -208,10 +214,21 @@ export function QuoteCard({
         </a>
       </div>
 
-      <div className="relative z-10 flex flex-1 flex-col justify-center px-6 py-8 text-center md:justify-end md:pb-20 md:pt-28 md:text-left -translate-y-6 md:-translate-y-8">
+      {/* Toast breve ao clicar em Denunciar */}
+      {showReportToast && (
+        <div
+          className="absolute bottom-44 left-1/2 z-30 -translate-x-1/2 rounded-full border border-pedra/20 bg-batina/90 px-3 py-1.5 font-garamond text-xs text-pedra shadow-lg md:bottom-52"
+          role="status"
+          aria-live="polite"
+        >
+          Denunciar imagem
+        </div>
+      )}
+
+      <div className="relative z-10 flex flex-1 flex-col justify-center px-16 py-8 text-center md:justify-end md:px-8 md:pb-20 md:pt-28 md:text-left -translate-y-6 md:-translate-y-8">
         <div className="mx-auto max-w-2xl">
-          {/* Fundo leve atrás do texto: imagem ainda aparece, texto continua legível */}
-          <div className="rounded-lg bg-batina/50 backdrop-blur-[2px] px-6 py-8 md:px-8 md:py-10">
+          {/* Fundo leve atrás do texto; padding horizontal evita que a citação fique sob os botões */}
+          <div className="rounded-lg bg-batina/50 backdrop-blur-[2px] px-4 py-8 md:px-8 md:py-10">
             <div className="mb-5 flex items-center justify-center gap-2 md:justify-start">
               <Icon className="h-6 w-6 shrink-0" strokeWidth={1.5} style={{ color: accentColor }} />
               <span className="font-cinzel text-base font-semibold uppercase tracking-widest text-white drop-shadow-md md:text-lg">
