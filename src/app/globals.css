@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --batina: #050505;
+  --liturgico: #d4af37;
+  --pedra: #a1a1aa;
+  /* Liturgical accents - override per season */
+  --liturgico-accent: #d4af37;
+}
+
+[data-season="advent"],
+[data-season="lent"] {
+  --liturgico-accent: #6b21a8;
+}
+
+[data-season="ordinary"] {
+  --liturgico-accent: #166534;
+}
+
+[data-season="christmas"],
+[data-season="easter"] {
+  --liturgico-accent: #f8fafc;
+}
+
+[data-season="passion"] {
+  --liturgico-accent: #b91c1c;
+}
+
+body {
+  background-color: var(--batina);
+  color: var(--pedra);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Snap scroll container */
+.snap-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.snap-item {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+
+/* Overlay escuro sobre imagens para legibilidade */
+.art-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 5, 5, 0.3) 0%,
+    rgba(5, 5, 5, 0.6) 40%,
+    rgba(5, 5, 5, 0.92) 100%
+  );
+}

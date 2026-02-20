@@ -1,0 +1,12 @@
+{
+  "name": "SacrumScroll — O Feed da Tradição Católica",
+  "short_name": "SacrumScroll",
+  "description": "Substitua o scroll mundano por ascese espiritual e beleza sacra.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "orientation": "portrait-primary",
+  "icons": [],
+  "categories": ["lifestyle", "education"]
+}

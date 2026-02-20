@@ -1,0 +1,8 @@
+# SacrumScroll - Deploy no Netlify
+# Next.js é detectado automaticamente; o adapter OpenNext cuida do build e do output.
+
+[build]
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "20"
