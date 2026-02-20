@@ -29,7 +29,7 @@ function getAccentColor(): string {
 type FeedItem = "welcome" | "buffer" | "pause" | QuoteCardType;
 
 const CARDS_BEFORE_BUFFER = 5; // após 5 cards, pausa de 15s para carregar imagens
-const AUTO_ADVANCE_INTERVAL_MS = 15000; // 15 segundos por card quando "passar sozinho"
+const AUTO_ADVANCE_INTERVAL_MS = 25000; // 25 segundos por card quando "passar sozinho"
 const STORAGE_KEY = "sacrumscroll-position";
 const REPORTED_STORAGE_KEY = "sacrumscroll-reported";
 const LIKES_STORAGE_KEY = "sacrumscroll-likes";
@@ -338,30 +338,25 @@ export function Feed() {
       <div id="feed-sentinel" className="h-1 w-full" aria-hidden />
     </div>
 
-      {/* Botão: passar frases sozinho */}
-      <div className="fixed bottom-36 left-4 z-30">
+      {/* Botão: passar frases sozinho — mesmo padrão dos botões da direita, acima do de música */}
+      <div className="fixed bottom-[7rem] left-4 z-30 sm:bottom-[7rem]">
         <button
           type="button"
           onClick={() => setAutoAdvance((on) => !on)}
-          className={`flex items-center gap-2 rounded-lg border px-3 py-2.5 font-garamond text-sm shadow-lg transition ${
+          className={`flex items-center gap-1.5 rounded border px-2 py-1.5 font-garamond text-xs shadow transition ${
             autoAdvance
-              ? "border-liturgico/50 bg-liturgico/20 text-liturgico"
-              : "border-pedra/20 bg-batina/90 backdrop-blur-sm text-pedra hover:bg-batina/80"
+              ? "border-liturgico/40 bg-liturgico/15 text-liturgico hover:bg-liturgico/25"
+              : "border-pedra/20 bg-batina/35 text-pedra/70 hover:border-pedra/40 hover:bg-batina/50 hover:text-pedra"
           }`}
           aria-label={autoAdvance ? "Parar de passar sozinho" : "Passar frases sozinho"}
           title={autoAdvance ? "Parar" : "Passar frases sozinho"}
         >
           {autoAdvance ? (
-            <>
-              <PauseCircle className="h-5 w-5" strokeWidth={1.5} />
-              <span>Parar</span>
-            </>
+            <PauseCircle className="h-3.5 w-3.5 shrink-0" strokeWidth={1.5} />
           ) : (
-            <>
-              <PlayCircle className="h-5 w-5" strokeWidth={1.5} />
-              <span>Passar sozinho</span>
-            </>
+            <PlayCircle className="h-3.5 w-3.5 shrink-0" strokeWidth={1.5} />
           )}
+          <span>{autoAdvance ? "Parar" : "Passar sozinho"}</span>
         </button>
       </div>
     </>
