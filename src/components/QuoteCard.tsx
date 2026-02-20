@@ -167,7 +167,7 @@ export function QuoteCard({
       )}
 
       {/* Curtir, Compartilhar, Denunciar (só símbolos, sem retângulo) e Direção espiritual (com texto) */}
-      <div className="absolute right-4 bottom-20 z-20 flex flex-col gap-4 md:top-[72%] md:-translate-y-1/2 md:bottom-auto">
+      <div className="absolute right-2 bottom-20 z-20 flex flex-col gap-4 md:top-[72%] md:-translate-y-1/2 md:bottom-auto">
         {onLike && (
           <button
             type="button"
