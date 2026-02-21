@@ -29,7 +29,7 @@ function getAccentColor(): string {
 type FeedItem = "welcome" | "buffer" | "pause" | QuoteCardType;
 
 const CARDS_BEFORE_BUFFER = 5; // após 5 cards, pausa de 15s para carregar imagens
-const AUTO_ADVANCE_INTERVAL_MS = 25000; // 25 segundos por card quando "passar sozinho"
+const AUTO_ADVANCE_INTERVAL_MS = 40000; // 40 segundos por card quando "passar sozinho"
 const STORAGE_KEY = "sacrumscroll-position";
 const REPORTED_STORAGE_KEY = "sacrumscroll-reported";
 const LIKES_STORAGE_KEY = "sacrumscroll-likes";

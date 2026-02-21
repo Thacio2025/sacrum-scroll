@@ -4,7 +4,7 @@ import { useEffect, useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
 
-const DURATION_SEC = 30;
+const DURATION_SEC = 10;
 
 /** Jaculatórias — orações breves para as telas de pausa (coração). */
 const JACULATORIAS = [

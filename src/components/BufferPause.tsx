@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
 
-const DURATION_SEC = 15;
+const DURATION_SEC = 10;
 
 export function BufferPause() {
   const [secondsLeft, setSecondsLeft] = useState(DURATION_SEC);
