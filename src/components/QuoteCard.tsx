@@ -19,8 +19,8 @@ const categoryIcons = {
 function getZoomEffect(cardId: string) {
   const hash = cardId.split("").reduce((acc, c) => acc + c.charCodeAt(0), 0);
   const type = hash % 3; // 0: só zoom in, 1: só zoom out, 2: ciclo in-out
-  const scaleMax = [1.05, 1.07, 1.09, 1.1][hash % 4]!;
-  const duration = 20 + (hash % 15); // 20–34 s
+  const scaleMax = [1.08, 1.12, 1.1, 1.15][hash % 4]!; // mais visível
+  const duration = 18 + (hash % 12); // 18–30 s
   if (type === 0) return { scale: [1, scaleMax] as const, duration, repeatType: "reverse" as const };
   if (type === 1) return { scale: [scaleMax, 1] as const, duration, repeatType: "reverse" as const };
   return { scale: [1, scaleMax, 1] as const, duration, repeatType: "reverse" as const };
@@ -146,7 +146,9 @@ export function QuoteCard({
             transition={{ duration: 0.5 }}
           >
             <motion.div
-              className="h-full w-full"
+              className="h-full w-full origin-center"
+              style={{ willChange: imageLoaded ? "transform" : "auto" }}
+              initial={false}
               animate={imageLoaded ? { scale: zoomEffect.scale } : { scale: 1 }}
               transition={
                 imageLoaded
@@ -156,13 +158,13 @@ export function QuoteCard({
                       repeat: Infinity,
                       repeatType: zoomEffect.repeatType,
                     }
-                  : {}
+                  : { duration: 0 }
               }
             >
               <img
                 src={card.imageUrl}
                 alt=""
-                className="h-full w-full object-cover"
+                className="block h-full w-full object-cover"
                 style={{ display: imageLoaded ? "block" : "none" }}
                 crossOrigin="anonymous"
               />
