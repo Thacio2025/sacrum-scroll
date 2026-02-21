@@ -58,47 +58,44 @@ body {
   }
 }
 
-/* Pan: esquerda → direita (imagem desliza para a esquerda) */
+/* Pan: deslocamento 4% para nunca mostrar borda (wrapper da imagem fica 112% e centralizado) */
 @keyframes card-pan-right {
   0%,
   100% {
     transform: translateX(0);
   }
   50% {
-    transform: translateX(-5%);
+    transform: translateX(-4%);
   }
 }
 
-/* Pan: direita → esquerda */
 @keyframes card-pan-left {
   0%,
   100% {
     transform: translateX(0);
   }
   50% {
-    transform: translateX(5%);
+    transform: translateX(4%);
   }
 }
 
-/* Pan: de baixo para cima (imagem sobe) */
 @keyframes card-pan-up {
   0%,
   100% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-5%);
+    transform: translateY(-4%);
   }
 }
 
-/* Pan: de cima para baixo */
 @keyframes card-pan-down {
   0%,
   100% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(5%);
+    transform: translateY(4%);
   }
 }
 

@@ -147,7 +147,7 @@ export function QuoteCard({
             transition={{ duration: 0.5 }}
           >
             <div
-              className="h-full w-full origin-center"
+              className={`origin-center ${cardMotion.type === "zoom" ? "h-full w-full" : "absolute left-[-6%] top-[-6%] h-[112%] w-[112%]"}`}
               style={
                 imageLoaded
                   ? ({
