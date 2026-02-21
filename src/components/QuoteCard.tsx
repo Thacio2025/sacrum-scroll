@@ -15,12 +15,16 @@ const categoryIcons = {
   scripture: Scroll,
 };
 
-/** Zoom variado por card (CSS animation); retorna scaleMax e duração em segundos. */
-function getZoomEffect(cardId: string) {
+type CardMotionType = "zoom" | "pan-right" | "pan-left" | "pan-up" | "pan-down";
+
+/** Movimento variado por card: zoom in/out ou pan (esquerda↔direita, cima↔baixo). Duração mais lenta. */
+function getCardMotion(cardId: string) {
   const hash = cardId.split("").reduce((acc, c) => acc + c.charCodeAt(0), 0);
-  const scaleMax = [1.08, 1.12, 1.1, 1.15][hash % 4]!;
-  const duration = 18 + (hash % 12);
-  return { scaleMax, duration };
+  const types: CardMotionType[] = ["zoom", "pan-right", "pan-left", "pan-up", "pan-down"];
+  const type = types[hash % types.length]!;
+  const duration = 42 + (hash % 18); // 42–60 s, mais devagar
+  const scaleMax = [1.06, 1.1, 1.08, 1.12][hash % 4]!;
+  return { type, duration, scaleMax };
 }
 
 export function QuoteCard({
@@ -45,7 +49,7 @@ export function QuoteCard({
   const Icon = categoryIcons[card.category];
   const [imageLoaded, setImageLoaded] = useState(false);
   const [showReportToast, setShowReportToast] = useState(false);
-  const zoomEffect = useMemo(() => getZoomEffect(card.id), [card.id]);
+  const cardMotion = useMemo(() => getCardMotion(card.id), [card.id]);
 
   const showImageLoader = imageLoading || (!!card.imageUrl && !imageLoaded);
 
@@ -147,8 +151,8 @@ export function QuoteCard({
               style={
                 imageLoaded
                   ? ({
-                      "--zoom-max": zoomEffect.scaleMax,
-                      animation: `card-zoom ${zoomEffect.duration}s ease-in-out infinite`,
+                      "--zoom-max": cardMotion.scaleMax,
+                      animation: `card-${cardMotion.type} ${cardMotion.duration}s ease-in-out infinite`,
                     } as React.CSSProperties)
                   : undefined
               }

@@ -47,14 +47,58 @@ body {
   scroll-snap-stop: normal;
 }
 
-/* Zoom lento nas fotos dos cards (--zoom-max e duração definidos no elemento) */
+/* Movimentos lentos nas fotos: zoom ou pan (tipo e duração no elemento) */
 @keyframes card-zoom {
   0%,
   100% {
     transform: scale(1);
   }
   50% {
-    transform: scale(var(--zoom-max, 1.12));
+    transform: scale(var(--zoom-max, 1.1));
+  }
+}
+
+/* Pan: esquerda → direita (imagem desliza para a esquerda) */
+@keyframes card-pan-right {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-5%);
+  }
+}
+
+/* Pan: direita → esquerda */
+@keyframes card-pan-left {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5%);
+  }
+}
+
+/* Pan: de baixo para cima (imagem sobe) */
+@keyframes card-pan-up {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5%);
+  }
+}
+
+/* Pan: de cima para baixo */
+@keyframes card-pan-down {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5%);
   }
 }
 
