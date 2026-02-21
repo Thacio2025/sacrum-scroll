@@ -35,6 +35,27 @@ export const MUSIC_POOL: MusicTrack[] = [
     url: "https://music.wixstatic.com/preview/e585d6_2cdd2d3b396544f7b5f9201c20ba2b70-128.mp3",
     category: "liturgical",
   },
+  {
+    id: "music-3",
+    title: "Música Litúrgica 3",
+    artist: "Música Católica",
+    url: "https://music.wixstatic.com/preview/e585d6_e68f8a5190a14ad884169252d321cb33-128.mp3",
+    category: "liturgical",
+  },
+  {
+    id: "music-4",
+    title: "Música Litúrgica 4",
+    artist: "Música Católica",
+    url: "https://music.wixstatic.com/preview/e585d6_00815613ad714150aebf9552005a767d-128.mp3",
+    category: "liturgical",
+  },
+  {
+    id: "music-5",
+    title: "Música Litúrgica 5",
+    artist: "Música Católica",
+    url: "https://music.wixstatic.com/preview/e585d6_03883e792a57419f8eb54f830a616bbf-128.mp3",
+    category: "liturgical",
+  },
 ];
 
 /**
