@@ -136,10 +136,15 @@ export function Feed() {
       const scrollTop = el.scrollTop;
       const currentIndex = Math.round(scrollTop / vh);
       const maxIndex = Math.max(0, Math.floor(el.scrollHeight / vh) - 1);
-      const nextIndex = Math.min(currentIndex + 1, maxIndex);
+      let nextIndex = Math.min(currentIndex + 1, maxIndex);
+      // Se estamos no último card visível, carregar mais itens para não travar
+      if (nextIndex <= currentIndex && currentIndex >= maxIndex) {
+        setPage((p) => p + 1);
+        return;
+      }
       if (nextIndex > currentIndex) {
         const targetTop = Math.min(nextIndex * vh, el.scrollHeight - vh);
-        el.scrollTo({ top: targetTop, behavior: "smooth" });
+        el.scrollTo({ top: targetTop, behavior: "auto" });
       }
     };
     autoAdvanceIntervalRef.current = setInterval(advance, AUTO_ADVANCE_INTERVAL_MS);
