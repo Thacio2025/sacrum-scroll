@@ -166,8 +166,8 @@ export function QuoteCard({
         </div>
       )}
 
-      {/* Curtir, Compartilhar, Denunciar (só símbolos, sem retângulo) e Direção espiritual (com texto) */}
-      <div className="absolute right-2 bottom-20 z-20 flex flex-col gap-4 md:top-[72%] md:-translate-y-1/2 md:bottom-auto">
+      {/* Direita: três ícones em cima; abaixo, botão horizontal "Quero direção espiritual" */}
+      <div className="absolute right-0 bottom-20 z-20 flex flex-col items-end gap-4 pr-2 md:top-[72%] md:-translate-y-1/2 md:bottom-auto">
         {onLike && (
           <button
             type="button"
@@ -206,10 +206,10 @@ export function QuoteCard({
           href={DIRECAO_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1.5 rounded border border-liturgico/40 bg-liturgico/15 px-2 py-1.5 font-garamond text-xs text-liturgico transition hover:border-liturgico/60 hover:bg-liturgico/25"
+          className="flex items-center gap-1.5 whitespace-nowrap rounded border border-liturgico/40 bg-liturgico/15 px-3 py-2 font-garamond text-xs text-liturgico transition hover:border-liturgico/60 hover:bg-liturgico/25"
           aria-label="Quero direção espiritual"
         >
-          <MessageCircle className="h-3.5 w-3.5" strokeWidth={1.5} />
+          <MessageCircle className="h-3.5 w-3.5 shrink-0" strokeWidth={1.5} />
           Quero direção espiritual
         </a>
       </div>
