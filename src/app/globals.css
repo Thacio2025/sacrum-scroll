@@ -47,6 +47,17 @@ body {
   scroll-snap-stop: normal;
 }
 
+/* Zoom lento nas fotos dos cards (--zoom-max e duração definidos no elemento) */
+@keyframes card-zoom {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(var(--zoom-max, 1.12));
+  }
+}
+
 /* Overlay suave: imagem visível no topo, escurece aos poucos para o texto ler bem */
 .art-overlay {
   background: linear-gradient(

@@ -15,15 +15,12 @@ const categoryIcons = {
   scripture: Scroll,
 };
 
-/** Gera efeito de zoom variado por card (baseado no id) para não repetir em todas as fotos. */
+/** Zoom variado por card (CSS animation); retorna scaleMax e duração em segundos. */
 function getZoomEffect(cardId: string) {
   const hash = cardId.split("").reduce((acc, c) => acc + c.charCodeAt(0), 0);
-  const type = hash % 3; // 0: só zoom in, 1: só zoom out, 2: ciclo in-out
-  const scaleMax = [1.08, 1.12, 1.1, 1.15][hash % 4]!; // mais visível
-  const duration = 18 + (hash % 12); // 18–30 s
-  if (type === 0) return { scale: [1, scaleMax] as const, duration, repeatType: "reverse" as const };
-  if (type === 1) return { scale: [scaleMax, 1] as const, duration, repeatType: "reverse" as const };
-  return { scale: [1, scaleMax, 1] as const, duration, repeatType: "reverse" as const };
+  const scaleMax = [1.08, 1.12, 1.1, 1.15][hash % 4]!;
+  const duration = 18 + (hash % 12);
+  return { scaleMax, duration };
 }
 
 export function QuoteCard({
@@ -145,20 +142,15 @@ export function QuoteCard({
             animate={{ opacity: imageLoaded ? 1 : 0 }}
             transition={{ duration: 0.5 }}
           >
-            <motion.div
+            <div
               className="h-full w-full origin-center"
-              style={{ willChange: imageLoaded ? "transform" : "auto" }}
-              initial={false}
-              animate={imageLoaded ? { scale: zoomEffect.scale } : { scale: 1 }}
-              transition={
+              style={
                 imageLoaded
-                  ? {
-                      duration: zoomEffect.duration,
-                      ease: "easeInOut",
-                      repeat: Infinity,
-                      repeatType: zoomEffect.repeatType,
-                    }
-                  : { duration: 0 }
+                  ? ({
+                      "--zoom-max": zoomEffect.scaleMax,
+                      animation: `card-zoom ${zoomEffect.duration}s ease-in-out infinite`,
+                    } as React.CSSProperties)
+                  : undefined
               }
             >
               <img
@@ -168,7 +160,7 @@ export function QuoteCard({
                 style={{ display: imageLoaded ? "block" : "none" }}
                 crossOrigin="anonymous"
               />
-            </motion.div>
+            </div>
           </motion.div>
           <div className="art-overlay absolute inset-0" />
         </>
