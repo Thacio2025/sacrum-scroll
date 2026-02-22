@@ -43,7 +43,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Snap scroll: cada card = exatamente a altura da área de scroll (evita “empurrar”) */
+/* Snap scroll: um card por vez, mas cada card ocupa a tela toda (100vh) */
 .snap-container {
   scroll-snap-type: y mandatory;
   overflow-y: auto;
@@ -52,8 +52,8 @@ body {
 }
 
 .snap-container .snap-item {
-  min-height: 100%;
-  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh; /* viewport dinâmico no mobile (barra de endereço) */
   scroll-snap-align: start;
   scroll-snap-stop: always;
 }

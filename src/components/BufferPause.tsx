@@ -27,7 +27,7 @@ export function BufferPause() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="snap-item flex min-h-full w-full flex-col items-center justify-center gap-8 bg-batina px-6"
+      className="snap-item flex min-h-screen w-full flex-col items-center justify-center gap-8 bg-batina px-6"
     >
       <motion.div
         animate={{ scale: [1, 1.08, 1] }}
