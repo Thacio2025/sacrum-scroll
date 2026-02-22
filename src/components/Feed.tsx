@@ -12,7 +12,7 @@ import { CategoryFilter } from "./CategoryFilter";
 import { DailyQuoteBar } from "./DailyQuoteBar";
 import { getLiturgicalSeason } from "@/lib/liturgical-season";
 import type { QuoteCard as QuoteCardType } from "@/types/content";
-import { getFilteredQuoteAtIndex } from "@/data/quotes-pool";
+import { getFilteredQuoteAtIndex, type FilterCategory } from "@/data/quotes-pool";
 import type { ContentCategory } from "@/types/content";
 
 const CARDS_BEFORE_PAUSE = 7;
@@ -70,7 +70,7 @@ function loadLikedIds(): Set<string> {
   }
 }
 
-function buildFeedItems(page: number, category: ContentCategory | "all"): FeedItem[] {
+function buildFeedItems(page: number, category: FilterCategory): FeedItem[] {
   const items: FeedItem[] = ["welcome"];
   const total = (page + 1) * (CARDS_BEFORE_PAUSE + 1);
   let quoteIndex = 0;
@@ -103,7 +103,7 @@ export function Feed() {
   const [autoAdvance, setAutoAdvance] = useState(false);
   const [passToast, setPassToast] = useState<string | null>(null);
   const [authorBioOpen, setAuthorBioOpen] = useState<{ author: string; category: ContentCategory } | null>(null);
-  const [selectedCategory, setSelectedCategory] = useState<ContentCategory | "all">("all");
+  const [selectedCategory, setSelectedCategory] = useState<FilterCategory>("all");
   const scrollRef = useRef<HTMLDivElement>(null);
   const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const autoAdvanceIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -353,7 +353,7 @@ export function Feed() {
       </div>
 
       {/* Botão: passar frases sozinho — só ícone; toast breve ao clicar */}
-      <div className="fixed bottom-[9rem] left-4 z-30 sm:bottom-[9rem]">
+      <div className="fixed left-4 z-30 sm:bottom-[9rem]" style={{ bottom: "calc(9rem + env(safe-area-inset-bottom, 0))" }}>
         <button
           type="button"
           onClick={() => {

@@ -15,7 +15,7 @@ const CATEGORY_LABELS: Record<ContentCategory, string> = {
   scripture: "Escritura",
 };
 
-const DIRECAO_URL = "https://wa.me/5561996449753?text=" + encodeURIComponent("Gostaria de saber mais sobre direção espiritual profissional");
+const DIRECAO_URL = "https://wa.me/5561996449753?text=" + encodeURIComponent("Gostaria de saber mais sobre a Mentoria Filosófica e Teológica com o professor Thácio.");
 
 const categoryIcons = {
   patristic: Cross,
@@ -232,8 +232,8 @@ export function QuoteCard({
         </div>
       )}
 
-      {/* Direita: três ícones em cima; abaixo, botão horizontal "Quero direção espiritual" */}
-      <div className="absolute right-0 bottom-20 z-20 flex flex-col items-end gap-4 pr-2 md:top-[72%] md:-translate-y-1/2 md:bottom-auto">
+      {/* Direita: ícones e botões — sempre visíveis, sem sobrepor a caixa do texto */}
+      <div className="absolute right-0 bottom-16 z-20 flex flex-col items-end gap-3 pr-2 sm:bottom-20 sm:gap-4 md:bottom-auto md:top-[72%] md:-translate-y-1/2 md:pr-3">
         {onLike && (
           <button
             type="button"
@@ -291,17 +291,17 @@ export function QuoteCard({
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-1.5 whitespace-nowrap rounded border border-liturgico/40 bg-liturgico/15 px-3 py-2 font-garamond text-xs text-liturgico transition hover:border-liturgico/60 hover:bg-liturgico/25"
-          aria-label="Quero direção espiritual"
+          aria-label="Quero Mentoria"
         >
           <MessageCircle className="h-3.5 w-3.5 shrink-0" strokeWidth={1.5} />
-          Quero direção espiritual
+          Quero Mentoria
         </a>
       </div>
 
       {/* Toast breve ao clicar em Denunciar */}
       {showReportToast && (
         <div
-          className="absolute bottom-44 left-1/2 z-30 -translate-x-1/2 rounded-full border border-pedra/20 bg-batina/90 px-3 py-1.5 font-garamond text-xs text-pedra shadow-lg md:bottom-52"
+          className="absolute bottom-40 left-1/2 z-30 -translate-x-1/2 rounded-full border border-pedra/20 bg-batina/90 px-3 py-1.5 font-garamond text-xs text-pedra shadow-lg sm:bottom-44 md:bottom-52"
           role="status"
           aria-live="polite"
         >
@@ -309,10 +309,11 @@ export function QuoteCard({
         </div>
       )}
 
-      <div className="relative z-10 flex flex-1 flex-col justify-center px-16 py-8 text-center md:justify-end md:px-8 md:pb-20 md:pt-28 md:text-left -translate-y-6 md:-translate-y-8">
-        <div className="mx-auto max-w-2xl">
-          {/* Fundo leve atrás do texto; padding horizontal evita que a citação fique sob os botões */}
-          <div className="rounded-lg bg-batina/50 backdrop-blur-[2px] px-4 py-8 md:px-8 md:py-10">
+      {/* Área do texto: padding para nunca ficar atrás dos botões (direita e embaixo) */}
+      <div className="relative z-10 flex flex-1 flex-col justify-center px-4 py-6 text-center pr-24 pb-28 sm:px-6 sm:pr-32 sm:pb-28 md:justify-end md:px-8 md:pr-44 md:pb-24 md:pt-28 md:text-left -translate-y-4 md:-translate-y-8">
+        <div className="mx-auto w-full max-w-2xl">
+          {/* Caixa atrás das frases — sempre à frente visualmente, sem cobrir botões */}
+          <div className="rounded-lg bg-batina/50 backdrop-blur-[2px] px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10">
             {/* Categoria · Século (small-caps) */}
             <p
               className="mb-3 font-cormorant text-xs font-medium tracking-widest text-pedra/90 md:mb-4"

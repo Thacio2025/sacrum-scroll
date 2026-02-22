@@ -230,12 +230,15 @@ const FILTERED_INDICES: Record<ContentCategory, number[]> = (() => {
   return out as Record<ContentCategory, number[]>;
 })();
 
+/** Tipo de filtro do feed: categorias + "all". */
+export type FilterCategory = ContentCategory | "all";
+
 /**
  * Retorna a citação na posição index do feed filtrado por categoria.
  * Se category === "all", equivale a getQuoteAtIndex(index).
  */
 export function getFilteredQuoteAtIndex(
-  category: ContentCategory | "all",
+  category: FilterCategory,
   index: number
 ): QuoteCard {
   if (category === "all") return getQuoteAtIndex(index);

@@ -41,6 +41,24 @@ body {
   background-color: var(--batina);
   color: var(--pedra);
   -webkit-font-smoothing: antialiased;
+  /* Safe area: notch e cantos em dispositivos com tela cheia */
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Evitar overflow horizontal em qualquer viewport */
+html, body {
+  overflow-x: hidden;
+  min-height: 100%;
+}
+
+/* Safe area para elementos fixos (notch / barra home) */
+.safe-top {
+  padding-top: env(safe-area-inset-top, 0);
+}
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0);
 }
 
 /* Altura da página = viewport (dvh no mobile para barra de endereço) */

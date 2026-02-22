@@ -50,7 +50,8 @@ export function MusicPlayer() {
     <motion.div
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
-      className="fixed bottom-20 left-4 z-30 sm:bottom-20"
+      className="fixed left-4 z-30 sm:bottom-20"
+      style={{ bottom: "calc(5rem + env(safe-area-inset-bottom, 0))" }}
     >
       <div className="flex items-center gap-1 rounded border border-pedra/20 bg-batina/35 p-2 shadow transition hover:border-pedra/40 hover:bg-batina/50">
         <button

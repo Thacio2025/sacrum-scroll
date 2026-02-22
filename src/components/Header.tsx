@@ -6,7 +6,7 @@ import { Maximize2, Minimize2 } from "lucide-react";
 const SITE_URL = "https://www.thaciosiqueira.com.br";
 const INSTAGRAM = "https://www.instagram.com/professor_thacio";
 const WHATSAPP_NUMBER = "5561996449753";
-const DIRECAO_MENSAGEM = "Gostaria de saber mais sobre direção espiritual profissional";
+const DIRECAO_MENSAGEM = "Gostaria de saber mais sobre a Mentoria Filosófica e Teológica com o professor Thácio.";
 const DIRECAO_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(DIRECAO_MENSAGEM)}`;
 
 export function Header() {
@@ -35,7 +35,7 @@ export function Header() {
   };
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-20 border-b border-white/5 bg-batina/80 backdrop-blur-sm">
+    <header className="safe-top fixed left-0 right-0 top-0 z-20 border-b border-white/5 bg-batina/80 backdrop-blur-sm">
       <div className="flex flex-col items-center gap-1 py-2">
         <div className="flex w-full items-center justify-between px-3">
           <div className="w-8" />
