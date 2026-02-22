@@ -20,7 +20,7 @@ export function Header() {
   const [fullscreenSupported, setFullscreenSupported] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
   const categoriesRef = useRef<HTMLDivElement>(null);
-  const { presentationMode, togglePresentationMode } = usePresentation();
+  const { presentationMode, setPresentationMode, togglePresentationMode } = usePresentation();
   const { selectedCategory, setSelectedCategory } = useCategory();
 
   useEffect(() => {
@@ -51,7 +51,9 @@ export function Header() {
 
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen?.();
+      document.documentElement.requestFullscreen?.().then(() => {
+        setPresentationMode(true);
+      }).catch(() => {});
     } else {
       document.exitFullscreen?.();
     }
