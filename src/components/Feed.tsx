@@ -234,32 +234,13 @@ export function Feed() {
     setCardsImageReady((prev) => ({ ...prev, [cardId]: true }));
   }, []);
 
-  const checkAndRevertScroll = useCallback(() => {
-    const el = scrollRef.current;
-    if (!el || !items.length) return;
-    const vh = window.innerHeight;
-    const scrollTop = el.scrollTop;
-    const index = Math.round(scrollTop / vh);
-    const item = items[Math.min(index, items.length - 1)];
-    if (!item || item === "welcome" || item === "buffer" || item === "pause") return;
-    const card = item as QuoteCardType;
-    const stillLoadingApi = cardsImageLoading[card.id];
-    const hasImageUrl = cardsWithImages[card.id] != null && cardsWithImages[card.id] !== "";
-    const imageLoadedInDom = cardsImageReady[card.id];
-    const notReady = stillLoadingApi || (hasImageUrl && !imageLoadedInDom);
-    if (notReady) {
-      const prevIndex = Math.max(0, index - 1);
-      el.scrollTo({ top: prevIndex * vh, behavior: "smooth" });
-    }
-  }, [items, cardsWithImages, cardsImageReady, cardsImageLoading]);
-
+  // Só salva a posição no localStorage; não reverte o scroll (evita vai-e-volta e piscadas)
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
     const onScroll = () => {
       if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
       scrollTimeoutRef.current = setTimeout(() => {
-        if (!autoAdvance) checkAndRevertScroll();
         const vh = window.innerHeight;
         const index = Math.round(el.scrollTop / vh);
         if (index >= 0) localStorage.setItem(STORAGE_KEY, String(index));
@@ -270,7 +251,7 @@ export function Feed() {
       el.removeEventListener("scroll", onScroll);
       if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
     };
-  }, [checkAndRevertScroll, autoAdvance]);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
