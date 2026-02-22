@@ -63,6 +63,13 @@ export const MUSIC_POOL: MusicTrack[] = [
     url: "https://music.wixstatic.com/preview/e585d6_60caab8f3a964ddaaf4b39aa455662ef-128.mp3",
     category: "liturgical",
   },
+  {
+    id: "music-7",
+    title: "Música Litúrgica 7",
+    artist: "Música Católica",
+    url: "https://music.wixstatic.com/preview/e585d6_4cd5430aaf68462c8296c973410f501e-128.mp3",
+    category: "liturgical",
+  },
 ];
 
 /**
