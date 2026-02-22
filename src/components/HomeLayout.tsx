@@ -3,6 +3,7 @@
 import { usePresentation } from "@/contexts/PresentationContext";
 import { CategoryProvider } from "@/contexts/CategoryContext";
 import { Header } from "./Header";
+import { HeaderLinksBar } from "./HeaderLinksBar";
 import { LiturgicalBanner } from "./LiturgicalBanner";
 import { Feed } from "./Feed";
 import { MusicPlayer } from "./MusicPlayer";
@@ -16,8 +17,9 @@ export function HomeLayout() {
   return (
     <CategoryProvider>
     <>
-      <main className="relative flex h-screen-feed flex-col overflow-hidden">
+      <main className={`relative flex h-screen-feed flex-col overflow-hidden ${!presentationMode ? "pt-[calc(3.75rem+env(safe-area-inset-top,0px))]" : ""}`}>
         {!presentationMode && <Header />}
+        {!presentationMode && <HeaderLinksBar />}
         {!presentationMode && <LiturgicalBanner />}
         <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
           <Feed />

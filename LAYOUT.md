@@ -8,7 +8,9 @@ Este arquivo explica como a tela está organizada, de cima para baixo.
 
 ```
 ┌─────────────────────────────────────────┐
-│  HEADER (fixo no topo)                  │  ← SacrumScroll, @professor_thacio, site, Direção espiritual
+│  HEADER (fixo no topo)                  │  ← Uma linha: Monitor, Home (categorias), SacrumScroll, Tela cheia
+├─────────────────────────────────────────┤
+│  LINKS BAR                              │  ← @professor_thacio · thaciosiqueira.com.br · Direção espiritual
 ├─────────────────────────────────────────┤
 │  LITURGICAL BANNER                      │  ← Uma linha: tempo litúrgico (Advento, Quaresma, etc.)
 ├─────────────────────────────────────────┤
@@ -35,7 +37,8 @@ Este arquivo explica como a tela está organizada, de cima para baixo.
 
 | Elemento            | Arquivo              | O que faz |
 |---------------------|----------------------|-----------|
-| **Header**          | `components/Header.tsx` | Título, links, tela cheia |
+| **Header**          | `components/Header.tsx` | Barra de ações: Monitor, Home (categorias), título SacrumScroll, Tela cheia |
+| **HeaderLinksBar**  | `components/HeaderLinksBar.tsx` | Links: @professor_thacio, site, Direção espiritual (logo abaixo do header) |
 | **LiturgicalBanner**| `components/LiturgicalBanner.tsx` | Mostra o tempo litúrgico |
 | **CategoryFilter**  | `components/CategoryFilter.tsx` | Filtra o feed por categoria |
 | **DailyQuoteBar**   | `components/DailyQuoteBar.tsx` | Citação do dia |

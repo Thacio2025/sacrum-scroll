@@ -6,12 +6,6 @@ import { usePresentation } from "@/contexts/PresentationContext";
 import { useCategory } from "@/contexts/CategoryContext";
 import type { FilterCategory } from "@/data/quotes-pool";
 
-const SITE_URL = "https://www.thaciosiqueira.com.br";
-const INSTAGRAM = "https://www.instagram.com/professor_thacio";
-const WHATSAPP_NUMBER = "5561996449753";
-const DIRECAO_MENSAGEM = "Gostaria de saber mais sobre a Mentoria Filosófica e Teológica com o professor Thácio.";
-const DIRECAO_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(DIRECAO_MENSAGEM)}`;
-
 const CATEGORIES: { value: FilterCategory; label: string }[] = [
   { value: "all", label: "Todos" },
   { value: "patristic", label: "Patrística" },
@@ -64,15 +58,10 @@ export function Header() {
   };
 
   return (
-    <header className="safe-top fixed left-0 right-0 top-0 z-20 border-b border-white/5 bg-batina backdrop-blur-sm">
-      {/* Grid de 2 linhas: linha 1 = botões (por cima), linha 2 = links (sempre embaixo) */}
-      <div className="grid grid-rows-[auto_auto]">
-        {/* Linha 1: barra sólida com Monitor, Home e Tela cheia — NUNCA atrás dos links */}
-        <div
-          className="relative z-20 flex min-h-[2.75rem] shrink-0 items-center justify-between border-b border-white/5 bg-batina px-3 py-2"
-          style={{ isolation: "isolate" }}
-        >
-          <div ref={categoriesRef} className="relative flex items-center gap-2">
+    <header className="safe-top fixed left-0 right-0 top-0 z-30 border-b border-white/5 bg-batina">
+      {/* Uma única linha: Monitor, Home (categorias), título, Tela cheia */}
+      <div className="relative flex min-h-[2.75rem] shrink-0 items-center justify-between px-3 py-2">
+        <div ref={categoriesRef} className="relative flex items-center gap-2">
             <button
               type="button"
               onClick={togglePresentationMode}
@@ -141,36 +130,6 @@ export function Header() {
           ) : (
             <div className="w-9" />
           )}
-        </div>
-        {/* Linha 2: só os links — sempre ABAIXO da linha 1, nunca por cima dos botões */}
-        <div className="relative z-10 flex shrink-0 flex-wrap items-center justify-center gap-x-3 gap-y-1 bg-batina/90 px-4 py-1.5 text-center">
-          <a
-            href={INSTAGRAM}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-garamond text-xs text-pedra/90 hover:text-pedra"
-          >
-            @professor_thacio
-          </a>
-          <span className="text-pedra/50">·</span>
-          <a
-            href={SITE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-garamond text-xs text-pedra/90 hover:text-pedra"
-          >
-            thaciosiqueira.com.br
-          </a>
-          <span className="text-pedra/50">·</span>
-          <a
-            href={DIRECAO_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-garamond text-xs italic text-liturgico hover:text-liturgico/90"
-          >
-            Direção espiritual
-          </a>
-        </div>
       </div>
     </header>
   );
