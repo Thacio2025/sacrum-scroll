@@ -74,6 +74,17 @@ export function getRandomMusic(): MusicTrack | null {
 }
 
 /**
+ * Obtém uma música aleatória diferente da indicada (evita repetir a mesma).
+ * Se só houver uma faixa no pool, retorna essa faixa.
+ */
+export function getRandomMusicExcluding(excludeId: string | null): MusicTrack | null {
+  if (MUSIC_POOL.length === 0) return null;
+  const others = excludeId ? MUSIC_POOL.filter((m) => m.id !== excludeId) : MUSIC_POOL;
+  if (others.length === 0) return MUSIC_POOL[0] ?? null;
+  return others[Math.floor(Math.random() * others.length)]!;
+}
+
+/**
  * Obtém uma música por ID
  */
 export function getMusicById(id: string): MusicTrack | null {

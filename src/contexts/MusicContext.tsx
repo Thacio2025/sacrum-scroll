@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, useRef, useEffect, ReactNode } from "react";
 import type { MusicTrack } from "@/data/music-pool";
-import { getRandomMusic } from "@/data/music-pool";
+import { getRandomMusic, getRandomMusicExcluding } from "@/data/music-pool";
 
 interface MusicContextType {
   currentTrack: MusicTrack | null;
@@ -29,7 +29,7 @@ export function MusicProvider({ children }: { children: ReactNode }) {
     if (typeof window === "undefined") return;
     
     const audio = new Audio();
-    audio.loop = true; // Repetir música continuamente
+    audio.loop = false; // Não repetir: ao terminar, tocar outra faixa
     audio.preload = "auto";
     
     audioRef.current = audio;
@@ -37,7 +37,19 @@ export function MusicProvider({ children }: { children: ReactNode }) {
     // Event listeners
     const handlePlay = () => setIsPlaying(true);
     const handlePause = () => setIsPlaying(false);
-    const handleEnded = () => setIsPlaying(false);
+    const handleEnded = () => {
+      setIsPlaying(false);
+      // Ao terminar a faixa, tocar outra aleatória (diferente da que acabou)
+      setCurrentTrack((prev) => {
+        const next = getRandomMusicExcluding(prev?.id ?? null);
+        if (next && audioRef.current) {
+          audioRef.current.src = next.url;
+          audioRef.current.play().catch(() => {});
+          return next;
+        }
+        return prev;
+      });
+    };
     const handleError = (e: ErrorEvent) => {
       console.error("[MusicContext] Erro ao carregar áudio:", e);
       setIsPlaying(false);
@@ -102,7 +114,7 @@ export function MusicProvider({ children }: { children: ReactNode }) {
   };
 
   const playRandom = () => {
-    const randomTrack = getRandomMusic();
+    const randomTrack = getRandomMusicExcluding(currentTrack?.id ?? null);
     if (randomTrack) {
       play(randomTrack);
     }
