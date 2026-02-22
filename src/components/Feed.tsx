@@ -34,8 +34,9 @@ function getAccentColor(): string {
 type FeedItem = "welcome" | "buffer" | "pause" | QuoteCardType;
 
 const CARDS_BEFORE_BUFFER = 5; // após 5 cards, pausa de 15s para carregar imagens
-const AUTO_ADVANCE_INTERVAL_MS = 20000; // 20 segundos por card quando "passar sozinho"
+const ADVANCE_INTERVAL_OPTIONS = [10, 20, 30, 40] as const; // segundos (opção do usuário)
 const STORAGE_KEY = "sacrumscroll-position";
+const STORAGE_KEY_ADVANCE_INTERVAL = "sacrumscroll-auto-advance-interval";
 const REPORTED_STORAGE_KEY = "sacrumscroll-reported";
 const LIKES_STORAGE_KEY = "sacrumscroll-likes";
 
@@ -71,6 +72,19 @@ function loadLikedIds(): Set<string> {
   }
 }
 
+function loadAdvanceInterval(): number {
+  if (typeof window === "undefined") return 20;
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY_ADVANCE_INTERVAL);
+    const n = raw ? parseInt(raw, 10) : 20;
+    return ADVANCE_INTERVAL_OPTIONS.includes(n as (typeof ADVANCE_INTERVAL_OPTIONS)[number])
+      ? n
+      : 20;
+  } catch {
+    return 20;
+  }
+}
+
 function buildFeedItems(page: number, category: FilterCategory): FeedItem[] {
   const items: FeedItem[] = ["welcome"];
   const total = (page + 1) * (CARDS_BEFORE_PAUSE + 1);
@@ -102,6 +116,7 @@ export function Feed() {
   const [likedCardIds, setLikedCardIds] = useState<Set<string>>(() => new Set());
   const [seedVersion, setSeedVersion] = useState(0);
   const [autoAdvance, setAutoAdvance] = useState(false);
+  const [advanceIntervalSeconds, setAdvanceIntervalSeconds] = useState(() => loadAdvanceInterval());
   const [passToast, setPassToast] = useState<string | null>(null);
   const [authorBioOpen, setAuthorBioOpen] = useState<{ author: string; category: ContentCategory } | null>(null);
   const { selectedCategory } = useCategory();
@@ -128,6 +143,13 @@ export function Feed() {
     return () => window.removeEventListener("pageshow", onPageShow);
   }, []);
 
+  // Persistir intervalo escolhido
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY_ADVANCE_INTERVAL, String(advanceIntervalSeconds));
+    } catch {}
+  }, [advanceIntervalSeconds]);
+
   // Passar frases sozinho: a cada N segundos avança para o próximo card
   useEffect(() => {
     if (!autoAdvance) {
@@ -137,6 +159,7 @@ export function Feed() {
       }
       return;
     }
+    const intervalMs = advanceIntervalSeconds * 1000;
     const advance = () => {
       const el = scrollRef.current;
       if (!el || typeof window === "undefined") return;
@@ -155,14 +178,14 @@ export function Feed() {
         el.scrollTo({ top: targetTop, behavior: "smooth" });
       }
     };
-    autoAdvanceIntervalRef.current = setInterval(advance, AUTO_ADVANCE_INTERVAL_MS);
+    autoAdvanceIntervalRef.current = setInterval(advance, intervalMs);
     return () => {
       if (autoAdvanceIntervalRef.current) {
         clearInterval(autoAdvanceIntervalRef.current);
         autoAdvanceIntervalRef.current = null;
       }
     };
-  }, [autoAdvance]);
+  }, [autoAdvance, advanceIntervalSeconds]);
 
   const handleReportImage = useCallback(
     (cardId: string, imageUrl: string | null | undefined, author: string) => {
@@ -354,9 +377,9 @@ export function Feed() {
         </div>
       </div>
 
-      {/* Botão: passar frases sozinho — oculto no modo apresentação */}
+      {/* Botão: passar frases sozinho + seletor de intervalo — oculto no modo apresentação */}
       {!presentationMode && (
-      <div className="fixed left-4 z-30 sm:bottom-[9rem]" style={{ bottom: "calc(9rem + env(safe-area-inset-bottom, 0))" }}>
+      <div className="fixed left-4 z-30 flex items-center gap-2 sm:bottom-[9rem]" style={{ bottom: "calc(9rem + env(safe-area-inset-bottom, 0))" }}>
         <button
           type="button"
           onClick={() => {
@@ -378,6 +401,22 @@ export function Feed() {
             <PlayCircle className="h-4 w-4" strokeWidth={1.5} />
           )}
         </button>
+        <label className="flex items-center gap-1.5">
+          <span className="sr-only">Intervalo entre cards</span>
+          <select
+            value={advanceIntervalSeconds}
+            onChange={(e) => setAdvanceIntervalSeconds(Number(e.target.value) as (typeof ADVANCE_INTERVAL_OPTIONS)[number])}
+            className="rounded border border-pedra/20 bg-batina/35 px-2 py-1.5 font-garamond text-xs text-pedra/90 shadow transition hover:border-pedra/40 hover:bg-batina/50 focus:border-liturgico/50 focus:outline-none focus:ring-1 focus:ring-liturgico/30"
+            aria-label="Segundos por card (10, 20, 30 ou 40)"
+            title="Tempo em cada card ao passar sozinho"
+          >
+            {ADVANCE_INTERVAL_OPTIONS.map((s) => (
+              <option key={s} value={s}>
+                {s}s
+              </option>
+            ))}
+          </select>
+        </label>
         {passToast && (
           <div
             className="absolute bottom-full left-0 mb-2 rounded-full border border-pedra/20 bg-batina/90 px-3 py-1.5 font-garamond text-xs text-pedra shadow-lg whitespace-nowrap"
