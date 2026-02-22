@@ -25,8 +25,8 @@ export function CategoryFilter({ value, onChange }: CategoryFilterProps) {
 
   useEffect(() => {
     if (!open) return;
-    const close = (e: MouseEvent) => {
-      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+    const close = (e: Event) => {
+      if (containerRef.current && e.target instanceof Node && !containerRef.current.contains(e.target)) {
         setOpen(false);
       }
     };

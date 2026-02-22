@@ -25,8 +25,8 @@ export function Header() {
 
   useEffect(() => {
     if (!categoriesOpen) return;
-    const close = (e: MouseEvent) => {
-      if (categoriesRef.current && !categoriesRef.current.contains(e.target as Node)) setCategoriesOpen(false);
+    const close = (e: Event) => {
+      if (categoriesRef.current && e.target instanceof Node && !categoriesRef.current.contains(e.target)) setCategoriesOpen(false);
     };
     document.addEventListener("mousedown", close);
     document.addEventListener("touchstart", close, { passive: true });
