@@ -17,10 +17,10 @@ import { MusicPlayer } from "@/components/MusicPlayer";
 export default function Home() {
   return (
     <LiturgicalTheme>
-      <main className="relative flex min-h-screen flex-col">
+      <main className="relative flex h-screen-feed flex-col overflow-hidden">
         <Header />
         <LiturgicalBanner />
-        <div className="flex min-h-0 flex-1 flex-col">
+        <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
           <Feed />
         </div>
         <MusicPlayer />

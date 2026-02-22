@@ -59,11 +59,14 @@ export function AuthorBio({ author, category, isOpen, onClose }: AuthorBioProps)
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-4 z-50 mx-auto flex max-w-md flex-col overflow-hidden rounded-lg border border-pedra/20 bg-batina shadow-xl sm:inset-auto sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2"
-            style={{ maxHeight: "calc(100dvh - 2rem)" }}
+            className="fixed left-1/2 top-1/2 z-50 flex w-full max-w-md flex-col overflow-hidden rounded-lg border border-pedra/20 bg-batina p-6 shadow-xl -translate-x-1/2 -translate-y-1/2"
+            style={{
+              maxWidth: "min(28rem, calc(100vw - 2rem))",
+              maxHeight: "calc(100dvh - 2rem)",
+            }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex shrink-0 items-start justify-between gap-4 border-b border-pedra/10 p-4 sm:p-6">
+            <div className="flex shrink-0 items-start justify-between gap-4 border-b border-pedra/10 pb-3">
               <h2 id="author-bio-title" className="font-cinzel text-xl font-medium tracking-wide text-liturgico">
                 {author}
               </h2>
@@ -77,11 +80,8 @@ export function AuthorBio({ author, category, isOpen, onClose }: AuthorBioProps)
               </button>
             </div>
             <div
-              className="overflow-y-auto overscroll-contain p-4 pb-6 sm:p-6 sm:pt-2 sm:pb-8"
-              style={{
-                maxHeight: "min(60dvh, calc(100dvh - 10rem))",
-                WebkitOverflowScrolling: "touch",
-              }}
+              className="min-h-0 flex-1 overflow-y-auto overscroll-contain pt-2"
+              style={{ WebkitOverflowScrolling: "touch" }}
             >
               <p
                 className="font-cormorant text-xs text-pedra/80"
