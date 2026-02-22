@@ -1,6 +1,7 @@
 "use client";
 
 import { usePresentation } from "@/contexts/PresentationContext";
+import { CategoryProvider } from "@/contexts/CategoryContext";
 import { Header } from "./Header";
 import { LiturgicalBanner } from "./LiturgicalBanner";
 import { Feed } from "./Feed";
@@ -13,6 +14,7 @@ export function HomeLayout() {
   const { presentationMode, setPresentationMode } = usePresentation();
 
   return (
+    <CategoryProvider>
     <>
       <main className="relative flex h-screen-feed flex-col overflow-hidden">
         {!presentationMode && <Header />}
@@ -50,5 +52,6 @@ export function HomeLayout() {
         </>
       )}
     </>
+    </CategoryProvider>
   );
 }

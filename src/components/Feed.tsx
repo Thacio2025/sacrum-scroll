@@ -8,13 +8,13 @@ import { PauseStation } from "./PauseStation";
 import { BufferPause } from "./BufferPause";
 import { WelcomeCard } from "./WelcomeCard";
 import { AuthorBio } from "./AuthorBio";
-import { CategoryFilter } from "./CategoryFilter";
 import { DailyQuoteBar } from "./DailyQuoteBar";
 import { getLiturgicalSeason } from "@/lib/liturgical-season";
 import type { QuoteCard as QuoteCardType } from "@/types/content";
 import { getFilteredQuoteAtIndex, type FilterCategory } from "@/data/quotes-pool";
 import type { ContentCategory } from "@/types/content";
 import { usePresentation } from "@/contexts/PresentationContext";
+import { useCategory } from "@/contexts/CategoryContext";
 
 const CARDS_BEFORE_PAUSE = 7;
 const ACCENT_BY_SEASON: Record<string, string> = {
@@ -104,7 +104,7 @@ export function Feed() {
   const [autoAdvance, setAutoAdvance] = useState(false);
   const [passToast, setPassToast] = useState<string | null>(null);
   const [authorBioOpen, setAuthorBioOpen] = useState<{ author: string; category: ContentCategory } | null>(null);
-  const [selectedCategory, setSelectedCategory] = useState<FilterCategory>("all");
+  const { selectedCategory } = useCategory();
   const scrollRef = useRef<HTMLDivElement>(null);
   const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const autoAdvanceIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -314,14 +314,9 @@ export function Feed() {
           onClose={() => setAuthorBioOpen(null)}
         />
       )}
-      {/* Área do feed: filtro → citação do dia → scroll dos cards (filtro/citação ocultos no modo apresentação) */}
+      {/* Área do feed: citação do dia → scroll (categorias no botão Home do header) */}
       <div className="flex min-h-0 flex-1 flex-col">
-        {!presentationMode && (
-          <>
-            <CategoryFilter value={selectedCategory} onChange={setSelectedCategory} />
-            <DailyQuoteBar />
-          </>
-        )}
+        {!presentationMode && <DailyQuoteBar />}
         <div ref={scrollRef} className="snap-container min-h-0 flex-1 overflow-y-auto h-full">
           <AnimatePresence mode="popLayout">
             {items.map((item, index) =>

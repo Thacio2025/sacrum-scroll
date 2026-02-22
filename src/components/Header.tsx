@@ -1,8 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Maximize2, Minimize2, Monitor } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Maximize2, Minimize2, Monitor, Home, ChevronDown } from "lucide-react";
 import { usePresentation } from "@/contexts/PresentationContext";
+import { useCategory } from "@/contexts/CategoryContext";
+import type { FilterCategory } from "@/data/quotes-pool";
 
 const SITE_URL = "https://www.thaciosiqueira.com.br";
 const INSTAGRAM = "https://www.instagram.com/professor_thacio";
@@ -10,10 +12,35 @@ const WHATSAPP_NUMBER = "5561996449753";
 const DIRECAO_MENSAGEM = "Gostaria de saber mais sobre a Mentoria Filosófica e Teológica com o professor Thácio.";
 const DIRECAO_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(DIRECAO_MENSAGEM)}`;
 
+const CATEGORIES: { value: FilterCategory; label: string }[] = [
+  { value: "all", label: "Todos" },
+  { value: "patristic", label: "Patrística" },
+  { value: "scholastic", label: "Escolástica" },
+  { value: "mystic", label: "Mística" },
+  { value: "liturgy", label: "Liturgia" },
+  { value: "scripture", label: "Escritura" },
+];
+
 export function Header() {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [fullscreenSupported, setFullscreenSupported] = useState(false);
+  const [categoriesOpen, setCategoriesOpen] = useState(false);
+  const categoriesRef = useRef<HTMLDivElement>(null);
   const { presentationMode, togglePresentationMode } = usePresentation();
+  const { selectedCategory, setSelectedCategory } = useCategory();
+
+  useEffect(() => {
+    if (!categoriesOpen) return;
+    const close = (e: MouseEvent) => {
+      if (categoriesRef.current && !categoriesRef.current.contains(e.target as Node)) setCategoriesOpen(false);
+    };
+    document.addEventListener("mousedown", close);
+    document.addEventListener("touchstart", close, { passive: true });
+    return () => {
+      document.removeEventListener("mousedown", close);
+      document.removeEventListener("touchstart", close);
+    };
+  }, [categoriesOpen]);
 
   useEffect(() => {
     setFullscreenSupported(typeof document.documentElement.requestFullscreen === "function");
@@ -40,16 +67,53 @@ export function Header() {
     <header className="safe-top fixed left-0 right-0 top-0 z-20 border-b border-white/5 bg-batina/80 backdrop-blur-sm">
       <div className="flex flex-col items-center gap-1 py-2">
         <div className="flex w-full items-center justify-between px-3">
-          <div className="flex w-8 items-center justify-start">
+          <div ref={categoriesRef} className="relative flex items-center gap-1">
             <button
               type="button"
               onClick={togglePresentationMode}
-              className="flex h-8 w-8 items-center justify-center rounded text-pedra/70 transition hover:bg-white/10 hover:text-pedra"
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded text-pedra/70 transition hover:bg-white/10 hover:text-pedra"
               aria-label={presentationMode ? "Sair do modo apresentação" : "Modo apresentação (só imagem e frase)"}
               title={presentationMode ? "Sair do modo apresentação" : "Modo apresentação — ideal para TV ou celular"}
             >
               <Monitor className="h-4 w-4" strokeWidth={2} />
             </button>
+            <button
+              type="button"
+              onClick={() => setCategoriesOpen((o) => !o)}
+              className="flex h-8 min-w-[2rem] items-center gap-1 rounded border border-liturgico/50 bg-liturgico/15 px-2 text-liturgico transition hover:bg-liturgico/25"
+              aria-expanded={categoriesOpen}
+              aria-haspopup="listbox"
+              aria-label={categoriesOpen ? "Fechar categorias" : "Abrir categorias (Home)"}
+              title="Categorias do feed"
+            >
+              <Home className="h-4 w-4 shrink-0" strokeWidth={2} />
+              <ChevronDown className={`h-3.5 w-3.5 shrink-0 transition-transform ${categoriesOpen ? "rotate-180" : ""}`} strokeWidth={2} />
+            </button>
+            {categoriesOpen && (
+              <div
+                role="listbox"
+                className="absolute left-0 top-full z-50 mt-1 min-w-[10rem] max-h-[min(50vh,18rem)] overflow-y-auto rounded-lg border border-pedra/20 bg-batina shadow-xl"
+                style={{ WebkitOverflowScrolling: "touch" }}
+              >
+                {CATEGORIES.map(({ value: v, label }) => (
+                  <button
+                    key={v}
+                    type="button"
+                    role="option"
+                    aria-selected={selectedCategory === v}
+                    onClick={() => {
+                      setSelectedCategory(v);
+                      setCategoriesOpen(false);
+                    }}
+                    className={`flex w-full items-center justify-center border-b border-pedra/10 px-4 py-3 font-cormorant text-sm font-medium transition last:border-b-0 ${
+                      selectedCategory === v ? "bg-liturgico/20 text-liturgico" : "text-pedra/90 hover:bg-pedra/10 hover:text-pedra"
+                    }`}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
           <h1 className="font-cinzel text-lg font-medium tracking-wide text-liturgico">
             SacrumScroll
