@@ -59,10 +59,11 @@ export function AuthorBio({ author, category, isOpen, onClose }: AuthorBioProps)
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.2 }}
-            className="fixed left-1/2 top-1/2 z-50 w-full max-w-md -translate-x-1/2 -translate-y-1/2 rounded-lg border border-pedra/20 bg-batina p-6 shadow-xl"
+            className="fixed inset-4 z-50 mx-auto flex max-w-md flex-col overflow-hidden rounded-lg border border-pedra/20 bg-batina shadow-xl sm:inset-auto sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2"
+            style={{ maxHeight: "calc(100dvh - 2rem)" }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-start justify-between gap-4">
+            <div className="flex shrink-0 items-start justify-between gap-4 border-b border-pedra/10 p-4 sm:p-6">
               <h2 id="author-bio-title" className="font-cinzel text-xl font-medium tracking-wide text-liturgico">
                 {author}
               </h2>
@@ -75,22 +76,30 @@ export function AuthorBio({ author, category, isOpen, onClose }: AuthorBioProps)
                 <X className="h-5 w-5" strokeWidth={2} />
               </button>
             </div>
-            <p
-              className="mt-1 font-cormorant text-xs text-pedra/80"
-              style={{ fontVariant: "small-caps" }}
+            <div
+              className="overflow-y-auto overscroll-contain p-4 pb-6 sm:p-6 sm:pt-2 sm:pb-8"
+              style={{
+                maxHeight: "min(60dvh, calc(100dvh - 10rem))",
+                WebkitOverflowScrolling: "touch",
+              }}
             >
-              {CATEGORY_LABELS[category]}
-              {century && ` · ${century}`}
-            </p>
-            {bio ? (
-              <p className="mt-4 font-garamond text-sm leading-relaxed text-pedra">
-                {bio}
+              <p
+                className="font-cormorant text-xs text-pedra/80"
+                style={{ fontVariant: "small-caps" }}
+              >
+                {CATEGORY_LABELS[category]}
+                {century && ` · ${century}`}
               </p>
-            ) : (
-              <p className="mt-4 font-garamond text-sm italic text-pedra/70">
-                Biografia em preparação.
-              </p>
-            )}
+              {bio ? (
+                <p className="mt-4 font-garamond text-sm leading-relaxed text-pedra">
+                  {bio}
+                </p>
+              ) : (
+                <p className="mt-4 font-garamond text-sm italic text-pedra/70">
+                  Biografia em preparação.
+                </p>
+              )}
+            </div>
           </motion.div>
         </>
       )}
