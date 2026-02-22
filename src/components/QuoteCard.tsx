@@ -322,10 +322,10 @@ export function QuoteCard({
       }`}>
         <div className="mx-auto w-full max-w-2xl">
           {/* Caixa atrás das frases — sempre à frente visualmente, sem cobrir botões */}
-          <div className="rounded-lg bg-batina/50 backdrop-blur-[2px] px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10">
+          <div className="rounded-lg bg-batina/30 backdrop-blur-[1px] px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10">
             {/* Categoria · Século (small-caps) */}
             <p
-              className="mb-3 font-cormorant text-xs font-medium tracking-widest text-pedra/90 md:mb-4"
+              className="mb-3 font-cormorant text-xs font-medium tracking-widest text-pedra/90 md:mb-4 [text-shadow:0_0_1px_rgba(0,0,0,0.9),0_1px_2px_rgba(0,0,0,0.7)]"
               style={{ fontVariant: "small-caps" }}
             >
               {CATEGORY_LABELS[card.category]}
@@ -335,12 +335,12 @@ export function QuoteCard({
             </p>
             <div className="mb-5 flex items-center justify-center gap-2 md:justify-start">
               <Icon className="h-6 w-6 shrink-0" strokeWidth={1.5} style={{ color: accentColor }} />
-              <span className="font-cinzel text-base font-semibold uppercase tracking-widest text-white drop-shadow-md md:text-lg">
+              <span className="font-cinzel text-base font-semibold uppercase tracking-widest text-white [text-shadow:0_0_1px_rgba(0,0,0,0.95),0_1px_3px_rgba(0,0,0,0.8)] md:text-lg">
                 {card.author}
                 {card.source && ` · ${card.source}`}
               </span>
             </div>
-            <blockquote className="font-garamond text-3xl font-medium italic leading-relaxed text-white drop-shadow-lg md:text-4xl md:leading-relaxed">
+            <blockquote className="font-garamond text-3xl font-medium italic leading-relaxed text-white [text-shadow:0_0_2px_rgba(0,0,0,0.95),0_2px_6px_rgba(0,0,0,0.7)] md:text-4xl md:leading-relaxed">
               «{card.text}»
             </blockquote>
           </div>
