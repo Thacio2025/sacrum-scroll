@@ -163,10 +163,11 @@ export function Feed() {
     const advance = () => {
       const el = scrollRef.current;
       if (!el || typeof window === "undefined") return;
-      const vh = window.innerHeight;
+      const cardHeight = el.clientHeight;
+      if (cardHeight <= 0) return;
       const scrollTop = el.scrollTop;
-      const currentIndex = Math.round(scrollTop / vh);
-      const maxIndex = Math.max(0, Math.floor(el.scrollHeight / vh) - 1);
+      const currentIndex = Math.round(scrollTop / cardHeight);
+      const maxIndex = Math.max(0, Math.floor(el.scrollHeight / cardHeight) - 1);
       let nextIndex = Math.min(currentIndex + 1, maxIndex);
       // Se estamos no último card visível, carregar mais itens para não travar
       if (nextIndex <= currentIndex && currentIndex >= maxIndex) {
@@ -174,7 +175,7 @@ export function Feed() {
         return;
       }
       if (nextIndex > currentIndex) {
-        const targetTop = Math.min(nextIndex * vh, el.scrollHeight - vh);
+        const targetTop = Math.min(nextIndex * cardHeight, el.scrollHeight - cardHeight);
         el.scrollTo({ top: targetTop, behavior: "smooth" });
       }
     };
@@ -245,9 +246,10 @@ export function Feed() {
   useEffect(() => {
     const el = scrollRef.current;
     if (restoreScrollIndex == null || !el || items.length === 0) return;
+    const cardHeight = el.clientHeight;
+    if (cardHeight <= 0) return;
     const targetIndex = Math.min(restoreScrollIndex, items.length - 1);
-    const vh = window.innerHeight;
-    const targetTop = targetIndex * vh;
+    const targetTop = targetIndex * cardHeight;
     const raf = requestAnimationFrame(() => {
       el.scrollTo({ top: targetTop, behavior: "auto" });
       setRestoreScrollIndex(null);
@@ -266,8 +268,9 @@ export function Feed() {
     const onScroll = () => {
       if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
       scrollTimeoutRef.current = setTimeout(() => {
-        const vh = window.innerHeight;
-        const index = Math.round(el.scrollTop / vh);
+        const cardHeight = el.clientHeight;
+        if (cardHeight <= 0) return;
+        const index = Math.round(el.scrollTop / cardHeight);
         if (index >= 0) localStorage.setItem(STORAGE_KEY, String(index));
       }, 180);
     };
@@ -294,7 +297,10 @@ export function Feed() {
   }, [items.length]);
 
   const fetchedIds = useRef<Set<string>>(new Set());
+  const abortRef = useRef<AbortController | null>(null);
   useEffect(() => {
+    abortRef.current = new AbortController();
+    const signal = abortRef.current.signal;
     const quoteCards = items.filter(
       (x): x is QuoteCardType => x !== "pause" && x !== "welcome" && x !== "buffer"
     );
@@ -302,29 +308,55 @@ export function Feed() {
       if (fetchedIds.current.has(card.id)) return;
       fetchedIds.current.add(card.id);
       setCardsImageLoading((prev) => ({ ...prev, [card.id]: true }));
-      fetch(`/api/art?seed=${sessionSeedRef.current}-${card.id}&author=${encodeURIComponent(card.author)}&category=${card.category}`)
+      fetch(`/api/art?seed=${sessionSeedRef.current}-${card.id}&author=${encodeURIComponent(card.author)}&category=${card.category}`, { signal })
         .then((r) => {
-          if (!r.ok) {
-            console.error(`[Feed] API retornou erro ${r.status} para card ${card.id}`);
-            throw new Error(`API error: ${r.status}`);
-          }
+          if (signal.aborted) return null;
+          if (!r.ok) throw new Error(`API error: ${r.status}`);
           return r.json();
         })
-        .then((data: { imageUrl?: string | null }) => {
-          console.log(`[Feed] Card ${card.id} (${card.author}): imagem recebida`, data.imageUrl ? "SIM" : "NÃO");
-          setCardsWithImages((prev) => ({ ...prev, [card.id]: data.imageUrl ?? null }));
-          setCardsImageLoading((prev) => ({ ...prev, [card.id]: false }));
-          if (!data.imageUrl) {
+        .then((data: { imageUrl?: string | null } | null) => {
+          if (signal.aborted) {
+            fetchedIds.current.delete(card.id);
+            try {
+              setCardsImageLoading((prev) => ({ ...prev, [card.id]: false }));
+              setCardsImageReady((prev) => ({ ...prev, [card.id]: true }));
+            } catch (_) {}
+            return;
+          }
+          try {
+            if (data != null) {
+              setCardsWithImages((prev) => ({ ...prev, [card.id]: data.imageUrl ?? null }));
+            }
+            setCardsImageLoading((prev) => ({ ...prev, [card.id]: false }));
             setCardsImageReady((prev) => ({ ...prev, [card.id]: true }));
+          } catch (e) {
+            console.error(`[Feed] Erro ao atualizar estado da imagem ${card.id}:`, e);
           }
         })
         .catch((error) => {
-          console.error(`[Feed] Erro ao buscar imagem para card ${card.id} (${card.author}):`, error);
-          setCardsWithImages((prev) => ({ ...prev, [card.id]: null }));
-          setCardsImageLoading((prev) => ({ ...prev, [card.id]: false }));
-          setCardsImageReady((prev) => ({ ...prev, [card.id]: true }));
+          if (signal.aborted) {
+            fetchedIds.current.delete(card.id);
+            try {
+              setCardsImageLoading((prev) => ({ ...prev, [card.id]: false }));
+              setCardsImageReady((prev) => ({ ...prev, [card.id]: true }));
+            } catch (_) {}
+            return;
+          }
+          try {
+            if (error?.name !== "AbortError") {
+              console.error(`[Feed] Erro ao buscar imagem para card ${card.id}:`, error);
+            }
+            setCardsWithImages((prev) => ({ ...prev, [card.id]: null }));
+            setCardsImageLoading((prev) => ({ ...prev, [card.id]: false }));
+            setCardsImageReady((prev) => ({ ...prev, [card.id]: true }));
+          } catch (e) {
+            console.error(`[Feed] Erro ao tratar falha da imagem ${card.id}:`, e);
+          }
         });
     });
+    return () => {
+      abortRef.current?.abort();
+    };
   }, [items, seedVersion]);
 
   return (

@@ -33,7 +33,7 @@ export function BufferPause() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="snap-item flex min-h-full w-full flex-col items-center justify-center gap-8 bg-batina px-6 py-10 sm:gap-10 [@media(orientation:landscape)_and_(max-height:500px)]:gap-3 [@media(orientation:landscape)_and_(max-height:500px)]:py-4 [@media(orientation:landscape)_and_(max-height:500px)]:px-4"
+      className="snap-item snap-item-scrollable flex min-h-full w-full flex-col items-center justify-center gap-8 bg-batina px-6 py-10 sm:gap-10 [@media(orientation:landscape)_and_(max-height:500px)]:gap-3 [@media(orientation:landscape)_and_(max-height:500px)]:py-4 [@media(orientation:landscape)_and_(max-height:500px)]:px-4"
     >
       <div className="relative flex items-center justify-center">
         <svg viewBox="0 0 100 100" className="h-28 w-auto text-liturgico sm:h-36 md:h-40 [@media(orientation:landscape)_and_(max-height:500px)]:h-20">

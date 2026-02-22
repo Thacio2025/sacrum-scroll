@@ -80,7 +80,10 @@ html, body {
   height: 100%;
   scroll-snap-align: start;
   scroll-snap-stop: always;
-  /* Em paisagem (iPhone etc.) o conteúdo pode rolar se não couber — evita cortar acima/abaixo */
+}
+
+/* Só nas telas de pausa: em paisagem o conteúdo pode rolar se não couber (evita conflito de scroll nos cards normais) */
+.snap-container .snap-item.snap-item-scrollable {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
