@@ -1,30 +1,24 @@
-import { Feed } from "@/components/Feed";
 import { LiturgicalTheme } from "@/components/LiturgicalTheme";
-import { Header } from "@/components/Header";
-import { LiturgicalBanner } from "@/components/LiturgicalBanner";
-import { MusicPlayer } from "@/components/MusicPlayer";
+import { PresentationProvider } from "@/contexts/PresentationContext";
+import { HomeLayout } from "@/components/HomeLayout";
 
 /**
  * Página principal — ordem do layout (de cima para baixo):
  *
- * 1. Header (fixo) — título, @professor_thacio, site, Direção espiritual
- * 2. LiturgicalBanner — uma linha com o tempo litúrgico (Advento, Quaresma, etc.)
- * 3. Feed — dentro dele: filtro de categoria, citação do dia, e a área de scroll com os cards
- * 4. MusicPlayer (fixo no canto) — play, próxima faixa, volume
+ * 1. Header (fixo) — título, modo apresentação, tela cheia, @professor_thacio, site, Direção espiritual
+ * 2. LiturgicalBanner — uma linha com o tempo litúrgico
+ * 3. Feed — filtro de categoria, citação do dia, área de scroll com os cards
+ * 4. MusicPlayer (fixo no canto)
  *
- * Ver LAYOUT.md na raiz do projeto para o desenho completo.
+ * Modo apresentação (botão Monitor): só imagem + frase + @professor_thacio — ideal para TV/celular.
+ * Ver LAYOUT.md na raiz do projeto.
  */
 export default function Home() {
   return (
     <LiturgicalTheme>
-      <main className="relative flex h-screen-feed flex-col overflow-hidden">
-        <Header />
-        <LiturgicalBanner />
-        <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
-          <Feed />
-        </div>
-        <MusicPlayer />
-      </main>
+      <PresentationProvider>
+        <HomeLayout />
+      </PresentationProvider>
     </LiturgicalTheme>
   );
 }

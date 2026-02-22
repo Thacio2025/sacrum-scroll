@@ -14,6 +14,7 @@ import { getLiturgicalSeason } from "@/lib/liturgical-season";
 import type { QuoteCard as QuoteCardType } from "@/types/content";
 import { getFilteredQuoteAtIndex, type FilterCategory } from "@/data/quotes-pool";
 import type { ContentCategory } from "@/types/content";
+import { usePresentation } from "@/contexts/PresentationContext";
 
 const CARDS_BEFORE_PAUSE = 7;
 const ACCENT_BY_SEASON: Record<string, string> = {
@@ -108,6 +109,7 @@ export function Feed() {
   const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const autoAdvanceIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const accentColor = getAccentColor();
+  const { presentationMode } = usePresentation();
   /** Seed por visita: novo a cada abertura; em restauração (bfcache) renovamos e refetch. */
   const sessionSeedRef = useRef<string>(getSessionSeed());
 
@@ -312,10 +314,14 @@ export function Feed() {
           onClose={() => setAuthorBioOpen(null)}
         />
       )}
-      {/* Área do feed: filtro → citação do dia → scroll dos cards */}
+      {/* Área do feed: filtro → citação do dia → scroll dos cards (filtro/citação ocultos no modo apresentação) */}
       <div className="flex min-h-0 flex-1 flex-col">
-        <CategoryFilter value={selectedCategory} onChange={setSelectedCategory} />
-        <DailyQuoteBar />
+        {!presentationMode && (
+          <>
+            <CategoryFilter value={selectedCategory} onChange={setSelectedCategory} />
+            <DailyQuoteBar />
+          </>
+        )}
         <div ref={scrollRef} className="snap-container min-h-0 flex-1 overflow-y-auto h-full">
           <AnimatePresence mode="popLayout">
             {items.map((item, index) =>
@@ -344,6 +350,7 @@ export function Feed() {
                   isLiked={likedCardIds.has(item.id)}
                   onLike={() => handleLike(item.id)}
                   onOpenAuthorBio={() => setAuthorBioOpen({ author: item.author, category: item.category })}
+                  isPresentationMode={presentationMode}
                 />
               )
             )}
@@ -352,7 +359,8 @@ export function Feed() {
         </div>
       </div>
 
-      {/* Botão: passar frases sozinho — só ícone; toast breve ao clicar */}
+      {/* Botão: passar frases sozinho — oculto no modo apresentação */}
+      {!presentationMode && (
       <div className="fixed left-4 z-30 sm:bottom-[9rem]" style={{ bottom: "calc(9rem + env(safe-area-inset-bottom, 0))" }}>
         <button
           type="button"
@@ -385,6 +393,7 @@ export function Feed() {
           </div>
         )}
       </div>
+      )}
     </>
   );
 }

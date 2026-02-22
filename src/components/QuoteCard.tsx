@@ -47,6 +47,7 @@ export function QuoteCard({
   isLiked = false,
   onLike,
   onOpenAuthorBio,
+  isPresentationMode = false,
 }: {
   card: QuoteCardType;
   index: number;
@@ -57,6 +58,8 @@ export function QuoteCard({
   isLiked?: boolean;
   onLike?: () => void;
   onOpenAuthorBio?: () => void;
+  /** Modo apresentação: só imagem e frase (sem botões) */
+  isPresentationMode?: boolean;
 }) {
   const Icon = categoryIcons[card.category];
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -211,8 +214,8 @@ export function QuoteCard({
         </>
       )}
       
-      {/* Indicador de carregamento da imagem */}
-      {showImageLoader && (
+      {/* Indicador de carregamento da imagem — oculto no modo apresentação */}
+      {!isPresentationMode && showImageLoader && (
         <div
           className="absolute right-6 top-24 z-20 flex items-center gap-1.5"
           aria-label="Imagem carregando"
@@ -222,8 +225,8 @@ export function QuoteCard({
         </div>
       )}
       
-      {/* Indicador quando não há imagem disponível */}
-      {hasNoImage && !imageLoading && (
+      {/* Indicador quando não há imagem disponível — oculto no modo apresentação */}
+      {!isPresentationMode && hasNoImage && !imageLoading && (
         <div
           className="absolute right-6 top-24 z-20 flex items-center gap-1.5 rounded border border-pedra/20 bg-batina/60 px-2 py-1"
           aria-label="Sem imagem disponível"
@@ -232,7 +235,8 @@ export function QuoteCard({
         </div>
       )}
 
-      {/* Direita: ícones e botões — sempre visíveis, sem sobrepor a caixa do texto */}
+      {/* Direita: ícones e botões — ocultos no modo apresentação (só imagem e frase) */}
+      {!isPresentationMode && (
       <div className="absolute right-0 bottom-16 z-20 flex flex-col items-end gap-3 pr-2 sm:bottom-20 sm:gap-4 md:bottom-auto md:top-[72%] md:-translate-y-1/2 md:pr-3">
         {onLike && (
           <button
@@ -297,6 +301,7 @@ export function QuoteCard({
           Quero Mentoria
         </a>
       </div>
+      )}
 
       {/* Toast breve ao clicar em Denunciar */}
       {showReportToast && (
@@ -309,8 +314,12 @@ export function QuoteCard({
         </div>
       )}
 
-      {/* Área do texto: padding para nunca ficar atrás dos botões (direita e embaixo) */}
-      <div className="relative z-10 flex flex-1 flex-col justify-center px-4 py-6 text-center pr-24 pb-28 sm:px-6 sm:pr-32 sm:pb-28 md:justify-end md:px-8 md:pr-44 md:pb-24 md:pt-28 md:text-left -translate-y-4 md:-translate-y-8">
+      {/* Área do texto: padding para nunca ficar atrás dos botões (modo normal); no modo apresentação usa mais tela */}
+      <div className={`relative z-10 flex flex-1 flex-col justify-center text-center md:justify-end md:text-left -translate-y-4 md:-translate-y-8 ${
+        isPresentationMode
+          ? "px-6 py-8 sm:px-10 sm:py-12 md:px-12 md:py-16 md:pt-20"
+          : "px-4 py-6 pr-24 pb-28 sm:px-6 sm:pr-32 sm:pb-28 md:px-8 md:pr-44 md:pb-24 md:pt-28"
+      }`}>
         <div className="mx-auto w-full max-w-2xl">
           {/* Caixa atrás das frases — sempre à frente visualmente, sem cobrir botões */}
           <div className="rounded-lg bg-batina/50 backdrop-blur-[2px] px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10">

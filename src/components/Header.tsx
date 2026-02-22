@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Maximize2, Minimize2 } from "lucide-react";
+import { Maximize2, Minimize2, Monitor } from "lucide-react";
+import { usePresentation } from "@/contexts/PresentationContext";
 
 const SITE_URL = "https://www.thaciosiqueira.com.br";
 const INSTAGRAM = "https://www.instagram.com/professor_thacio";
@@ -12,6 +13,7 @@ const DIRECAO_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
 export function Header() {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [fullscreenSupported, setFullscreenSupported] = useState(false);
+  const { presentationMode, togglePresentationMode } = usePresentation();
 
   useEffect(() => {
     setFullscreenSupported(typeof document.documentElement.requestFullscreen === "function");
@@ -38,7 +40,17 @@ export function Header() {
     <header className="safe-top fixed left-0 right-0 top-0 z-20 border-b border-white/5 bg-batina/80 backdrop-blur-sm">
       <div className="flex flex-col items-center gap-1 py-2">
         <div className="flex w-full items-center justify-between px-3">
-          <div className="w-8" />
+          <div className="flex w-8 items-center justify-start">
+            <button
+              type="button"
+              onClick={togglePresentationMode}
+              className="flex h-8 w-8 items-center justify-center rounded text-pedra/70 transition hover:bg-white/10 hover:text-pedra"
+              aria-label={presentationMode ? "Sair do modo apresentação" : "Modo apresentação (só imagem e frase)"}
+              title={presentationMode ? "Sair do modo apresentação" : "Modo apresentação — ideal para TV ou celular"}
+            >
+              <Monitor className="h-4 w-4" strokeWidth={2} />
+            </button>
+          </div>
           <h1 className="font-cinzel text-lg font-medium tracking-wide text-liturgico">
             SacrumScroll
           </h1>
