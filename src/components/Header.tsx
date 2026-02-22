@@ -64,10 +64,14 @@ export function Header() {
   };
 
   return (
-    <header className="safe-top fixed left-0 right-0 top-0 z-20 border-b border-white/5 bg-batina/95 backdrop-blur-sm">
-      <div className="flex flex-col items-center gap-2 py-2">
-        {/* Primeira linha: botões à esquerda, título ao centro, tela cheia à direita — sempre por cima */}
-        <div className="relative z-10 flex min-h-[2.5rem] w-full items-center justify-between px-3">
+    <header className="safe-top fixed left-0 right-0 top-0 z-20 border-b border-white/5 bg-batina backdrop-blur-sm">
+      {/* Grid de 2 linhas: linha 1 = botões (por cima), linha 2 = links (sempre embaixo) */}
+      <div className="grid grid-rows-[auto_auto]">
+        {/* Linha 1: barra sólida com Monitor, Home e Tela cheia — NUNCA atrás dos links */}
+        <div
+          className="relative z-20 flex min-h-[2.75rem] shrink-0 items-center justify-between border-b border-white/5 bg-batina px-3 py-2"
+          style={{ isolation: "isolate" }}
+        >
           <div ref={categoriesRef} className="relative flex items-center gap-2">
             <button
               type="button"
@@ -94,7 +98,7 @@ export function Header() {
             {categoriesOpen && (
               <div
                 role="listbox"
-                className="absolute left-0 top-full z-50 mt-1 min-w-[10rem] max-h-[min(50vh,18rem)] overflow-y-auto rounded-lg border border-pedra/20 bg-batina shadow-xl"
+                className="absolute left-0 top-full z-[100] mt-1 min-w-[10rem] max-h-[min(50vh,18rem)] overflow-y-auto rounded-lg border border-pedra/20 bg-batina shadow-xl"
                 style={{ WebkitOverflowScrolling: "touch" }}
               >
                 {CATEGORIES.map(({ value: v, label }) => (
@@ -117,7 +121,7 @@ export function Header() {
               </div>
             )}
           </div>
-          <h1 className="font-cinzel text-lg font-medium tracking-wide text-liturgico">
+          <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-cinzel text-lg font-medium tracking-wide text-liturgico pointer-events-none">
             SacrumScroll
           </h1>
           {fullscreenSupported ? (
@@ -138,8 +142,8 @@ export function Header() {
             <div className="w-9" />
           )}
         </div>
-        {/* Segunda linha: links — com padding para não cobrir os botões da primeira linha */}
-        <div className="flex w-full flex-wrap items-center justify-center gap-x-3 gap-y-1 px-16 text-center">
+        {/* Linha 2: só os links — sempre ABAIXO da linha 1, nunca por cima dos botões */}
+        <div className="relative z-10 flex shrink-0 flex-wrap items-center justify-center gap-x-3 gap-y-1 bg-batina/90 px-4 py-1.5 text-center">
           <a
             href={INSTAGRAM}
             target="_blank"
@@ -148,7 +152,7 @@ export function Header() {
           >
             @professor_thacio
           </a>
-          <span className="text-pedra/40">·</span>
+          <span className="text-pedra/50">·</span>
           <a
             href={SITE_URL}
             target="_blank"
