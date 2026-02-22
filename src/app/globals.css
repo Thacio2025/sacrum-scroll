@@ -80,6 +80,9 @@ html, body {
   height: 100%;
   scroll-snap-align: start;
   scroll-snap-stop: always;
+  /* Em paisagem (iPhone etc.) o conteúdo pode rolar se não couber — evita cortar acima/abaixo */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Movimentos lentos nas fotos: zoom ou pan (tipo e duração no elemento) */

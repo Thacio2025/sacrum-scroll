@@ -33,10 +33,10 @@ export function BufferPause() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="snap-item flex min-h-full w-full flex-col items-center justify-center gap-8 bg-batina px-6 py-10 sm:gap-10"
+      className="snap-item flex min-h-full w-full flex-col items-center justify-center gap-8 bg-batina px-6 py-10 sm:gap-10 [@media(orientation:landscape)_and_(max-height:500px)]:gap-3 [@media(orientation:landscape)_and_(max-height:500px)]:py-4 [@media(orientation:landscape)_and_(max-height:500px)]:px-4"
     >
       <div className="relative flex items-center justify-center">
-        <svg viewBox="0 0 100 100" className="h-28 w-auto text-liturgico sm:h-36 md:h-40">
+        <svg viewBox="0 0 100 100" className="h-28 w-auto text-liturgico sm:h-36 md:h-40 [@media(orientation:landscape)_and_(max-height:500px)]:h-20">
           <circle
             cx="50"
             cy="50"
@@ -66,13 +66,13 @@ export function BufferPause() {
           transition={{ duration: 1.5, repeat: Infinity, repeatType: "reverse" }}
           className="absolute text-liturgico"
         >
-          <Heart className="h-12 w-12 sm:h-14 sm:w-14" strokeWidth={1.5} fill="currentColor" />
+          <Heart className="h-12 w-12 sm:h-14 sm:w-14 [@media(orientation:landscape)_and_(max-height:500px)]:h-8 [@media(orientation:landscape)_and_(max-height:500px)]:w-8" strokeWidth={1.5} fill="currentColor" />
         </motion.div>
       </div>
-      <p className="font-garamond max-w-md text-center text-xl italic leading-relaxed text-pedra sm:max-w-lg sm:text-2xl md:text-3xl md:leading-relaxed">
+      <p className="font-garamond max-w-md text-center text-xl italic leading-relaxed text-pedra sm:max-w-lg sm:text-2xl md:text-3xl md:leading-relaxed [@media(orientation:landscape)_and_(max-height:500px)]:text-sm [@media(orientation:landscape)_and_(max-height:500px)]:leading-snug">
         Um momento… as próximas imagens estão carregando.
       </p>
-      <div className="font-cinzel text-3xl tabular-nums text-liturgico/80 sm:text-4xl md:text-5xl">
+      <div className="font-cinzel text-3xl tabular-nums text-liturgico/80 sm:text-4xl md:text-5xl [@media(orientation:landscape)_and_(max-height:500px)]:text-xl">
         {secondsLeft > 0 ? `${secondsLeft}s` : "—"}
       </div>
     </motion.section>

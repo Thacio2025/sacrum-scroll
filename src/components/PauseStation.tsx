@@ -52,7 +52,7 @@ export function PauseStation() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="snap-item flex min-h-full w-full flex-col items-center justify-center gap-8 bg-batina px-6 py-10 sm:gap-10 md:gap-12"
+      className="snap-item flex min-h-full w-full flex-col items-center justify-center gap-8 bg-batina px-6 py-10 sm:gap-10 md:gap-12 [@media(orientation:landscape)_and_(max-height:500px)]:gap-3 [@media(orientation:landscape)_and_(max-height:500px)]:py-4 [@media(orientation:landscape)_and_(max-height:500px)]:px-4"
     >
       {/* Sino (áudio só após gesto do usuário) */}
       <audio
@@ -63,7 +63,7 @@ export function PauseStation() {
       <button
         type="button"
         onClick={playBell}
-        className="flex items-center gap-2 rounded border border-liturgico/40 bg-liturgico/10 px-4 py-2 font-garamond text-sm text-liturgico transition hover:border-liturgico/60 hover:bg-liturgico/20 sm:text-base"
+        className="flex items-center gap-2 rounded border border-liturgico/40 bg-liturgico/10 px-4 py-2 font-garamond text-sm text-liturgico transition hover:border-liturgico/60 hover:bg-liturgico/20 sm:text-base [@media(orientation:landscape)_and_(max-height:500px)]:px-2 [@media(orientation:landscape)_and_(max-height:500px)]:py-1 [@media(orientation:landscape)_and_(max-height:500px)]:text-xs"
         aria-label="Tocar sino"
       >
         <Bell className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1.5} />
@@ -72,7 +72,7 @@ export function PauseStation() {
 
       {/* Cruz + círculo de progresso (marca o tempo da pausa) */}
       <div className="relative flex items-center justify-center">
-        <svg viewBox="0 0 100 100" className="h-32 w-auto text-liturgico sm:h-40 md:h-48 lg:h-56">
+        <svg viewBox="0 0 100 100" className="h-32 w-auto text-liturgico sm:h-40 md:h-48 lg:h-56 [@media(orientation:landscape)_and_(max-height:500px)]:h-24">
           <circle
             cx="50"
             cy="50"
@@ -97,7 +97,7 @@ export function PauseStation() {
             transition={{ duration: 0.3 }}
           />
         </svg>
-        <svg viewBox="0 0 100 100" className="absolute h-20 w-auto text-liturgico sm:h-24 md:h-32 lg:h-40">
+        <svg viewBox="0 0 100 100" className="absolute h-20 w-auto text-liturgico sm:h-24 md:h-32 lg:h-40 [@media(orientation:landscape)_and_(max-height:500px)]:h-14">
           <motion.path
             d={CROSS_VERTICAL}
             fill="none"
@@ -123,11 +123,11 @@ export function PauseStation() {
         </svg>
       </div>
 
-      <p className="font-garamond max-w-lg text-center text-2xl italic leading-relaxed text-pedra sm:max-w-xl sm:text-3xl sm:leading-relaxed md:text-4xl md:leading-relaxed lg:text-5xl lg:leading-relaxed">
+      <p className="font-garamond max-w-lg text-center text-2xl italic leading-relaxed text-pedra sm:max-w-xl sm:text-3xl sm:leading-relaxed md:text-4xl md:leading-relaxed lg:text-5xl lg:leading-relaxed [@media(orientation:landscape)_and_(max-height:500px)]:text-base [@media(orientation:landscape)_and_(max-height:500px)]:leading-snug">
         {PAUSE_PHRASE}
       </p>
 
-      <div className="font-cinzel text-3xl tabular-nums text-liturgico/80 sm:text-4xl md:text-5xl">
+      <div className="font-cinzel text-3xl tabular-nums text-liturgico/80 sm:text-4xl md:text-5xl [@media(orientation:landscape)_and_(max-height:500px)]:text-xl">
         {secondsLeft > 0 ? `${secondsLeft}s` : "—"}
       </div>
     </motion.section>
