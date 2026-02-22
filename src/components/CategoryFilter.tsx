@@ -19,9 +19,9 @@ export interface CategoryFilterProps {
 
 export function CategoryFilter({ value, onChange }: CategoryFilterProps) {
   return (
-    <div className="shrink-0 min-h-[3rem] border-b border-pedra/10 bg-batina/60 backdrop-blur-sm">
+    <div className="flex shrink-0 flex-col border-b border-pedra/10 bg-batina/80 backdrop-blur-sm min-h-[3.5rem]">
       <div
-        className="flex items-center justify-start gap-2 overflow-x-auto overflow-y-hidden px-3 py-2"
+        className="flex min-h-[3rem] flex-wrap items-center justify-center gap-2 px-3 py-2 md:gap-3"
         style={{ WebkitOverflowScrolling: "touch" }}
       >
         {CATEGORIES.map(({ value: v, label }) => (
