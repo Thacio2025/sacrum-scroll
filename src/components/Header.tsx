@@ -64,14 +64,15 @@ export function Header() {
   };
 
   return (
-    <header className="safe-top fixed left-0 right-0 top-0 z-20 border-b border-white/5 bg-batina/80 backdrop-blur-sm">
-      <div className="flex flex-col items-center gap-1 py-2">
-        <div className="flex w-full items-center justify-between px-3">
-          <div ref={categoriesRef} className="relative flex items-center gap-1">
+    <header className="safe-top fixed left-0 right-0 top-0 z-20 border-b border-white/5 bg-batina/95 backdrop-blur-sm">
+      <div className="flex flex-col items-center gap-2 py-2">
+        {/* Primeira linha: botões à esquerda, título ao centro, tela cheia à direita — sempre por cima */}
+        <div className="relative z-10 flex min-h-[2.5rem] w-full items-center justify-between px-3">
+          <div ref={categoriesRef} className="relative flex items-center gap-2">
             <button
               type="button"
               onClick={togglePresentationMode}
-              className="flex h-8 w-8 shrink-0 items-center justify-center rounded text-pedra/70 transition hover:bg-white/10 hover:text-pedra"
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-pedra/30 bg-batina/80 text-pedra transition hover:border-pedra/50 hover:bg-pedra/10 hover:text-pedra"
               aria-label={presentationMode ? "Sair do modo apresentação" : "Modo apresentação (só imagem e frase)"}
               title={presentationMode ? "Sair do modo apresentação" : "Modo apresentação — ideal para TV ou celular"}
             >
@@ -80,14 +81,15 @@ export function Header() {
             <button
               type="button"
               onClick={() => setCategoriesOpen((o) => !o)}
-              className="flex h-8 min-w-[2rem] items-center gap-1 rounded border border-liturgico/50 bg-liturgico/15 px-2 text-liturgico transition hover:bg-liturgico/25"
+              className="flex h-9 min-w-[3.5rem] items-center gap-1.5 rounded-md border-2 border-liturgico bg-liturgico/25 px-3 py-1.5 font-cormorant text-sm font-semibold text-liturgico shadow-sm transition hover:bg-liturgico/40"
               aria-expanded={categoriesOpen}
               aria-haspopup="listbox"
               aria-label={categoriesOpen ? "Fechar categorias" : "Abrir categorias (Home)"}
               title="Categorias do feed"
             >
-              <Home className="h-4 w-4 shrink-0" strokeWidth={2} />
-              <ChevronDown className={`h-3.5 w-3.5 shrink-0 transition-transform ${categoriesOpen ? "rotate-180" : ""}`} strokeWidth={2} />
+              <Home className="h-4 w-4 shrink-0" strokeWidth={2.5} />
+              <span className="hidden sm:inline">Home</span>
+              <ChevronDown className={`h-4 w-4 shrink-0 transition-transform ${categoriesOpen ? "rotate-180" : ""}`} strokeWidth={2} />
             </button>
             {categoriesOpen && (
               <div
@@ -122,7 +124,7 @@ export function Header() {
             <button
               type="button"
               onClick={toggleFullscreen}
-              className="flex h-8 w-8 items-center justify-center rounded text-pedra/70 transition hover:bg-white/10 hover:text-pedra"
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-pedra/30 bg-batina/80 text-pedra transition hover:border-pedra/50 hover:bg-pedra/10 hover:text-pedra"
               aria-label={isFullscreen ? "Sair da tela cheia" : "Tela cheia"}
               title={isFullscreen ? "Sair da tela cheia" : "Tela cheia"}
             >
@@ -133,15 +135,16 @@ export function Header() {
               )}
             </button>
           ) : (
-            <div className="w-8" />
+            <div className="w-9" />
           )}
         </div>
-        <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center">
+        {/* Segunda linha: links — com padding para não cobrir os botões da primeira linha */}
+        <div className="flex w-full flex-wrap items-center justify-center gap-x-3 gap-y-1 px-16 text-center">
           <a
             href={INSTAGRAM}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-garamond text-xs text-pedra/70 hover:text-pedra"
+            className="font-garamond text-xs text-pedra/90 hover:text-pedra"
           >
             @professor_thacio
           </a>
@@ -150,16 +153,16 @@ export function Header() {
             href={SITE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-garamond text-xs text-pedra/70 hover:text-pedra"
+            className="font-garamond text-xs text-pedra/90 hover:text-pedra"
           >
             thaciosiqueira.com.br
           </a>
-          <span className="text-pedra/40">·</span>
+          <span className="text-pedra/50">·</span>
           <a
             href={DIRECAO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-garamond text-xs italic text-liturgico/90 hover:text-liturgico"
+            className="font-garamond text-xs italic text-liturgico hover:text-liturgico/90"
           >
             Direção espiritual
           </a>
