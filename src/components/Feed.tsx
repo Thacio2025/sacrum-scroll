@@ -316,7 +316,7 @@ export function Feed() {
       <div className="flex min-h-0 flex-1 flex-col">
         <CategoryFilter value={selectedCategory} onChange={setSelectedCategory} />
         <DailyQuoteBar />
-        <div ref={scrollRef} className="snap-container min-h-0 flex-1 overflow-y-auto">
+        <div ref={scrollRef} className="snap-container min-h-0 flex-1 overflow-y-auto h-full">
           <AnimatePresence mode="popLayout">
             {items.map((item, index) =>
               item === "welcome" ? (

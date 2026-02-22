@@ -166,7 +166,7 @@ export function QuoteCard({
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.05 }}
-      className="relative flex min-h-[100vh] w-full flex-col justify-center overflow-hidden rounded-none snap-item"
+      className="snap-item relative flex min-h-full w-full flex-col justify-center overflow-hidden rounded-none"
     >
       {/* Fundo sempre visível (batina #050505) */}
       <div className="absolute inset-0 bg-batina" aria-hidden />

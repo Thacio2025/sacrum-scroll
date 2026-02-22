@@ -9,7 +9,7 @@ export function WelcomeCard() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="flex min-h-[100vh] w-full flex-col items-center justify-center gap-8 bg-batina px-6 py-12 snap-item"
+      className="snap-item flex min-h-full w-full flex-col items-center justify-center gap-8 bg-batina px-6 py-12"
     >
       <motion.div
         initial={{ y: 12, opacity: 0 }}

@@ -46,7 +46,7 @@ export function PauseStation() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="flex min-h-[100vh] w-full flex-col items-center justify-center gap-10 bg-batina px-6 snap-item"
+      className="snap-item flex min-h-full w-full flex-col items-center justify-center gap-10 bg-batina px-6"
     >
       {/* Sino (áudio só após gesto do usuário) */}
       <audio
