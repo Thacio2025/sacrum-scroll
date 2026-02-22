@@ -2,8 +2,18 @@
 
 import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
-import type { QuoteCard as QuoteCardType } from "@/types/content";
-import { Cross, Flame, BookOpen, Bird, Scroll, Flag, Heart, Share2, MessageCircle } from "lucide-react";
+import type { QuoteCard as QuoteCardType, ContentCategory } from "@/types/content";
+import { getAuthorCentury } from "@/data/authors";
+import { getShareCardDataUrl } from "@/lib/share-card-image";
+import { Cross, Flame, BookOpen, Bird, Scroll, Flag, Heart, Share2, Image as ImageIcon, MessageCircle, User } from "lucide-react";
+
+const CATEGORY_LABELS: Record<ContentCategory, string> = {
+  patristic: "Patrística",
+  scholastic: "Escolástica",
+  mystic: "Mística",
+  liturgy: "Liturgia",
+  scripture: "Escritura",
+};
 
 const DIRECAO_URL = "https://wa.me/5561996449753?text=" + encodeURIComponent("Gostaria de saber mais sobre direção espiritual profissional");
 
@@ -36,6 +46,7 @@ export function QuoteCard({
   onReportImage,
   isLiked = false,
   onLike,
+  onOpenAuthorBio,
 }: {
   card: QuoteCardType;
   index: number;
@@ -45,6 +56,7 @@ export function QuoteCard({
   onReportImage?: () => void;
   isLiked?: boolean;
   onLike?: () => void;
+  onOpenAuthorBio?: () => void;
 }) {
   const Icon = categoryIcons[card.category];
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -58,6 +70,8 @@ export function QuoteCard({
     setShowReportToast(true);
     setTimeout(() => setShowReportToast(false), 1500);
   };
+
+  const [sharingImage, setSharingImage] = useState(false);
 
   const handleShare = async () => {
     const title = `${card.author}${card.source ? ` · ${card.source}` : ""}`;
@@ -74,6 +88,32 @@ export function QuoteCard({
       }
     } catch {
       // usuário cancelou ou falha silenciosa
+    }
+  };
+
+  const handleShareImage = async () => {
+    if (sharingImage) return;
+    setSharingImage(true);
+    try {
+      const dataUrl = await getShareCardDataUrl(card);
+      const blob = await (await fetch(dataUrl)).blob();
+      const file = new File([blob], "sacrumscroll-card.png", { type: "image/png" });
+      if (typeof navigator !== "undefined" && navigator.share && navigator.canShare?.({ files: [file] })) {
+        await navigator.share({
+          title: "SacrumScroll",
+          text: `«${card.text}» — ${card.author}`,
+          files: [file],
+        });
+      } else {
+        const a = document.createElement("a");
+        a.href = dataUrl;
+        a.download = "sacrumscroll-card.png";
+        a.click();
+      }
+    } catch {
+      // falha silenciosa
+    } finally {
+      setSharingImage(false);
     }
   };
 
@@ -163,6 +203,7 @@ export function QuoteCard({
                 className="block h-full w-full object-cover"
                 style={{ display: imageLoaded ? "block" : "none" }}
                 crossOrigin="anonymous"
+                loading="lazy"
               />
             </div>
           </motion.div>
@@ -207,16 +248,23 @@ export function QuoteCard({
             />
           </button>
         )}
-        {card.imageUrl && (
-          <button
-            type="button"
-            onClick={handleShare}
-            className="flex items-center justify-center p-1 text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] transition hover:scale-110 hover:drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]"
-            aria-label="Compartilhar"
-          >
-            <Share2 className="h-5 w-5" strokeWidth={2} />
-          </button>
-        )}
+        <button
+          type="button"
+          onClick={handleShare}
+          className="flex items-center justify-center p-1 text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] transition hover:scale-110 hover:drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]"
+          aria-label="Compartilhar texto"
+        >
+          <Share2 className="h-5 w-5" strokeWidth={2} />
+        </button>
+        <button
+          type="button"
+          onClick={handleShareImage}
+          disabled={sharingImage}
+          className="flex items-center justify-center p-1 text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] transition hover:scale-110 hover:drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] disabled:opacity-50"
+          aria-label="Compartilhar como imagem"
+        >
+          <ImageIcon className="h-5 w-5" strokeWidth={2} />
+        </button>
         {card.imageUrl && onReportImage && (
           <button
             type="button"
@@ -225,6 +273,17 @@ export function QuoteCard({
             aria-label="Denunciar imagem inapropriada"
           >
             <Flag className="h-5 w-5" strokeWidth={2} />
+          </button>
+        )}
+        {onOpenAuthorBio && (
+          <button
+            type="button"
+            onClick={onOpenAuthorBio}
+            className="flex items-center gap-1.5 whitespace-nowrap rounded border border-pedra/30 bg-batina/50 px-3 py-2 font-garamond text-xs text-pedra/90 transition hover:border-pedra/50 hover:bg-batina/70"
+            aria-label="Sobre o autor"
+          >
+            <User className="h-3.5 w-3.5 shrink-0" strokeWidth={1.5} />
+            Sobre o autor
           </button>
         )}
         <a
@@ -254,6 +313,16 @@ export function QuoteCard({
         <div className="mx-auto max-w-2xl">
           {/* Fundo leve atrás do texto; padding horizontal evita que a citação fique sob os botões */}
           <div className="rounded-lg bg-batina/50 backdrop-blur-[2px] px-4 py-8 md:px-8 md:py-10">
+            {/* Categoria · Século (small-caps) */}
+            <p
+              className="mb-3 font-cormorant text-xs font-medium tracking-widest text-pedra/90 md:mb-4"
+              style={{ fontVariant: "small-caps" }}
+            >
+              {CATEGORY_LABELS[card.category]}
+              {(card.century ?? getAuthorCentury(card.author)) && (
+                <> · {card.century ?? getAuthorCentury(card.author)}</>
+              )}
+            </p>
             <div className="mb-5 flex items-center justify-center gap-2 md:justify-start">
               <Icon className="h-6 w-6 shrink-0" strokeWidth={1.5} style={{ color: accentColor }} />
               <span className="font-cinzel text-base font-semibold uppercase tracking-widest text-white drop-shadow-md md:text-lg">

@@ -15,6 +15,80 @@ export interface AuthorProfile {
   category: ContentCategory;
   quoteCount: number;
   displayName: string; // Nome abreviado para exibição
+  /** Ex.: "Séc. IV" — para exibição no card */
+  century?: string;
+}
+
+/** Século de autores conhecidos (para linha Categoria · Século no card). */
+const AUTHOR_CENTURY: Record<string, string> = {
+  "Santo Agostinho": "Séc. IV",
+  "São João Crisóstomo": "Séc. IV",
+  "São Gregório Magno": "Séc. VI",
+  "São Basílio Magno": "Séc. IV",
+  "Santo Ambrósio": "Séc. IV",
+  "São Jerônimo": "Séc. IV",
+  "Santo Irineu": "Séc. II",
+  "São Cipriano": "Séc. III",
+  "São João Damasceno": "Séc. VIII",
+  "Tertuliano": "Séc. II",
+  "São Gregório de Nissa": "Séc. IV",
+  "Santa Teresa d'Ávila": "Séc. XVI",
+  "São João da Cruz": "Séc. XVI",
+  "São Tomás de Aquino": "Séc. XIII",
+  "Santo Anselmo": "Séc. XI",
+  "São Boaventura": "Séc. XIII",
+  "Duns Escoto": "Séc. XIII",
+  "Santo Alberto Magno": "Séc. XIII",
+  "Santo Afonso Maria de Ligório": "Séc. XVIII",
+  "São Bernardo de Claraval": "Séc. XII",
+  "São Francisco de Sales": "Séc. XVII",
+  "Santo Inácio de Loyola": "Séc. XVI",
+  "São Francisco de Assis": "Séc. XIII",
+  "Santa Catarina de Sena": "Séc. XIV",
+  "Santa Ângela de Foligno": "Séc. XIII",
+  "São Leão Magno": "Séc. V",
+  "Abba Antônio": "Séc. IV",
+  "Abba Poimen": "Séc. V",
+  "Abba Macário": "Séc. IV",
+  "Abba Arsenius": "Séc. V",
+  "Abba Moisés": "Séc. IV",
+  "Abba Agathon": "Séc. IV",
+  "Abba Pambo": "Séc. IV",
+  "Abba Sisoés": "Séc. V",
+  "Abba Bessarion": "Séc. IV",
+  "Abba Evágrio": "Séc. IV",
+  "Abba Isaías": "Séc. V",
+};
+
+export function getAuthorCentury(author: string): string | undefined {
+  return AUTHOR_CENTURY[author];
+}
+
+/** Bio curta para o modal "Sobre o autor". */
+const AUTHOR_BIO: Record<string, string> = {
+  "Santo Agostinho": "Padre e Doutor da Igreja (354–430). Bispo de Hipona, autor de Confissões e A Cidade de Deus. Mestre da graça e da Trindade.",
+  "São João Crisóstomo": "Padre e Doutor da Igreja (c. 347–407). Patriarca de Constantinopla, grande pregador. 'Crisóstomo' significa boca de ouro.",
+  "Santa Teresa d'Ávila": "Doutora da Igreja (1515–1582). Reformadora do Carmelo, mística. Autora de O Castelo Interior e Caminho de Perfeição.",
+  "São João da Cruz": "Doutor da Igreja (1542–1591). Carmelita, místico. Autor de Subida do Monte Carmelo, Noite escura e Cântico espiritual.",
+  "São Tomás de Aquino": "Doutor da Igreja (1225–1274). Dominicano, autor da Suma Teológica. Mestre da escolástica e da razão à serviço da fé.",
+  "São Gregório Magno": "Papa e Doutor da Igreja (c. 540–604). Grande pastor e escritor. Regra Pastoral e Diálogos.",
+  "São Basílio Magno": "Padre e Doutor da Igreja (330–379). Bispo de Cesareia, mestre da vida monástica e da Trindade.",
+  "Santo Ambrósio": "Padre e Doutor da Igreja (c. 340–397). Bispo de Milão, doutrina e hinos. Batizou Santo Agostinho.",
+  "São Jerônimo": "Padre e Doutor da Igreja (c. 347–420). Tradutor da Vulgata. 'Ignorar as Escrituras é ignorar Cristo.'",
+  "Abba Antônio": "Padre do Deserto (c. 251–356). Pai dos monges, eremita no Egito. Vida narrada por Santo Atanásio.",
+  "Abba Poimen": "Padre do Deserto (séc. V). Grande entre os Padres do Deserto. Sabedoria sobre o coração e a oração.",
+  "Abba Macário": "Padre do Deserto (c. 300–391). Eremita no Egito. Mestre do silêncio e da humildade.",
+  "São Boaventura": "Doutor da Igreja (1221–1274). Franciscano, teólogo. Itinerário da mente a Deus.",
+  "Santo Anselmo": "Doutor da Igreja (1033–1109). Arcebispo de Cantuária. 'Creio para entender.'",
+  "São Bernardo de Claraval": "Doutor da Igreja (1090–1153). Cisterciense, pregador. Mestre do amor a Cristo e a Maria.",
+  "São Francisco de Assis": "Santo (1181/82–1226). Fundador dos Franciscanos. Pobreza, paz e louvor à criação.",
+  "Santo Inácio de Loyola": "Santo (1491–1556). Fundador dos Jesuítas. Autor dos Exercícios Espirituais.",
+  "Santa Catarina de Sena": "Doutora da Igreja (1347–1380). Dominicana, mística. Padroeira da Itália.",
+  "Santo Afonso Maria de Ligório": "Doutor da Igreja (1696–1787). Fundador dos Redentoristas. Considerações sobre a Paixão, moral e misericórdia.",
+};
+
+export function getAuthorBio(author: string): string | undefined {
+  return AUTHOR_BIO[author];
 }
 
 /**

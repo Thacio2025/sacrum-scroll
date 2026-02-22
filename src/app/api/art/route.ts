@@ -28,6 +28,14 @@ const AUTHOR_IMAGE_TERMS: Record<string, string[]> = {
   "Abba Antônio": ["Saint Anthony the Great", "Anthony of Egypt"],
   "Abba Macário": ["Macarius of Egypt"],
   "Abba Arsenius": ["Arsenius the Great"],
+  "Santo Afonso Maria de Ligório": ["Alphonsus Liguori portrait", "Saint Alphonsus"],
+  "São Bernardo de Claraval": ["Bernard of Clairvaux portrait", "Saint Bernard"],
+  "São Francisco de Sales": ["Francis de Sales portrait", "Saint Francis de Sales"],
+  "Santo Inácio de Loyola": ["Ignatius of Loyola portrait", "Saint Ignatius"],
+  "São Francisco de Assis": ["Francis of Assisi portrait", "Saint Francis"],
+  "Santa Catarina de Sena": ["Catherine of Siena portrait", "Saint Catherine of Siena"],
+  "Santa Ângela de Foligno": ["Angela of Foligno", "Blessed Angela"],
+  "São Leão Magno": ["Pope Leo the Great", "Leo I portrait"],
 };
 
 /** Paisagens para fallback. */

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cinzel, EB_Garamond } from "next/font/google";
+import { Cinzel, Cinzel_Decorative, Cormorant_Garamond, EB_Garamond } from "next/font/google";
 import "./globals.css";
 import { MusicProvider } from "@/contexts/MusicContext";
 import { FINGERPRINT, FINGERPRINT_PHRASE } from "@/lib/antiplagio";
@@ -7,6 +7,20 @@ import { FINGERPRINT, FINGERPRINT_PHRASE } from "@/lib/antiplagio";
 const cinzel = Cinzel({
   subsets: ["latin"],
   variable: "--font-cinzel",
+  display: "swap",
+});
+
+const cinzelDecorative = Cinzel_Decorative({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-cinzel-decorative",
+  display: "swap",
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-cormorant",
   display: "swap",
 });
 
@@ -114,8 +128,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${cinzel.variable} ${garamond.variable}`}>
-      <body className="min-h-screen bg-batina text-pedra font-garamond antialiased" data-signature={FINGERPRINT}>
+    <html lang="pt-BR" className={`${cinzel.variable} ${cinzelDecorative.variable} ${cormorant.variable} ${garamond.variable}`}>
+      <body className="min-h-screen bg-batina text-pedra font-cormorant antialiased" data-signature={FINGERPRINT}>
         {/* Isca antiplágio: invisível na tela, presente no HTML para prova de autoria */}
         <span
           aria-hidden

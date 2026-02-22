@@ -2,11 +2,16 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Play, Pause, Volume2, VolumeX, Music } from "lucide-react";
+import { Play, Pause, Volume2, VolumeX, Music, SkipForward } from "lucide-react";
 import { useMusic } from "@/contexts/MusicContext";
 
 export function MusicPlayer() {
   const { currentTrack, isPlaying, volume, togglePlay, setVolume, playRandom } = useMusic();
+  const handleSkip = () => {
+    playRandom();
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 1500);
+  };
   const [isMuted, setIsMuted] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const previousVolumeRef = useRef(volume);
@@ -61,6 +66,14 @@ export function MusicPlayer() {
           ) : (
             <Play className="h-4 w-4" strokeWidth={1.5} />
           )}
+        </button>
+        <button
+          type="button"
+          onClick={handleSkip}
+          className="flex shrink-0 rounded p-1 text-pedra/70 transition hover:text-pedra"
+          aria-label="Próxima faixa"
+        >
+          <SkipForward className="h-4 w-4" strokeWidth={1.5} />
         </button>
         {currentTrack && (
           <button

@@ -1,8 +1,9 @@
-import type { QuoteCard } from "@/types/content";
+import type { QuoteCard, ContentCategory } from "@/types/content";
 import { DESERT_FATHERS_QUOTES } from "./desert-fathers";
 import { SCRIPTURE_QUOTES } from "./scripture-quotes";
 import { AUGUSTINE_QUOTES } from "./augustine-quotes";
 import { THOMAS_AQUINAS_QUOTES } from "./thomas-aquinas-quotes";
+import { PASSION_QUOTES } from "./passion-quotes";
 
 /** Primeiras 20 frases do feed: sempre Padres do Deserto. */
 const FIRST_20_DESERT = DESERT_FATHERS_QUOTES.slice(0, 20);
@@ -184,12 +185,13 @@ const REST_POOL: Omit<QuoteCard, "id">[] = [
   { category: "liturgy", author: "Liturgia das Horas", source: "Hino", text: "Cristo é a luz das nações." },
 ];
 
-/** Resto variado: Padres do Deserto (21–300) + Escritura + Agostinho + Tomás + outros. */
+/** Resto variado: Padres do Deserto (21–300) + Escritura + Agostinho + Tomás + Paixão + outros. */
 const VARIED_POOL: Omit<QuoteCard, "id">[] = [
   ...DESERT_FATHERS_QUOTES.slice(20),
   ...SCRIPTURE_QUOTES,
   ...AUGUSTINE_QUOTES,
   ...THOMAS_AQUINAS_QUOTES,
+  ...PASSION_QUOTES,
   ...REST_POOL,
 ];
 
@@ -209,5 +211,40 @@ export function getQuoteAtIndex(index: number): QuoteCard {
   return {
     ...entry,
     id: `q-${index}`,
+  };
+}
+
+/** Índices no POOL por categoria (para filtro). */
+const FILTERED_INDICES: Record<ContentCategory, number[]> = (() => {
+  const out: Record<string, number[]> = {
+    patristic: [],
+    scholastic: [],
+    mystic: [],
+    liturgy: [],
+    scripture: [],
+  };
+  POOL.forEach((entry, i) => {
+    const arr = out[entry.category];
+    if (arr) arr.push(i);
+  });
+  return out as Record<ContentCategory, number[]>;
+})();
+
+/**
+ * Retorna a citação na posição index do feed filtrado por categoria.
+ * Se category === "all", equivale a getQuoteAtIndex(index).
+ */
+export function getFilteredQuoteAtIndex(
+  category: ContentCategory | "all",
+  index: number
+): QuoteCard {
+  if (category === "all") return getQuoteAtIndex(index);
+  const indices = FILTERED_INDICES[category];
+  if (!indices.length) return getQuoteAtIndex(index);
+  const poolIndex = indices[index % indices.length]!;
+  const entry = POOL[poolIndex]!;
+  return {
+    ...entry,
+    id: `q-${category}-${index}`,
   };
 }

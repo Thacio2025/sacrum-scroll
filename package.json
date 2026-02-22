@@ -12,6 +12,7 @@
     "icons": "node scripts/generate-pwa-icons.mjs"
   },
   "dependencies": {
+    "html2canvas": "^1.4.1",
     "framer-motion": "^11.11.17",
     "lucide-react": "^0.460.0",
     "next": "15.0.5",

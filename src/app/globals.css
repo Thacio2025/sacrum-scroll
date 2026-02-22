@@ -3,10 +3,19 @@
 @tailwind utilities;
 
 :root {
+  /* Design system — fundação (HSL inspirado em manuscritos e igrejas) */
+  --background: 30 10% 6%;
+  --foreground: 40 30% 85%;
+  --primary: 43 70% 50%;
+  --primary-foreground: 30 10% 6%;
+  --accent: 0 60% 40%;
+  --muted: 30 8% 15%;
+  --muted-foreground: 40 15% 55%;
+  --card: 30 8% 10%;
+  /* Aliases mantidos para compatibilidade */
   --batina: #050505;
   --liturgico: #d4af37;
   --pedra: #a1a1aa;
-  /* Liturgical accents - override per season */
   --liturgico-accent: #d4af37;
 }
 
@@ -99,13 +108,26 @@ body {
   }
 }
 
-/* Overlay suave: imagem visível no topo, escurece aos poucos para o texto ler bem */
+/* Overlay em gradiente de baixo para cima — legibilidade da citação (IMPLEMENTACAO) */
 .art-overlay {
   background: linear-gradient(
-    to bottom,
-    rgba(5, 5, 5, 0.2) 0%,
-    rgba(5, 5, 5, 0.45) 40%,
-    rgba(5, 5, 5, 0.78) 75%,
-    rgba(5, 5, 5, 0.88) 100%
+    to top,
+    hsl(var(--background)) 0%,
+    hsl(var(--background) / 0.85) 30%,
+    hsl(var(--background) / 0.4) 70%,
+    transparent 100%
   );
+}
+
+/* Fallback se --background for usado sem HSL completo */
+@supports not (color: hsl(30 10% 6%)) {
+  .art-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(5, 5, 5, 1) 0%,
+      rgba(5, 5, 5, 0.85) 30%,
+      rgba(5, 5, 5, 0.4) 70%,
+      transparent 100%
+    );
+  }
 }

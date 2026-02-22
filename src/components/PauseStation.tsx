@@ -1,36 +1,21 @@
 "use client";
 
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { Heart } from "lucide-react";
+import { Bell } from "lucide-react";
 
-const DURATION_SEC = 10;
+const DURATION_SEC = 30;
 
-/** Jaculatórias — orações breves para as telas de pausa (coração). */
-const JACULATORIAS = [
-  "Jesus, manso e humilde de coração, fazei o meu coração semelhante ao vosso.",
-  "Senhor meu e Deus meu!",
-  "Jesus, eu confio em Vós.",
-  "Ó meu Jesus, misericórdia!",
-  "Coração de Jesus, fonte de vida e de santidade, tende piedade de nós.",
-  "Maria, Mãe de graça, Mãe de misericórdia, defendei-nos do inimigo.",
-  "Senhor, que eu veja, que eu queira o que Vós quereis.",
-  "Vinde, Espírito Santo, enchei os corações dos vossos fiéis.",
-  "Silêncio. Adore ao Senhor em seu coração.",
-  "Jesus, Maria, José.",
-  "Bendito seja Deus. Bendito seja o seu santo Nome.",
-  "Ó sangue e água que jorrastes do Coração de Jesus, eu confio em Vós.",
-  "Meu Deus e meu tudo.",
-  "Ó bom Jesus, ouvi-me. Dentro das chagas, escondei-me.",
-  "Que a paz do Senhor esteja sempre convosco.",
-];
+const PAUSE_PHRASE = "Silêncio. Adore ao Senhor em seu coração.";
+
+/** Cruz latina: traço vertical + traço horizontal (para animação de desenho). */
+const CROSS_VERTICAL = "M 50 8 L 50 92";
+const CROSS_HORIZONTAL = "M 20 42 L 80 42";
+const STROKE_LENGTH = 84;
 
 export function PauseStation() {
   const [secondsLeft, setSecondsLeft] = useState(DURATION_SEC);
-  const jaculatoria = useMemo(
-    () => JACULATORIAS[Math.floor(Math.random() * JACULATORIAS.length)]!,
-    []
-  );
+  const bellRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     const t = setInterval(() => {
@@ -45,22 +30,68 @@ export function PauseStation() {
     return () => clearInterval(t);
   }, []);
 
+  const playBell = () => {
+    try {
+      if (bellRef.current) {
+        bellRef.current.currentTime = 0;
+        bellRef.current.play().catch(() => {});
+      }
+    } catch {
+      // autoplay pode ser bloqueado
+    }
+  };
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="flex min-h-[100vh] w-full flex-col items-center justify-center gap-8 bg-batina px-6 snap-item"
+      className="flex min-h-[100vh] w-full flex-col items-center justify-center gap-10 bg-batina px-6 snap-item"
     >
-      <motion.div
-        animate={{ scale: [1, 1.05, 1] }}
-        transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
-        className="text-liturgico"
+      {/* Sino (áudio só após gesto do usuário) */}
+      <audio
+        ref={bellRef}
+        src="https://music.wixstatic.com/preview/e585d6_b944fae2f6cc48ae8d6f0b4d4d637de9-128.mp3"
+        preload="none"
+      />
+      <button
+        type="button"
+        onClick={playBell}
+        className="flex items-center gap-2 rounded border border-liturgico/40 bg-liturgico/10 px-4 py-2 font-garamond text-sm text-liturgico transition hover:border-liturgico/60 hover:bg-liturgico/20"
+        aria-label="Tocar sino"
       >
-        <Heart className="h-16 w-16" strokeWidth={1.5} fill="currentColor" />
-      </motion.div>
+        <Bell className="h-4 w-4" strokeWidth={1.5} />
+        Tocar sino
+      </button>
+
+      {/* Cruz latina com animação de desenho (vertical + horizontal) */}
+      <svg viewBox="0 0 100 100" className="h-24 w-auto text-liturgico md:h-32">
+        <motion.path
+          d={CROSS_VERTICAL}
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeDasharray={STROKE_LENGTH}
+          initial={{ strokeDashoffset: STROKE_LENGTH }}
+          animate={{ strokeDashoffset: 0 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+        />
+        <motion.path
+          d={CROSS_HORIZONTAL}
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeDasharray={60}
+          initial={{ strokeDashoffset: 60 }}
+          animate={{ strokeDashoffset: 0 }}
+          transition={{ duration: 0.5, delay: 0.4, ease: "easeInOut" }}
+        />
+      </svg>
+
       <p className="font-garamond max-w-sm text-center text-xl italic text-pedra">
-        {jaculatoria}
+        {PAUSE_PHRASE}
       </p>
       <div className="font-cinzel text-4xl tabular-nums text-liturgico">
         {secondsLeft > 0 ? `${secondsLeft}s` : "—"}

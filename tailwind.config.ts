@@ -15,6 +15,8 @@ const config: Config = {
       },
       fontFamily: {
         cinzel: ["var(--font-cinzel)", "Cinzel", "serif"],
+        "cinzel-decorative": ["var(--font-cinzel-decorative)", "Cinzel Decorative", "serif"],
+        cormorant: ["var(--font-cormorant)", "Cormorant Garamond", "serif"],
         garamond: ["var(--font-garamond)", "EB Garamond", "serif"],
       },
       animation: {

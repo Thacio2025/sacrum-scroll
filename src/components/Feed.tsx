@@ -7,9 +7,13 @@ import { QuoteCard } from "./QuoteCard";
 import { PauseStation } from "./PauseStation";
 import { BufferPause } from "./BufferPause";
 import { WelcomeCard } from "./WelcomeCard";
+import { AuthorBio } from "./AuthorBio";
+import { CategoryFilter } from "./CategoryFilter";
+import { DailyQuoteBar } from "./DailyQuoteBar";
 import { getLiturgicalSeason } from "@/lib/liturgical-season";
 import type { QuoteCard as QuoteCardType } from "@/types/content";
-import { getQuoteAtIndex, POOL_SIZE } from "@/data/quotes-pool";
+import { getFilteredQuoteAtIndex } from "@/data/quotes-pool";
+import type { ContentCategory } from "@/types/content";
 
 const CARDS_BEFORE_PAUSE = 7;
 const ACCENT_BY_SEASON: Record<string, string> = {
@@ -66,7 +70,7 @@ function loadLikedIds(): Set<string> {
   }
 }
 
-function buildFeedItems(page: number): FeedItem[] {
+function buildFeedItems(page: number, category: ContentCategory | "all"): FeedItem[] {
   const items: FeedItem[] = ["welcome"];
   const total = (page + 1) * (CARDS_BEFORE_PAUSE + 1);
   let quoteIndex = 0;
@@ -79,7 +83,7 @@ function buildFeedItems(page: number): FeedItem[] {
       if (cardsInBlock === CARDS_BEFORE_BUFFER) {
         items.push("buffer");
       }
-      items.push(getQuoteAtIndex(quoteIndex));
+      items.push(getFilteredQuoteAtIndex(category, quoteIndex));
       quoteIndex++;
       cardsInBlock++;
     }
@@ -98,6 +102,8 @@ export function Feed() {
   const [seedVersion, setSeedVersion] = useState(0);
   const [autoAdvance, setAutoAdvance] = useState(false);
   const [passToast, setPassToast] = useState<string | null>(null);
+  const [authorBioOpen, setAuthorBioOpen] = useState<{ author: string; category: ContentCategory } | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<ContentCategory | "all">("all");
   const scrollRef = useRef<HTMLDivElement>(null);
   const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const autoAdvanceIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -176,6 +182,13 @@ export function Feed() {
   );
 
   const handleLike = useCallback((cardId: string) => {
+    try {
+      if (typeof navigator !== "undefined" && navigator.vibrate) {
+        navigator.vibrate(10);
+      }
+    } catch {
+      // vibrate não suportado
+    }
     setLikedCardIds((prev) => {
       const next = new Set(prev);
       if (next.has(cardId)) next.delete(cardId);
@@ -187,7 +200,7 @@ export function Feed() {
     });
   }, []);
 
-  const items = useMemo(() => buildFeedItems(page), [page]);
+  const items = useMemo(() => buildFeedItems(page, selectedCategory), [page, selectedCategory]);
 
   // Restaurar posição, denúncias e curtidas ao reabrir o app
   useEffect(() => {
@@ -310,39 +323,53 @@ export function Feed() {
 
   return (
     <>
-      <div ref={scrollRef} className="snap-container h-screen overflow-y-auto">
-      <AnimatePresence mode="popLayout">
-        {items.map((item, index) =>
-          item === "welcome" ? (
-            <WelcomeCard key="welcome" />
-          ) : item === "buffer" ? (
-            <BufferPause key={`buffer-${index}`} />
-          ) : item === "pause" ? (
-            <PauseStation key={`pause-${index}`} />
-          ) : (
-            <QuoteCard
-              key={`${item.id}-${index}`}
-              card={{
-                ...item,
-                imageUrl: reportedCardIds.has(item.id)
-                  ? undefined
-                  : (cardsWithImages[item.id] ?? undefined),
-              }}
-              index={index}
-              accentColor={accentColor}
-              imageLoading={reportedCardIds.has(item.id) ? false : (cardsImageLoading[item.id] ?? false)}
-              onImageLoad={() => handleImageLoad(item.id)}
-              onReportImage={() =>
-                handleReportImage(item.id, cardsWithImages[item.id] ?? undefined, item.author)
-              }
-              isLiked={likedCardIds.has(item.id)}
-              onLike={() => handleLike(item.id)}
-            />
-          )
-        )}
-      </AnimatePresence>
-      <div id="feed-sentinel" className="h-1 w-full" aria-hidden />
-    </div>
+      {authorBioOpen && (
+        <AuthorBio
+          author={authorBioOpen.author}
+          category={authorBioOpen.category}
+          isOpen={true}
+          onClose={() => setAuthorBioOpen(null)}
+        />
+      )}
+      {/* Área do feed: filtro → citação do dia → scroll dos cards */}
+      <div className="flex min-h-0 flex-1 flex-col">
+        <CategoryFilter value={selectedCategory} onChange={setSelectedCategory} />
+        <DailyQuoteBar />
+        <div ref={scrollRef} className="snap-container min-h-0 flex-1 overflow-y-auto">
+          <AnimatePresence mode="popLayout">
+            {items.map((item, index) =>
+              item === "welcome" ? (
+                <WelcomeCard key="welcome" />
+              ) : item === "buffer" ? (
+                <BufferPause key={`buffer-${index}`} />
+              ) : item === "pause" ? (
+                <PauseStation key={`pause-${index}`} />
+              ) : (
+                <QuoteCard
+                  key={`${item.id}-${index}`}
+                  card={{
+                    ...item,
+                    imageUrl: reportedCardIds.has(item.id)
+                      ? undefined
+                      : (cardsWithImages[item.id] ?? undefined),
+                  }}
+                  index={index}
+                  accentColor={accentColor}
+                  imageLoading={reportedCardIds.has(item.id) ? false : (cardsImageLoading[item.id] ?? false)}
+                  onImageLoad={() => handleImageLoad(item.id)}
+                  onReportImage={() =>
+                    handleReportImage(item.id, cardsWithImages[item.id] ?? undefined, item.author)
+                  }
+                  isLiked={likedCardIds.has(item.id)}
+                  onLike={() => handleLike(item.id)}
+                  onOpenAuthorBio={() => setAuthorBioOpen({ author: item.author, category: item.category })}
+                />
+              )
+            )}
+          </AnimatePresence>
+          <div id="feed-sentinel" className="h-1 w-full" aria-hidden />
+        </div>
+      </div>
 
       {/* Botão: passar frases sozinho — só ícone; toast breve ao clicar */}
       <div className="fixed bottom-[9rem] left-4 z-30 sm:bottom-[9rem]">

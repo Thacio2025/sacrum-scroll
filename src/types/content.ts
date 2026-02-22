@@ -8,6 +8,8 @@ export interface QuoteCard {
   text: string;
   imageUrl?: string | null;
   imageTitle?: string;
+  /** Ex.: "Séc. IV" — exibido em small-caps acima da citação */
+  century?: string;
 }
 
 export type LiturgicalSeason =
