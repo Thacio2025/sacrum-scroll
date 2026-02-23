@@ -14,10 +14,14 @@ export async function getShareCardDataUrl(card: QuoteCardType): Promise<string> 
 
   const el = document.createElement("div");
   el.setAttribute("data-share-card", "true");
+  // Colocar no viewport mas invisível (html2canvas falha com left: -9999px em alguns browsers)
   el.style.cssText = `
     position: fixed;
-    left: -9999px;
     top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0;
+    pointer-events: none;
     width: ${W}px;
     height: ${H}px;
     background: #050505;

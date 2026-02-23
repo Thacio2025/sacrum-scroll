@@ -92,6 +92,7 @@ export function QuoteCard({
   };
 
   const [sharingImage, setSharingImage] = useState(false);
+  const [shareImageToast, setShareImageToast] = useState<"ok" | "error" | null>(null);
 
   const handleShare = async () => {
     const title = `${card.author}${card.source ? ` · ${card.source}` : ""}`;
@@ -114,9 +115,19 @@ export function QuoteCard({
   const handleShareImage = async () => {
     if (sharingImage) return;
     setSharingImage(true);
+    setShareImageToast(null);
     try {
       const dataUrl = await getShareCardDataUrl(card);
-      const blob = await (await fetch(dataUrl)).blob();
+      let blob: Blob;
+      try {
+        blob = await (await fetch(dataUrl)).blob();
+      } catch {
+        const base64 = dataUrl.split(",")[1];
+        const binary = atob(base64 ?? "");
+        const bytes = new Uint8Array(binary.length);
+        for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+        blob = new Blob([bytes], { type: "image/png" });
+      }
       const file = new File([blob], "sacrumscroll-card.png", { type: "image/png" });
       if (typeof navigator !== "undefined" && navigator.share && navigator.canShare?.({ files: [file] })) {
         await navigator.share({
@@ -124,14 +135,25 @@ export function QuoteCard({
           text: `«${card.text}» — ${card.author}`,
           files: [file],
         });
+        setShareImageToast("ok");
       } else {
+        const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
-        a.href = dataUrl;
+        a.href = url;
         a.download = "sacrumscroll-card.png";
+        a.style.display = "none";
+        document.body.appendChild(a);
         a.click();
+        setTimeout(() => {
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        }, 200);
+        setShareImageToast("ok");
       }
-    } catch {
-      // falha silenciosa
+      setTimeout(() => setShareImageToast(null), 2500);
+    } catch (e) {
+      setShareImageToast("error");
+      setTimeout(() => setShareImageToast(null), 3000);
     } finally {
       setSharingImage(false);
     }
@@ -334,6 +356,23 @@ export function QuoteCard({
           aria-live="polite"
         >
           Denunciar imagem
+        </div>
+      )}
+
+      {/* Toast ao compartilhar como imagem */}
+      {shareImageToast && (
+        <div
+          className={`absolute bottom-40 left-1/2 z-30 -translate-x-1/2 rounded-full border px-3 py-1.5 font-garamond text-xs shadow-lg sm:bottom-44 md:bottom-52 ${
+            shareImageToast === "error"
+              ? "border-red-900/40 bg-red-950/90 text-red-200"
+              : "border-pedra/20 bg-batina/90 text-pedra"
+          }`}
+          role="status"
+          aria-live="polite"
+        >
+          {shareImageToast === "error"
+            ? "Não foi possível gerar a imagem"
+            : "Imagem pronta para compartilhar"}
         </div>
       )}
 
