@@ -42,6 +42,7 @@ export function AuthorBio({ author, category, isOpen, onClose }: AuthorBioProps)
     <AnimatePresence>
       {isOpen && (
         <>
+          {/* Toque fora fecha; overlay escuro */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -51,54 +52,61 @@ export function AuthorBio({ author, category, isOpen, onClose }: AuthorBioProps)
             aria-hidden
             onClick={onClose}
           />
+          {/* Bottom sheet: quase toda a largura, bordas pequenas */}
           <motion.div
             role="dialog"
             aria-modal="true"
             aria-labelledby="author-bio-title"
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ duration: 0.2 }}
-            className="fixed left-1/2 top-1/2 z-50 flex w-full max-w-md flex-col overflow-hidden rounded-lg border border-pedra/20 bg-batina p-6 shadow-xl -translate-x-1/2 -translate-y-1/2"
-            style={{
-              maxWidth: "min(28rem, calc(100vw - 2rem))",
-              maxHeight: "calc(100dvh - 2rem)",
-            }}
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "100%" }}
+            transition={{ type: "tween", duration: 0.25 }}
+            className="fixed bottom-0 left-2 right-2 z-50 flex max-h-[88dvh] flex-col overflow-hidden rounded-t-2xl border border-pedra/20 border-b-0 bg-batina shadow-2xl sm:left-4 sm:right-4"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex shrink-0 items-start justify-between gap-4 border-b border-pedra/10 pb-3">
-              <h2 id="author-bio-title" className="font-cinzel text-xl font-medium tracking-wide text-liturgico">
-                {author}
-              </h2>
-              <button
-                type="button"
-                onClick={onClose}
-                className="shrink-0 rounded p-1 text-pedra/70 transition hover:bg-white/10 hover:text-pedra"
-                aria-label="Fechar"
+            {/* Área rolável: cabeçalho fixo + conteúdo com scroll */}
+            <div className="flex min-h-0 flex-1 flex-col">
+              {/* Cabeçalho: nome + botão fechar bem visível */}
+              <div className="flex shrink-0 items-start justify-between gap-4 border-b border-pedra/15 px-5 pb-4 pt-5">
+                <h2
+                  id="author-bio-title"
+                  className="font-cinzel text-xl font-semibold tracking-wide text-liturgico"
+                >
+                  {author}
+                </h2>
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="shrink-0 rounded-lg border border-pedra/25 bg-batina/80 p-2 text-pedra/90 transition hover:bg-white/10 hover:text-pedra"
+                  aria-label="Fechar"
+                >
+                  <X className="h-5 w-5" strokeWidth={2} />
+                </button>
+              </div>
+              {/* Conteúdo com scroll suave */}
+              <div
+                className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-4"
+                style={{ WebkitOverflowScrolling: "touch" }}
               >
-                <X className="h-5 w-5" strokeWidth={2} />
-              </button>
-            </div>
-            <div
-              className="min-h-0 flex-1 overflow-y-auto overscroll-contain pt-2"
-              style={{ WebkitOverflowScrolling: "touch" }}
-            >
-              <p
-                className="font-cormorant text-xs text-pedra/80"
-                style={{ fontVariant: "small-caps" }}
-              >
-                {CATEGORY_LABELS[category]}
-                {century && ` · ${century}`}
-              </p>
-              {bio ? (
-                <p className="mt-4 font-garamond text-sm leading-relaxed text-pedra">
-                  {bio}
+                <p
+                  className="font-cormorant text-xs font-medium tracking-widest text-pedra/85"
+                  style={{ fontVariant: "small-caps" }}
+                >
+                  {CATEGORY_LABELS[category]}
+                  {century && ` · ${century}`}
                 </p>
-              ) : (
-                <p className="mt-4 font-garamond text-sm italic text-pedra/70">
-                  Biografia em preparação.
-                </p>
-              )}
+                <div className="mt-5 border-t border-pedra/10 pt-5">
+                  {bio ? (
+                    <p className="font-garamond text-base leading-loose text-pedra/95">
+                      {bio}
+                    </p>
+                  ) : (
+                    <p className="font-garamond text-base italic leading-loose text-pedra/75">
+                      Biografia em preparação.
+                    </p>
+                  )}
+                </div>
+              </div>
             </div>
           </motion.div>
         </>

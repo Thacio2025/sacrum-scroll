@@ -2,6 +2,9 @@
 
 import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
+
+/** Largura a partir da qual consideramos "TV" para tipografia grande e centralizada */
+const TV_BREAKPOINT_PX = 1920;
 import type { QuoteCard as QuoteCardType, ContentCategory } from "@/types/content";
 import { getAuthorCentury } from "@/data/authors";
 import { getShareCardDataUrl } from "@/lib/share-card-image";
@@ -65,6 +68,17 @@ export function QuoteCard({
   const [imageLoaded, setImageLoaded] = useState(false);
   const [showReportToast, setShowReportToast] = useState(false);
   const cardMotion = useMemo(() => getCardMotion(card.id), [card.id]);
+
+  /** Só aplicamos visual "TV" (fonte maior, centralizado) em telas grandes; celular horizontal mantém tipografia normal */
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const update = () => setIsLargeScreen(window.innerWidth >= TV_BREAKPOINT_PX);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+  const isTV = isPresentationMode && isLargeScreen;
 
   const showImageLoader = imageLoading || (!!card.imageUrl && !imageLoaded);
 
@@ -320,19 +334,19 @@ export function QuoteCard({
         </div>
       )}
 
-      {/* Área do texto: padding para nunca ficar atrás dos botões (modo normal); modo apresentação = TV: fonte maior, centralizado */}
+      {/* Área do texto: normal no mobile; só em tela >= 1920px (TV) aplicamos fonte maior e centralizado */}
       <div
         className={`relative z-10 flex flex-1 flex-col justify-center -translate-y-4 md:-translate-y-8 ${
-          isPresentationMode
+          isTV
             ? "text-center px-6 py-8 sm:px-10 sm:py-12 md:px-12 md:py-16 md:pt-20"
             : "text-center md:justify-end md:text-left px-4 py-6 pr-24 pb-28 sm:px-6 sm:pr-32 sm:pb-28 md:px-8 md:pr-44 md:pb-24 md:pt-28"
         }`}
       >
-        <div className={`mx-auto w-full ${isPresentationMode ? "max-w-4xl" : "max-w-2xl"}`}>
+        <div className={`mx-auto w-full ${isTV ? "max-w-4xl" : "max-w-2xl"}`}>
           {/* Caixa atrás das frases — sempre à frente visualmente, sem cobrir botões */}
           <div
             className={
-              isPresentationMode
+              isTV
                 ? "rounded-lg bg-batina/30 backdrop-blur-[1px] px-6 py-8 sm:px-10 sm:py-10 md:px-14 md:py-14"
                 : "rounded-lg bg-batina/30 backdrop-blur-[1px] px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10"
             }
@@ -340,7 +354,7 @@ export function QuoteCard({
             {/* Categoria · Século (small-caps) */}
             <p
               className={`font-cormorant font-medium tracking-widest text-pedra/90 [text-shadow:0_0_1px_rgba(0,0,0,0.9),0_1px_2px_rgba(0,0,0,0.7)] ${
-                isPresentationMode
+                isTV
                   ? "mb-4 text-sm sm:text-base md:mb-5 md:text-lg"
                   : "mb-3 text-xs md:mb-4"
               }`}
@@ -353,19 +367,19 @@ export function QuoteCard({
             </p>
             <div
               className={`flex items-center gap-2 ${
-                isPresentationMode
+                isTV
                   ? "mb-6 justify-center md:mb-8"
                   : "mb-5 justify-center md:justify-start"
               }`}
             >
               <Icon
-                className={`shrink-0 ${isPresentationMode ? "h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9" : "h-6 w-6"}`}
+                className={`shrink-0 ${isTV ? "h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9" : "h-6 w-6"}`}
                 style={{ color: accentColor }}
                 strokeWidth={1.5}
               />
               <span
                 className={`font-cinzel font-semibold uppercase tracking-widest text-white [text-shadow:0_0_1px_rgba(0,0,0,0.95),0_1px_3px_rgba(0,0,0,0.8)] ${
-                  isPresentationMode
+                  isTV
                     ? "text-lg sm:text-xl md:text-2xl"
                     : "text-base md:text-lg"
                 }`}
@@ -376,7 +390,7 @@ export function QuoteCard({
             </div>
             <blockquote
               className={`font-garamond font-medium italic leading-relaxed text-white [text-shadow:0_0_2px_rgba(0,0,0,0.95),0_2px_6px_rgba(0,0,0,0.7)] ${
-                isPresentationMode
+                isTV
                   ? "text-4xl sm:text-5xl md:text-6xl md:leading-relaxed"
                   : "text-3xl md:text-4xl md:leading-relaxed"
               }`}
