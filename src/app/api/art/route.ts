@@ -27,7 +27,7 @@ const AUTHOR_IMAGE_TERMS: Record<string, string[]> = {
   "Duns Escoto": ["Duns Scotus portrait"],
   "Abba Antônio": ["Saint Anthony the Great", "Anthony of Egypt"],
   "Abba Macário": ["Macarius of Egypt"],
-  "Abba Arsenius": ["Arsenius the Great"],
+  // Abba Arsenius: removido — buscas no Commons devolviam imagens irrelevantes (documentos/retratos não relacionados)
   "Santo Afonso Maria de Ligório": ["Alphonsus Liguori portrait", "Saint Alphonsus"],
   "São Bernardo de Claraval": ["Bernard of Clairvaux portrait", "Saint Bernard"],
   "São Francisco de Sales": ["Francis de Sales portrait", "Saint Francis de Sales"],

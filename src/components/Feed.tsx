@@ -384,7 +384,8 @@ export function Feed() {
           setPage((p) => p + 1);
         }
       },
-      { threshold: 0.1, rootMargin: "100px" }
+      // rootMargin grande para baixo: quando o usuário está na Pausa de Silêncio (último card), o sentinel já entra na área observada e carrega mais itens — evita ficar “preso” no snap
+      { threshold: 0, rootMargin: "0px 0px 100% 0px" }
     );
     const sentinel = document.getElementById("feed-sentinel");
     if (sentinel) observer.observe(sentinel);
