@@ -35,6 +35,7 @@ type FeedItem = "welcome" | "buffer" | "pause" | QuoteCardType;
 
 const CARDS_BEFORE_BUFFER = 5; // após 5 cards, pausa de 15s para carregar imagens
 const ADVANCE_INTERVAL_OPTIONS = [10, 20, 30, 40] as const; // segundos (opção do usuário)
+const PRESENTATION_POOL_SIZE = 50; // modo TV: só este número de frases em ciclo, 1 card no DOM
 const STORAGE_KEY = "sacrumscroll-position";
 const STORAGE_KEY_ADVANCE_INTERVAL = "sacrumscroll-auto-advance-interval";
 const REPORTED_STORAGE_KEY = "sacrumscroll-reported";
@@ -123,10 +124,21 @@ export function Feed() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const autoAdvanceIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const presentationIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const [presentationSlideIndex, setPresentationSlideIndex] = useState(0);
   const accentColor = getAccentColor();
   const { presentationMode } = usePresentation();
   /** Seed por visita: novo a cada abertura; em restauração (bfcache) renovamos e refetch. */
   const sessionSeedRef = useRef<string>(getSessionSeed());
+
+  // Pool fixo para modo apresentação (TV): evita acúmulo no DOM
+  const presentationQuotes = useMemo(() => {
+    const list: QuoteCardType[] = [];
+    for (let i = 0; i < PRESENTATION_POOL_SIZE; i++) {
+      list.push(getFilteredQuoteAtIndex(selectedCategory, i));
+    }
+    return list;
+  }, [selectedCategory]);
 
   // Quando a página é restaurada do bfcache (ex.: voltou à aba), nova série de imagens
   useEffect(() => {
@@ -150,9 +162,32 @@ export function Feed() {
     } catch {}
   }, [advanceIntervalSeconds]);
 
-  // Passar frases sozinho: a cada N segundos avança para o próximo card
+  // Pausar ao sair da aba/janela; retomar ao voltar (evita avanço rápido e piscadas)
+  const [visibilityHidden, setVisibilityHidden] = useState(false);
   useEffect(() => {
-    if (!autoAdvance) {
+    if (typeof document === "undefined") return;
+    const onVisibility = () => {
+      if (document.hidden) {
+        if (autoAdvanceIntervalRef.current) {
+          clearInterval(autoAdvanceIntervalRef.current);
+          autoAdvanceIntervalRef.current = null;
+        }
+        if (presentationIntervalRef.current) {
+          clearInterval(presentationIntervalRef.current);
+          presentationIntervalRef.current = null;
+        }
+        setVisibilityHidden(true);
+      } else {
+        setVisibilityHidden(false);
+      }
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => document.removeEventListener("visibilitychange", onVisibility);
+  }, []);
+
+  // Passar frases sozinho (modo scroll): intervalo único, sem transição (behavior: auto)
+  useEffect(() => {
+    if (!autoAdvance || visibilityHidden || presentationMode) {
       if (autoAdvanceIntervalRef.current) {
         clearInterval(autoAdvanceIntervalRef.current);
         autoAdvanceIntervalRef.current = null;
@@ -169,14 +204,13 @@ export function Feed() {
       const currentIndex = Math.round(scrollTop / cardHeight);
       const maxIndex = Math.max(0, Math.floor(el.scrollHeight / cardHeight) - 1);
       let nextIndex = Math.min(currentIndex + 1, maxIndex);
-      // Se estamos no último card visível, carregar mais itens para não travar
       if (nextIndex <= currentIndex && currentIndex >= maxIndex) {
         setPage((p) => p + 1);
         return;
       }
       if (nextIndex > currentIndex) {
         const targetTop = Math.min(nextIndex * cardHeight, el.scrollHeight - cardHeight);
-        el.scrollTo({ top: targetTop, behavior: "smooth" });
+        el.scrollTo({ top: targetTop, behavior: "auto" });
       }
     };
     autoAdvanceIntervalRef.current = setInterval(advance, intervalMs);
@@ -186,7 +220,29 @@ export function Feed() {
         autoAdvanceIntervalRef.current = null;
       }
     };
-  }, [autoAdvance, advanceIntervalSeconds]);
+  }, [autoAdvance, advanceIntervalSeconds, visibilityHidden, presentationMode]);
+
+  // Modo apresentação (TV): um único card, avança por índice, sem acúmulo no DOM
+  useEffect(() => {
+    if (!presentationMode || visibilityHidden) {
+      if (presentationIntervalRef.current) {
+        clearInterval(presentationIntervalRef.current);
+        presentationIntervalRef.current = null;
+      }
+      return;
+    }
+    const intervalMs = advanceIntervalSeconds * 1000;
+    const id = setInterval(() => {
+      setPresentationSlideIndex((i) => (i + 1) % PRESENTATION_POOL_SIZE);
+    }, intervalMs);
+    presentationIntervalRef.current = id;
+    return () => {
+      if (presentationIntervalRef.current) {
+        clearInterval(presentationIntervalRef.current);
+        presentationIntervalRef.current = null;
+      }
+    };
+  }, [presentationMode, advanceIntervalSeconds, visibilityHidden]);
 
   const handleReportImage = useCallback(
     (cardId: string, imageUrl: string | null | undefined, author: string) => {
@@ -301,9 +357,14 @@ export function Feed() {
   useEffect(() => {
     abortRef.current = new AbortController();
     const signal = abortRef.current.signal;
-    const quoteCards = items.filter(
-      (x): x is QuoteCardType => x !== "pause" && x !== "welcome" && x !== "buffer"
-    );
+    const quoteCards = presentationMode
+      ? [
+          presentationQuotes[presentationSlideIndex]!,
+          presentationQuotes[(presentationSlideIndex + 1) % PRESENTATION_POOL_SIZE]!,
+        ]
+      : items.filter(
+          (x): x is QuoteCardType => x !== "pause" && x !== "welcome" && x !== "buffer"
+        );
     quoteCards.forEach((card) => {
       if (fetchedIds.current.has(card.id)) return;
       fetchedIds.current.add(card.id);
@@ -357,7 +418,13 @@ export function Feed() {
     return () => {
       abortRef.current?.abort();
     };
-  }, [items, seedVersion]);
+  }, [
+    items,
+    seedVersion,
+    presentationMode,
+    presentationQuotes,
+    presentationSlideIndex,
+  ]);
 
   return (
     <>
@@ -372,41 +439,72 @@ export function Feed() {
       {/* Área do feed: citação do dia → scroll (categorias no botão Home do header) */}
       <div className="flex min-h-0 flex-1 flex-col">
         {!presentationMode && <DailyQuoteBar />}
-        <div ref={scrollRef} className="snap-container min-h-0 flex-1 overflow-y-auto h-full">
-          <AnimatePresence mode="popLayout">
-            {items.map((item, index) =>
-              item === "welcome" ? (
-                <WelcomeCard key="welcome" />
-              ) : item === "buffer" ? (
-                <BufferPause key={`buffer-${index}`} />
-              ) : item === "pause" ? (
-                <PauseStation key={`pause-${index}`} />
-              ) : (
+        {presentationMode ? (
+          /* Modo TV: um único card, troca instantânea, sem acúmulo no DOM */
+          <div className="min-h-0 flex-1 h-full overflow-hidden">
+            {(() => {
+              const card = presentationQuotes[presentationSlideIndex]!;
+              return (
                 <QuoteCard
-                  key={`${item.id}-${index}`}
+                  key={`${card.id}-${presentationSlideIndex}`}
                   card={{
-                    ...item,
-                    imageUrl: reportedCardIds.has(item.id)
+                    ...card,
+                    imageUrl: reportedCardIds.has(card.id)
                       ? undefined
-                      : (cardsWithImages[item.id] ?? undefined),
+                      : (cardsWithImages[card.id] ?? undefined),
                   }}
-                  index={index}
+                  index={0}
                   accentColor={accentColor}
-                  imageLoading={reportedCardIds.has(item.id) ? false : (cardsImageLoading[item.id] ?? false)}
-                  onImageLoad={() => handleImageLoad(item.id)}
+                  imageLoading={reportedCardIds.has(card.id) ? false : (cardsImageLoading[card.id] ?? false)}
+                  onImageLoad={() => handleImageLoad(card.id)}
                   onReportImage={() =>
-                    handleReportImage(item.id, cardsWithImages[item.id] ?? undefined, item.author)
+                    handleReportImage(card.id, cardsWithImages[card.id] ?? undefined, card.author)
                   }
-                  isLiked={likedCardIds.has(item.id)}
-                  onLike={() => handleLike(item.id)}
-                  onOpenAuthorBio={() => setAuthorBioOpen({ author: item.author, category: item.category })}
-                  isPresentationMode={presentationMode}
+                  isLiked={likedCardIds.has(card.id)}
+                  onLike={() => handleLike(card.id)}
+                  onOpenAuthorBio={() => setAuthorBioOpen({ author: card.author, category: card.category })}
+                  isPresentationMode={true}
                 />
-              )
-            )}
-          </AnimatePresence>
-          <div id="feed-sentinel" className="h-1 w-full" aria-hidden />
-        </div>
+              );
+            })()}
+          </div>
+        ) : (
+          <div ref={scrollRef} className="snap-container min-h-0 flex-1 overflow-y-auto h-full">
+            <AnimatePresence mode="popLayout">
+              {items.map((item, index) =>
+                item === "welcome" ? (
+                  <WelcomeCard key="welcome" />
+                ) : item === "buffer" ? (
+                  <BufferPause key={`buffer-${index}`} />
+                ) : item === "pause" ? (
+                  <PauseStation key={`pause-${index}`} />
+                ) : (
+                  <QuoteCard
+                    key={`${item.id}-${index}`}
+                    card={{
+                      ...item,
+                      imageUrl: reportedCardIds.has(item.id)
+                        ? undefined
+                        : (cardsWithImages[item.id] ?? undefined),
+                    }}
+                    index={index}
+                    accentColor={accentColor}
+                    imageLoading={reportedCardIds.has(item.id) ? false : (cardsImageLoading[item.id] ?? false)}
+                    onImageLoad={() => handleImageLoad(item.id)}
+                    onReportImage={() =>
+                      handleReportImage(item.id, cardsWithImages[item.id] ?? undefined, item.author)
+                    }
+                    isLiked={likedCardIds.has(item.id)}
+                    onLike={() => handleLike(item.id)}
+                    onOpenAuthorBio={() => setAuthorBioOpen({ author: item.author, category: item.category })}
+                    isPresentationMode={false}
+                  />
+                )
+              )}
+            </AnimatePresence>
+            <div id="feed-sentinel" className="h-1 w-full" aria-hidden />
+          </div>
+        )}
       </div>
 
       {/* Botão: passar frases sozinho + seletor de intervalo — oculto no modo apresentação */}

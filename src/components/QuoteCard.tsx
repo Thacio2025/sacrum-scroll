@@ -166,9 +166,9 @@ export function QuoteCard({
   return (
     <motion.article
       layout
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.05 }}
+      initial={isPresentationMode ? false : { opacity: 0, y: 24 }}
+      animate={isPresentationMode ? { opacity: 1 } : { opacity: 1, y: 0 }}
+      transition={isPresentationMode ? { duration: 0 } : { duration: 0.5, delay: index * 0.05 }}
       className="snap-item relative flex min-h-full w-full flex-col justify-center overflow-hidden rounded-none"
     >
       {/* Fundo sempre visível (batina #050505) */}
@@ -187,12 +187,18 @@ export function QuoteCard({
             className="absolute inset-0 overflow-hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: imageLoaded ? 1 : 0 }}
-            transition={{ duration: 0.5 }}
+            transition={isPresentationMode ? { duration: 0 } : { duration: 0.5 }}
           >
             <div
-              className={`origin-center ${cardMotion.type === "zoom" ? "h-full w-full" : "absolute left-[-6%] top-[-6%] h-[112%] w-[112%]"}`}
+              className={`origin-center ${
+                isPresentationMode
+                  ? "h-full w-full"
+                  : cardMotion.type === "zoom"
+                    ? "h-full w-full"
+                    : "absolute left-[-6%] top-[-6%] h-[112%] w-[112%]"
+              }`}
               style={
-                imageLoaded
+                imageLoaded && !isPresentationMode
                   ? ({
                       "--zoom-max": cardMotion.scaleMax,
                       animation: `card-${cardMotion.type} ${cardMotion.duration}s ease-in-out infinite`,
@@ -314,18 +320,30 @@ export function QuoteCard({
         </div>
       )}
 
-      {/* Área do texto: padding para nunca ficar atrás dos botões (modo normal); no modo apresentação usa mais tela */}
-      <div className={`relative z-10 flex flex-1 flex-col justify-center text-center md:justify-end md:text-left -translate-y-4 md:-translate-y-8 ${
-        isPresentationMode
-          ? "px-6 py-8 sm:px-10 sm:py-12 md:px-12 md:py-16 md:pt-20"
-          : "px-4 py-6 pr-24 pb-28 sm:px-6 sm:pr-32 sm:pb-28 md:px-8 md:pr-44 md:pb-24 md:pt-28"
-      }`}>
-        <div className="mx-auto w-full max-w-2xl">
+      {/* Área do texto: padding para nunca ficar atrás dos botões (modo normal); modo apresentação = TV: fonte maior, centralizado */}
+      <div
+        className={`relative z-10 flex flex-1 flex-col justify-center -translate-y-4 md:-translate-y-8 ${
+          isPresentationMode
+            ? "text-center px-6 py-8 sm:px-10 sm:py-12 md:px-12 md:py-16 md:pt-20"
+            : "text-center md:justify-end md:text-left px-4 py-6 pr-24 pb-28 sm:px-6 sm:pr-32 sm:pb-28 md:px-8 md:pr-44 md:pb-24 md:pt-28"
+        }`}
+      >
+        <div className={`mx-auto w-full ${isPresentationMode ? "max-w-4xl" : "max-w-2xl"}`}>
           {/* Caixa atrás das frases — sempre à frente visualmente, sem cobrir botões */}
-          <div className="rounded-lg bg-batina/30 backdrop-blur-[1px] px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10">
+          <div
+            className={
+              isPresentationMode
+                ? "rounded-lg bg-batina/30 backdrop-blur-[1px] px-6 py-8 sm:px-10 sm:py-10 md:px-14 md:py-14"
+                : "rounded-lg bg-batina/30 backdrop-blur-[1px] px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10"
+            }
+          >
             {/* Categoria · Século (small-caps) */}
             <p
-              className="mb-3 font-cormorant text-xs font-medium tracking-widest text-pedra/90 md:mb-4 [text-shadow:0_0_1px_rgba(0,0,0,0.9),0_1px_2px_rgba(0,0,0,0.7)]"
+              className={`font-cormorant font-medium tracking-widest text-pedra/90 [text-shadow:0_0_1px_rgba(0,0,0,0.9),0_1px_2px_rgba(0,0,0,0.7)] ${
+                isPresentationMode
+                  ? "mb-4 text-sm sm:text-base md:mb-5 md:text-lg"
+                  : "mb-3 text-xs md:mb-4"
+              }`}
               style={{ fontVariant: "small-caps" }}
             >
               {CATEGORY_LABELS[card.category]}
@@ -333,14 +351,36 @@ export function QuoteCard({
                 <> · {card.century ?? getAuthorCentury(card.author)}</>
               )}
             </p>
-            <div className="mb-5 flex items-center justify-center gap-2 md:justify-start">
-              <Icon className="h-6 w-6 shrink-0" strokeWidth={1.5} style={{ color: accentColor }} />
-              <span className="font-cinzel text-base font-semibold uppercase tracking-widest text-white [text-shadow:0_0_1px_rgba(0,0,0,0.95),0_1px_3px_rgba(0,0,0,0.8)] md:text-lg">
+            <div
+              className={`flex items-center gap-2 ${
+                isPresentationMode
+                  ? "mb-6 justify-center md:mb-8"
+                  : "mb-5 justify-center md:justify-start"
+              }`}
+            >
+              <Icon
+                className={`shrink-0 ${isPresentationMode ? "h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9" : "h-6 w-6"}`}
+                style={{ color: accentColor }}
+                strokeWidth={1.5}
+              />
+              <span
+                className={`font-cinzel font-semibold uppercase tracking-widest text-white [text-shadow:0_0_1px_rgba(0,0,0,0.95),0_1px_3px_rgba(0,0,0,0.8)] ${
+                  isPresentationMode
+                    ? "text-lg sm:text-xl md:text-2xl"
+                    : "text-base md:text-lg"
+                }`}
+              >
                 {card.author}
                 {card.source && ` · ${card.source}`}
               </span>
             </div>
-            <blockquote className="font-garamond text-3xl font-medium italic leading-relaxed text-white [text-shadow:0_0_2px_rgba(0,0,0,0.95),0_2px_6px_rgba(0,0,0,0.7)] md:text-4xl md:leading-relaxed">
+            <blockquote
+              className={`font-garamond font-medium italic leading-relaxed text-white [text-shadow:0_0_2px_rgba(0,0,0,0.95),0_2px_6px_rgba(0,0,0,0.7)] ${
+                isPresentationMode
+                  ? "text-4xl sm:text-5xl md:text-6xl md:leading-relaxed"
+                  : "text-3xl md:text-4xl md:leading-relaxed"
+              }`}
+            >
               «{card.text}»
             </blockquote>
           </div>
