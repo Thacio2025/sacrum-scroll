@@ -80,6 +80,9 @@ export function QuoteCard({
   }, []);
   const isTV = isPresentationMode && isLargeScreen;
 
+  /** Modo apresentação no celular: scroll na citação, card mais largo, contraste melhor */
+  const isMobilePresentation = isPresentationMode && !isLargeScreen;
+
   const showImageLoader = imageLoading || (!!card.imageUrl && !imageLoaded);
 
   const handleReportClick = () => {
@@ -334,21 +337,32 @@ export function QuoteCard({
         </div>
       )}
 
-      {/* Área do texto: normal no mobile; só em tela >= 1920px (TV) aplicamos fonte maior e centralizado */}
+      {/* Área do texto: normal no mobile; só em tela >= 1920px (TV) aplicamos fonte maior e centralizado; no celular em apresentação: scroll e mais largura */}
       <div
         className={`relative z-10 flex flex-1 flex-col justify-center -translate-y-4 md:-translate-y-8 ${
           isTV
             ? "text-center px-6 py-8 sm:px-10 sm:py-12 md:px-12 md:py-16 md:pt-20"
-            : "text-center md:justify-end md:text-left px-4 py-6 pr-24 pb-28 sm:px-6 sm:pr-32 sm:pb-28 md:px-8 md:pr-44 md:pb-24 md:pt-28"
+            : isMobilePresentation
+              ? "min-h-0 text-center px-3 py-4 sm:px-4 sm:py-5"
+              : "text-center md:justify-end md:text-left px-4 py-6 pr-24 pb-28 sm:px-6 sm:pr-32 sm:pb-28 md:px-8 md:pr-44 md:pb-24 md:pt-28"
         }`}
       >
-        <div className={`mx-auto w-full ${isTV ? "max-w-4xl" : "max-w-2xl"}`}>
-          {/* Caixa atrás das frases — sempre à frente visualmente, sem cobrir botões */}
+        <div
+          className={`mx-auto w-full ${isTV ? "max-w-4xl" : isMobilePresentation ? "max-w-3xl" : "max-w-2xl"}`}
+        >
+          {/* Caixa atrás das frases — no celular em apresentação: scroll interno e contraste maior */}
           <div
             className={
               isTV
                 ? "rounded-lg bg-batina/30 backdrop-blur-[1px] px-6 py-8 sm:px-10 sm:py-10 md:px-14 md:py-14"
-                : "rounded-lg bg-batina/30 backdrop-blur-[1px] px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10"
+                : isMobilePresentation
+                  ? "max-h-[75dvh] overflow-y-auto rounded-lg bg-batina/50 backdrop-blur-[1px] px-4 py-5 sm:px-5 sm:py-6"
+                  : "rounded-lg bg-batina/30 backdrop-blur-[1px] px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10"
+            }
+            style={
+              isMobilePresentation
+                ? { WebkitOverflowScrolling: "touch" as const }
+                : undefined
             }
           >
             {/* Categoria · Século (small-caps) */}

@@ -43,13 +43,16 @@ export function HomeLayout() {
           <button
             type="button"
             onClick={() => setPresentationMode(false)}
-            className="fixed right-4 z-40 flex items-center gap-2 rounded border border-pedra/30 bg-batina/80 px-3 py-2 font-garamond text-xs text-pedra/90 backdrop-blur-sm transition hover:border-pedra/50 hover:bg-batina hover:text-pedra"
-            style={{ top: "calc(1rem + env(safe-area-inset-top, 0))" }}
+            className="fixed z-40 flex min-h-[44px] min-w-[44px] items-center justify-center gap-2 rounded-lg border border-pedra/30 bg-batina/80 px-4 py-3 font-garamond text-xs text-pedra/90 backdrop-blur-sm transition hover:border-pedra/50 hover:bg-batina hover:text-pedra"
+            style={{
+              top: "calc(0.75rem + env(safe-area-inset-top, 0))",
+              right: "calc(0.75rem + env(safe-area-inset-right, 0))",
+            }}
             aria-label="Sair do modo apresentação"
             title="Sair do modo apresentação"
           >
-            <X className="h-4 w-4" strokeWidth={2} />
-            Sair
+            <X className="h-5 w-5 shrink-0" strokeWidth={2} />
+            <span className="hidden sm:inline">Sair</span>
           </button>
         </>
       )}
