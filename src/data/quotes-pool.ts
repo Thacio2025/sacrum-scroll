@@ -9,7 +9,7 @@ import { PASSION_QUOTES } from "./passion-quotes";
  * Quando true, o feed usa APENAS Padres do Deserto; o resto das frases fica no código mas offline.
  * Mude para false para voltar a exibir todas as categorias.
  */
-const USE_ONLY_DESERT_FATHERS = true;
+export const USE_ONLY_DESERT_FATHERS = true;
 
 /** Primeiras 20 frases do feed: sempre Padres do Deserto (usado quando USE_ONLY_DESERT_FATHERS é false). */
 const FIRST_20_DESERT = DESERT_FATHERS_QUOTES.slice(0, 20);
@@ -243,6 +243,13 @@ const FILTERED_INDICES: Record<ContentCategory, number[]> = (() => {
 
 /** Tipo de filtro do feed: categorias + "all". */
 export type FilterCategory = ContentCategory | "all";
+
+/** Tamanho efetivo do pool para a categoria (para "all" = POOL_SIZE; para outras = tamanho dos índices filtrados). */
+export function getFilteredPoolSize(category: FilterCategory): number {
+  if (category === "all") return POOL_SIZE;
+  const indices = FILTERED_INDICES[category];
+  return indices?.length ?? POOL_SIZE;
+}
 
 /**
  * Retorna a citação na posição index do feed filtrado por categoria.

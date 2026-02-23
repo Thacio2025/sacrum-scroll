@@ -12,7 +12,7 @@ import { AuthorBio } from "./AuthorBio";
 import { DailyQuoteBar } from "./DailyQuoteBar";
 import { getLiturgicalSeason } from "@/lib/liturgical-season";
 import type { QuoteCard as QuoteCardType } from "@/types/content";
-import { getFilteredQuoteAtIndex, type FilterCategory } from "@/data/quotes-pool";
+import { getFilteredQuoteAtIndex, getFilteredPoolSize, POOL_SIZE, type FilterCategory } from "@/data/quotes-pool";
 import type { ContentCategory } from "@/types/content";
 import { usePresentation } from "@/contexts/PresentationContext";
 import { useCategory } from "@/contexts/CategoryContext";
@@ -104,7 +104,15 @@ const WHATSAPP_AT_QUOTE = 12;
 const DISCOVERY_AT_QUOTE = 20;
 const EBOOK_AT_QUOTE = 30;
 
-function buildFeedItems(page: number, category: FilterCategory): FeedItem[] {
+/**
+ * Constrói os itens do feed. startOffset faz a primeira frase de cada visita ser um trecho diferente do pool (mais novidade).
+ */
+function buildFeedItems(
+  page: number,
+  category: FilterCategory,
+  startOffset: number
+): FeedItem[] {
+  const poolSize = getFilteredPoolSize(category);
   const items: FeedItem[] = ["welcome"];
   const total = (page + 1) * (CARDS_BEFORE_PAUSE + 1);
   let quoteIndex = 0;
@@ -137,7 +145,8 @@ function buildFeedItems(page: number, category: FilterCategory): FeedItem[] {
         quoteIndex++;
         cardsInBlock++;
       } else {
-        items.push(getFilteredQuoteAtIndex(category, quoteIndex));
+        const effectiveIndex = (startOffset + quoteIndex) % poolSize;
+        items.push(getFilteredQuoteAtIndex(category, effectiveIndex));
         quoteIndex++;
         cardsInBlock++;
       }
@@ -169,15 +178,21 @@ export function Feed() {
   const { presentationMode } = usePresentation();
   /** Seed por visita: novo a cada abertura; em restauração (bfcache) renovamos e refetch. */
   const sessionSeedRef = useRef<string>(getSessionSeed());
+  /** Offset aleatório por sessão: cada abertura do app mostra um trecho diferente do pool (mais novidade). */
+  const [sessionStartOffset] = useState(() =>
+    typeof window !== "undefined" ? Math.floor(Math.random() * POOL_SIZE) : 0
+  );
 
-  // Pool fixo para modo apresentação (TV): evita acúmulo no DOM
+  // Pool fixo para modo apresentação (TV): evita acúmulo no DOM; usa o mesmo offset de sessão para variedade
   const presentationQuotes = useMemo(() => {
+    const poolSize = getFilteredPoolSize(selectedCategory);
     const list: QuoteCardType[] = [];
     for (let i = 0; i < PRESENTATION_POOL_SIZE; i++) {
-      list.push(getFilteredQuoteAtIndex(selectedCategory, i));
+      const effectiveIndex = (sessionStartOffset + i) % poolSize;
+      list.push(getFilteredQuoteAtIndex(selectedCategory, effectiveIndex));
     }
     return list;
-  }, [selectedCategory]);
+  }, [selectedCategory, sessionStartOffset]);
 
   // Quando a página é restaurada do bfcache (ex.: voltou à aba), nova série de imagens
   useEffect(() => {
@@ -321,7 +336,10 @@ export function Feed() {
     });
   }, []);
 
-  const items = useMemo(() => buildFeedItems(page, selectedCategory), [page, selectedCategory]);
+  const items = useMemo(
+    () => buildFeedItems(page, selectedCategory, sessionStartOffset),
+    [page, selectedCategory, sessionStartOffset]
+  );
 
   // Restaurar posição, denúncias e curtidas ao reabrir o app
   useEffect(() => {

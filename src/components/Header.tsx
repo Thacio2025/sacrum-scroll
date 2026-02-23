@@ -5,8 +5,9 @@ import { Maximize2, Minimize2, Monitor, Home, ChevronDown } from "lucide-react";
 import { usePresentation } from "@/contexts/PresentationContext";
 import { useCategory } from "@/contexts/CategoryContext";
 import type { FilterCategory } from "@/data/quotes-pool";
+import { USE_ONLY_DESERT_FATHERS } from "@/data/quotes-pool";
 
-const CATEGORIES: { value: FilterCategory; label: string }[] = [
+const ALL_CATEGORIES: { value: FilterCategory; label: string }[] = [
   { value: "all", label: "Todos" },
   { value: "patristic", label: "Patrística" },
   { value: "scholastic", label: "Escolástica" },
@@ -14,6 +15,10 @@ const CATEGORIES: { value: FilterCategory; label: string }[] = [
   { value: "liturgy", label: "Liturgia" },
   { value: "scripture", label: "Escritura" },
 ];
+
+const CATEGORIES: { value: FilterCategory; label: string }[] = USE_ONLY_DESERT_FATHERS
+  ? ALL_CATEGORIES.filter((c) => c.value === "all")
+  : ALL_CATEGORIES;
 
 export function Header() {
   const [isFullscreen, setIsFullscreen] = useState(false);
