@@ -5,7 +5,13 @@ import { AUGUSTINE_QUOTES } from "./augustine-quotes";
 import { THOMAS_AQUINAS_QUOTES } from "./thomas-aquinas-quotes";
 import { PASSION_QUOTES } from "./passion-quotes";
 
-/** Primeiras 20 frases do feed: sempre Padres do Deserto. */
+/**
+ * Quando true, o feed usa APENAS Padres do Deserto; o resto das frases fica no código mas offline.
+ * Mude para false para voltar a exibir todas as categorias.
+ */
+const USE_ONLY_DESERT_FATHERS = true;
+
+/** Primeiras 20 frases do feed: sempre Padres do Deserto (usado quando USE_ONLY_DESERT_FATHERS é false). */
 const FIRST_20_DESERT = DESERT_FATHERS_QUOTES.slice(0, 20);
 
 /**
@@ -185,7 +191,7 @@ const REST_POOL: Omit<QuoteCard, "id">[] = [
   { category: "liturgy", author: "Liturgia das Horas", source: "Hino", text: "Cristo é a luz das nações." },
 ];
 
-/** Resto variado: Padres do Deserto (21–300) + Escritura + Agostinho + Tomás + Paixão + outros. */
+/** Resto variado: Padres do Deserto (21+) + Escritura + Agostinho + Tomás + Paixão + outros. (Offline quando USE_ONLY_DESERT_FATHERS.) */
 const VARIED_POOL: Omit<QuoteCard, "id">[] = [
   ...DESERT_FATHERS_QUOTES.slice(20),
   ...SCRIPTURE_QUOTES,
@@ -195,11 +201,16 @@ const VARIED_POOL: Omit<QuoteCard, "id">[] = [
   ...REST_POOL,
 ];
 
-/** Pool completo: primeiras 20 Padres do Deserto + pool variado */
-const POOL: Omit<QuoteCard, "id">[] = [
+/** Pool completo quando USE_ONLY_DESERT_FATHERS é false: primeiras 20 Padres do Deserto + pool variado */
+const FULL_POOL: Omit<QuoteCard, "id">[] = [
   ...FIRST_20_DESERT,
   ...VARIED_POOL,
 ];
+
+/** Pool ativo no feed: só Padres do Deserto ou pool completo, conforme a flag. */
+const POOL: Omit<QuoteCard, "id">[] = USE_ONLY_DESERT_FATHERS
+  ? [...DESERT_FATHERS_QUOTES]
+  : FULL_POOL;
 
 // Exportar REST_POOL para uso em authors.ts
 export { REST_POOL };
