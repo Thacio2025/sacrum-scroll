@@ -7,6 +7,7 @@ import { QuoteCard } from "./QuoteCard";
 import { PauseStation } from "./PauseStation";
 import { BufferPause } from "./BufferPause";
 import { WelcomeCard } from "./WelcomeCard";
+import { WhatsAppCard, DiscoveryCard, EbookCard } from "./ConversionCards";
 import { AuthorBio } from "./AuthorBio";
 import { DailyQuoteBar } from "./DailyQuoteBar";
 import { getLiturgicalSeason } from "@/lib/liturgical-season";
@@ -31,7 +32,19 @@ function getAccentColor(): string {
   return ACCENT_BY_SEASON[season] ?? "#d4af37";
 }
 
-type FeedItem = "welcome" | "buffer" | "pause" | QuoteCardType;
+type DiscoveryFeedItem = { type: "discovery" };
+type FeedItem =
+  | "welcome"
+  | "buffer"
+  | "pause"
+  | "whatsapp"
+  | "ebook"
+  | DiscoveryFeedItem
+  | QuoteCardType;
+
+function isQuoteCard(item: FeedItem): item is QuoteCardType {
+  return typeof item === "object" && item !== null && "id" in item && "text" in item && "author" in item;
+}
 
 const CARDS_BEFORE_BUFFER = 5; // após 5 cards, pausa de 15s para carregar imagens
 const ADVANCE_INTERVAL_OPTIONS = [10, 20, 30, 40] as const; // segundos (opção do usuário)
@@ -86,6 +99,11 @@ function loadAdvanceInterval(): number {
   }
 }
 
+/** Posições dos cards especiais por número de citação (1-based). Se coincidir com pausa, desloca 1 para frente. */
+const WHATSAPP_AT_QUOTE = 12;
+const DISCOVERY_AT_QUOTE = 20;
+const EBOOK_AT_QUOTE = 30;
+
 function buildFeedItems(page: number, category: FilterCategory): FeedItem[] {
   const items: FeedItem[] = ["welcome"];
   const total = (page + 1) * (CARDS_BEFORE_PAUSE + 1);
@@ -99,9 +117,30 @@ function buildFeedItems(page: number, category: FilterCategory): FeedItem[] {
       if (cardsInBlock === CARDS_BEFORE_BUFFER) {
         items.push("buffer");
       }
-      items.push(getFilteredQuoteAtIndex(category, quoteIndex));
-      quoteIndex++;
-      cardsInBlock++;
+      const n = quoteIndex + 1;
+      const isPauseSlot = (i + 1) % (CARDS_BEFORE_PAUSE + 1) === 0;
+      const slotForSpecial = !isPauseSlot;
+      let pushedSpecial = false;
+      if (slotForSpecial && n % WHATSAPP_AT_QUOTE === 0) {
+        items.push("whatsapp");
+        pushedSpecial = true;
+      }
+      if (slotForSpecial && n % DISCOVERY_AT_QUOTE === 0) {
+        items.push({ type: "discovery" });
+        pushedSpecial = true;
+      }
+      if (slotForSpecial && n % EBOOK_AT_QUOTE === 0) {
+        items.push("ebook");
+        pushedSpecial = true;
+      }
+      if (pushedSpecial) {
+        quoteIndex++;
+        cardsInBlock++;
+      } else {
+        items.push(getFilteredQuoteAtIndex(category, quoteIndex));
+        quoteIndex++;
+        cardsInBlock++;
+      }
     }
   }
   return items;
@@ -362,9 +401,7 @@ export function Feed() {
           presentationQuotes[presentationSlideIndex]!,
           presentationQuotes[(presentationSlideIndex + 1) % PRESENTATION_POOL_SIZE]!,
         ]
-      : items.filter(
-          (x): x is QuoteCardType => x !== "pause" && x !== "welcome" && x !== "buffer"
-        );
+      : items.filter(isQuoteCard);
     quoteCards.forEach((card) => {
       if (fetchedIds.current.has(card.id)) return;
       fetchedIds.current.add(card.id);
@@ -478,7 +515,13 @@ export function Feed() {
                   <BufferPause key={`buffer-${index}`} />
                 ) : item === "pause" ? (
                   <PauseStation key={`pause-${index}`} />
-                ) : (
+                ) : item === "whatsapp" ? (
+                  <WhatsAppCard key={`whatsapp-${index}`} />
+                ) : item === "ebook" ? (
+                  <EbookCard key={`ebook-${index}`} />
+                ) : item !== null && typeof item === "object" && "type" in item && item.type === "discovery" ? (
+                  <DiscoveryCard key={`discovery-${index}`} />
+                ) : isQuoteCard(item) ? (
                   <QuoteCard
                     key={`${item.id}-${index}`}
                     card={{
@@ -499,7 +542,7 @@ export function Feed() {
                     onOpenAuthorBio={() => setAuthorBioOpen({ author: item.author, category: item.category })}
                     isPresentationMode={false}
                   />
-                )
+                ) : null
               )}
             </AnimatePresence>
             <div id="feed-sentinel" className="h-1 w-full" aria-hidden />
