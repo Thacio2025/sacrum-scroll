@@ -83,6 +83,7 @@ export function QuoteCard({
 }) {
   const Icon = categoryIcons[card.category];
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [textReady, setTextReady] = useState(false);
   const [showReportToast, setShowReportToast] = useState(false);
   const cardMotion = useMemo(() => getCardMotion(card.id), [card.id]);
 
@@ -329,6 +330,14 @@ export function QuoteCard({
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps -- onImageLoad fora das deps evita loop (imagem sumindo/carregando)
   }, [card.imageUrl]);
+
+  // Garante que o texto não fique escondido por muito tempo:
+  // se a imagem demorar, após ~300ms o texto aparece mesmo sem imageLoaded.
+  useEffect(() => {
+    setTextReady(false);
+    const t = setTimeout(() => setTextReady(true), 300);
+    return () => clearTimeout(t);
+  }, [card.id, card.imageUrl]);
 
   const hasNoImage = !card.imageUrl || card.imageUrl === null;
 
@@ -584,7 +593,7 @@ export function QuoteCard({
         </div>
       )}
 
-      {/* Área do texto: só revela junto com a imagem (evita frase primeiro, imagem depois) */}
+      {/* Área do texto: tenta entrar junto com a imagem; se ela demorar, o texto aparece após um pequeno atraso */}
       <div
         className={`relative z-10 flex flex-1 flex-col justify-center -translate-y-4 md:-translate-y-8 ${
           isTV
@@ -594,7 +603,7 @@ export function QuoteCard({
               : "text-center md:justify-end md:text-left px-4 py-6 pr-24 pb-28 sm:px-6 sm:pr-32 sm:pb-28 md:px-8 md:pr-44 md:pb-24 md:pt-28"
         }`}
         style={{
-          opacity: hasNoImage || imageLoaded ? 1 : 0,
+          opacity: hasNoImage || imageLoaded || textReady ? 1 : 0,
           transition: "opacity 0.5s ease",
         }}
       >
