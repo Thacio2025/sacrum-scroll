@@ -51,9 +51,11 @@ export async function getShareCardDataUrl(card: QuoteCardType): Promise<string> 
   ctx.fillStyle = "#050505";
   ctx.fillRect(0, 0, W, H);
 
-  const paddingX = 80;
-  const topY = 120;
+  // Layout mais centrado
+  const paddingX = 120;
+  const topY = 180;
   const maxWidth = W - paddingX * 2;
+  const centerX = W / 2;
 
   // Categoria
   const categoryLabel =
@@ -71,32 +73,33 @@ export async function getShareCardDataUrl(card: QuoteCardType): Promise<string> 
   ctx.font = "22px Georgia, 'EB Garamond', serif";
   ctx.textBaseline = "top";
   ctx.letterSpacing = 0 as any; // TS appeasement; browsers ignoram aqui
+  ctx.textAlign = "center";
 
   let y = topY;
-  ctx.fillText(categoryLabel, paddingX, y);
+  ctx.fillText(categoryLabel, centerX, y);
   y += 40;
 
   // Citação
   ctx.fillStyle = "#ffffff";
   ctx.font = "italic 42px Georgia, 'EB Garamond', serif";
   const quoteText = `«${card.text}»`;
-  y = drawWrappedText(ctx, quoteText, paddingX, y, maxWidth, 54);
+  y = drawWrappedText(ctx, quoteText, centerX, y, maxWidth, 54);
   y += 32;
 
   // Autor + fonte
   ctx.fillStyle = "#d4af37";
   ctx.font = "600 28px Georgia, 'EB Garamond', serif";
   const authorLine = `— ${card.author}${card.source ? ` · ${card.source}` : ""}`;
-  y = drawWrappedText(ctx, authorLine, paddingX, y, maxWidth, 34);
+  y = drawWrappedText(ctx, authorLine, centerX, y, maxWidth, 34);
   y += 28;
 
-  // Marca
+  // Marca — URL maior e centralizada
   ctx.fillStyle = "#d4af37";
-  ctx.font = "20px Georgia, 'EB Garamond', serif";
+  ctx.font = "32px Georgia, 'EB Garamond', serif";
   ctx.letterSpacing = 0 as any;
-  const brand = "SACRUMSCROLL";
-  const brandWidth = ctx.measureText(brand).width;
-  ctx.fillText(brand, W - paddingX - brandWidth, H - 100);
+  ctx.textAlign = "center";
+  const brand = "www.sacrumscroll.com";
+  ctx.fillText(brand, centerX, H - 120);
 
   return canvas.toDataURL("image/png");
 }
