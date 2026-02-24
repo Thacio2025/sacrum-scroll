@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Maximize2, Minimize2, Monitor, Home, ChevronDown } from "lucide-react";
-import { usePresentation } from "@/contexts/PresentationContext";
+import { usePresentation, ensureScreenWakeLock, releaseScreenWakeLock } from "@/contexts/PresentationContext";
 import { useCategory } from "@/contexts/CategoryContext";
 import type { FilterCategory } from "@/data/quotes-pool";
 import { USE_ONLY_DESERT_FATHERS } from "@/data/quotes-pool";
@@ -56,11 +56,16 @@ export function Header() {
 
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen?.().then(() => {
-        setPresentationMode(true);
-      }).catch(() => {});
+      document.documentElement.requestFullscreen
+        ?.()
+        .then(() => {
+          setPresentationMode(true);
+          void ensureScreenWakeLock();
+        })
+        .catch(() => {});
     } else {
       document.exitFullscreen?.();
+      void releaseScreenWakeLock();
     }
   };
 

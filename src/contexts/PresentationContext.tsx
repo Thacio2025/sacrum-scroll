@@ -2,6 +2,36 @@
 
 import { createContext, useContext, useState, useCallback, useEffect } from "react";
 
+// Wake Lock simples para tentar manter a tela ligada em modo apresentação / tela cheia
+let screenWakeLock: any | null = null;
+
+export async function ensureScreenWakeLock() {
+  try {
+    if (typeof navigator === "undefined") return;
+    const nav = navigator as any;
+    if (!nav.wakeLock?.request) return;
+    if (screenWakeLock) return;
+    const lock = await nav.wakeLock.request("screen");
+    screenWakeLock = lock;
+    lock.addEventListener?.("release", () => {
+      screenWakeLock = null;
+    });
+  } catch {
+    // Falha silenciosa: dispositivo/navegador pode não suportar ou negar o lock
+  }
+}
+
+export async function releaseScreenWakeLock() {
+  try {
+    if (!screenWakeLock) return;
+    await screenWakeLock.release?.();
+  } catch {
+    // ignore
+  } finally {
+    screenWakeLock = null;
+  }
+}
+
 interface PresentationContextValue {
   presentationMode: boolean;
   setPresentationMode: (value: boolean) => void;
@@ -17,9 +47,14 @@ export function PresentationProvider({ children }: { children: React.ReactNode }
     setPresentationMode((prev) => {
       const next = !prev;
       if (next && typeof document !== "undefined" && document.documentElement.requestFullscreen) {
-        document.documentElement.requestFullscreen?.().catch(() => {});
+        document.documentElement.requestFullscreen?.()
+          .then(() => {
+            void ensureScreenWakeLock();
+          })
+          .catch(() => {});
       } else if (!next && typeof document !== "undefined" && document.fullscreenElement) {
         document.exitFullscreen?.();
+        void releaseScreenWakeLock();
       }
       return next;
     });
@@ -27,7 +62,10 @@ export function PresentationProvider({ children }: { children: React.ReactNode }
 
   useEffect(() => {
     const onFullscreenChange = () => {
-      if (!document.fullscreenElement) setPresentationMode(false);
+      if (!document.fullscreenElement) {
+        setPresentationMode(false);
+        void releaseScreenWakeLock();
+      }
     };
     document.addEventListener("fullscreenchange", onFullscreenChange);
     return () => document.removeEventListener("fullscreenchange", onFullscreenChange);
