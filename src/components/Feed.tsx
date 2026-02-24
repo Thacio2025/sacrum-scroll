@@ -47,7 +47,7 @@ function isQuoteCard(item: FeedItem): item is QuoteCardType {
 }
 
 const CARDS_BEFORE_BUFFER = 5; // após 5 cards, pausa de 15s para carregar imagens
-const ADVANCE_INTERVAL_OPTIONS = [10, 20, 30, 40] as const; // segundos (opção do usuário)
+const ADVANCE_INTERVAL_OPTIONS = [20, 30, 40] as const; // segundos (mín. 20 para dar tempo de carregar imagens)
 const PRESENTATION_POOL_SIZE = 50; // modo TV: só este número de frases em ciclo, 1 card no DOM
 const STORAGE_KEY = "sacrumscroll-position";
 const STORAGE_KEY_ADVANCE_INTERVAL = "sacrumscroll-auto-advance-interval";
@@ -599,7 +599,7 @@ export function Feed() {
             value={advanceIntervalSeconds}
             onChange={(e) => setAdvanceIntervalSeconds(Number(e.target.value) as (typeof ADVANCE_INTERVAL_OPTIONS)[number])}
             className="rounded border border-pedra/20 bg-batina/35 px-2 py-1.5 font-garamond text-xs text-pedra/90 shadow transition hover:border-pedra/40 hover:bg-batina/50 focus:border-liturgico/50 focus:outline-none focus:ring-1 focus:ring-liturgico/30"
-            aria-label="Segundos por card (10, 20, 30 ou 40)"
+            aria-label="Segundos por card (20, 30 ou 40)"
             title="Tempo em cada card ao passar sozinho"
           >
             {ADVANCE_INTERVAL_OPTIONS.map((s) => (
