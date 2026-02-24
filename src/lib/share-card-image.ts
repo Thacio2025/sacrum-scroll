@@ -1,6 +1,6 @@
 /**
- * Gera imagem do card para compartilhar (1080x1080).
- * Usa um div offscreen com o template; html2canvas captura.
+ * Gera imagem do card para compartilhar (1080x1080) usando Canvas 2D.
+ * Evita html2canvas para ser mais estável em iOS / webviews.
  */
 
 import type { QuoteCard as QuoteCardType } from "@/types/content";
@@ -8,77 +8,95 @@ import type { QuoteCard as QuoteCardType } from "@/types/content";
 const W = 1080;
 const H = 1080;
 
-/** Cria elemento temporário com o layout do card e retorna data URL da imagem. */
-export async function getShareCardDataUrl(card: QuoteCardType): Promise<string> {
-  const { default: html2canvas } = await import("html2canvas");
+function drawWrappedText(
+  ctx: CanvasRenderingContext2D,
+  text: string,
+  x: number,
+  y: number,
+  maxWidth: number,
+  lineHeight: number
+): number {
+  const words = text.split(/\s+/);
+  let line = "";
 
-  const el = document.createElement("div");
-  el.setAttribute("data-share-card", "true");
-  // Colocar no viewport mas invisível (html2canvas falha com left: -9999px em alguns browsers)
-  el.style.cssText = `
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    opacity: 0;
-    pointer-events: none;
-    width: ${W}px;
-    height: ${H}px;
-    background: #050505;
-    color: #a1a1aa;
-    font-family: Georgia, 'EB Garamond', serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 80px 60px 100px;
-    box-sizing: border-box;
-  `;
-
-  const categoryLabel =
-    card.category === "patristic"
-      ? "Patrística"
-      : card.category === "scholastic"
-        ? "Escolástica"
-        : card.category === "mystic"
-          ? "Mística"
-          : card.category === "liturgy"
-            ? "Liturgia"
-            : "Escritura";
-
-  el.innerHTML = `
-    <p style="margin:0 0 24px; font-size:22px; letter-spacing:0.15em; text-transform:uppercase; color:#a1a1aa; opacity:0.9;">
-      ${escapeHtml(categoryLabel)}
-    </p>
-    <blockquote style="margin:0 0 32px; font-size:42px; line-height:1.35; font-style:italic; color:#fff;">
-      «${escapeHtml(card.text)}»
-    </blockquote>
-    <p style="margin:0 0 40px; font-size:28px; font-weight:600; letter-spacing:0.05em; color:#d4af37;">
-      — ${escapeHtml(card.author)}${card.source ? ` · ${escapeHtml(card.source)}` : ""}
-    </p>
-    <p style="margin:0; font-size:20px; letter-spacing:0.2em; color:#d4af37; opacity:0.9;">
-      SacrumScroll
-    </p>
-  `;
-
-  document.body.appendChild(el);
-
-  try {
-    const canvas = await html2canvas(el, {
-      width: W,
-      height: H,
-      scale: 1,
-      useCORS: true,
-      backgroundColor: "#050505",
-      logging: false,
-    });
-    return canvas.toDataURL("image/png");
-  } finally {
-    el.remove();
+  for (const word of words) {
+    const testLine = line ? `${line} ${word}` : word;
+    const { width } = ctx.measureText(testLine);
+    if (width > maxWidth && line) {
+      ctx.fillText(line, x, y);
+      line = word;
+      y += lineHeight;
+    } else {
+      line = testLine;
+    }
   }
+  if (line) {
+    ctx.fillText(line, x, y);
+    y += lineHeight;
+  }
+  return y;
 }
 
-function escapeHtml(s: string): string {
-  const div = document.createElement("div");
-  div.textContent = s;
-  return div.innerHTML;
+/** Cria um canvas temporário com o layout do card e retorna data URL da imagem. */
+export async function getShareCardDataUrl(card: QuoteCardType): Promise<string> {
+  const canvas = document.createElement("canvas");
+  canvas.width = W;
+  canvas.height = H;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) {
+    throw new Error("Canvas 2D context not available");
+  }
+
+  // Fundo
+  ctx.fillStyle = "#050505";
+  ctx.fillRect(0, 0, W, H);
+
+  const paddingX = 80;
+  const topY = 120;
+  const maxWidth = W - paddingX * 2;
+
+  // Categoria
+  const categoryLabel =
+    card.category === "patristic"
+      ? "PATRÍSTICA"
+      : card.category === "scholastic"
+        ? "ESCOLÁSTICA"
+        : card.category === "mystic"
+          ? "MÍSTICA"
+          : card.category === "liturgy"
+            ? "LITURGIA"
+            : "ESCRITURA";
+
+  ctx.fillStyle = "#a1a1aa";
+  ctx.font = "22px Georgia, 'EB Garamond', serif";
+  ctx.textBaseline = "top";
+  ctx.letterSpacing = 0 as any; // TS appeasement; browsers ignoram aqui
+
+  let y = topY;
+  ctx.fillText(categoryLabel, paddingX, y);
+  y += 40;
+
+  // Citação
+  ctx.fillStyle = "#ffffff";
+  ctx.font = "italic 42px Georgia, 'EB Garamond', serif";
+  const quoteText = `«${card.text}»`;
+  y = drawWrappedText(ctx, quoteText, paddingX, y, maxWidth, 54);
+  y += 32;
+
+  // Autor + fonte
+  ctx.fillStyle = "#d4af37";
+  ctx.font = "600 28px Georgia, 'EB Garamond', serif";
+  const authorLine = `— ${card.author}${card.source ? ` · ${card.source}` : ""}`;
+  y = drawWrappedText(ctx, authorLine, paddingX, y, maxWidth, 34);
+  y += 28;
+
+  // Marca
+  ctx.fillStyle = "#d4af37";
+  ctx.font = "20px Georgia, 'EB Garamond', serif";
+  ctx.letterSpacing = 0 as any;
+  const brand = "SACRUMSCROLL";
+  const brandWidth = ctx.measureText(brand).width;
+  ctx.fillText(brand, W - paddingX - brandWidth, H - 100);
+
+  return canvas.toDataURL("image/png");
 }
