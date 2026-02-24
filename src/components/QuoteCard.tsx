@@ -40,6 +40,23 @@ function getCardMotion(cardId: string) {
   return { type, duration, scaleMax };
 }
 
+/** Garante que uma promise termine em até `ms` ms (senão falha com timeout). */
+function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
+  return new Promise<T>((resolve, reject) => {
+    const id = setTimeout(() => reject(new Error("timeout")), ms);
+    promise.then(
+      (value) => {
+        clearTimeout(id);
+        resolve(value);
+      },
+      (err) => {
+        clearTimeout(id);
+        reject(err);
+      }
+    );
+  });
+}
+
 export function QuoteCard({
   card,
   index,
@@ -138,7 +155,8 @@ export function QuoteCard({
     shareImageFileRef.current = null;
     (async () => {
       try {
-        const dataUrl = await getShareCardDataUrl(card);
+        // html2canvas às vezes pode travar; colocamos timeout para não ficar gerando para sempre
+        const dataUrl = await withTimeout(getShareCardDataUrl(card), 15000);
         let blob: Blob;
         try {
           blob = await (await fetch(dataUrl)).blob();
