@@ -442,7 +442,14 @@ export function Feed() {
           }
           try {
             if (data != null) {
-              setCardsWithImages((prev) => ({ ...prev, [card.id]: data.imageUrl ?? null }));
+              const url = data.imageUrl ?? null;
+              setCardsWithImages((prev) => ({ ...prev, [card.id]: url }));
+              // Preload para cache: quando o QuoteCard montar, a imagem pode já estar pronta
+              if (url) {
+                const img = new Image();
+                img.crossOrigin = "anonymous";
+                img.src = url;
+              }
             }
             setCardsImageLoading((prev) => ({ ...prev, [card.id]: false }));
             setCardsImageReady((prev) => ({ ...prev, [card.id]: true }));

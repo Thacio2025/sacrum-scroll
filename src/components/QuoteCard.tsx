@@ -584,7 +584,7 @@ export function QuoteCard({
         </div>
       )}
 
-      {/* Área do texto: normal no mobile; só em tela >= 1920px (TV) aplicamos fonte maior e centralizado; no celular em apresentação: scroll e mais largura */}
+      {/* Área do texto: só revela junto com a imagem (evita frase primeiro, imagem depois) */}
       <div
         className={`relative z-10 flex flex-1 flex-col justify-center -translate-y-4 md:-translate-y-8 ${
           isTV
@@ -593,6 +593,10 @@ export function QuoteCard({
               ? "min-h-0 text-center px-3 py-4 sm:px-4 sm:py-5"
               : "text-center md:justify-end md:text-left px-4 py-6 pr-24 pb-28 sm:px-6 sm:pr-32 sm:pb-28 md:px-8 md:pr-44 md:pb-24 md:pt-28"
         }`}
+        style={{
+          opacity: hasNoImage || imageLoaded ? 1 : 0,
+          transition: "opacity 0.5s ease",
+        }}
       >
         <div
           className={`mx-auto w-full ${isTV ? "max-w-4xl" : isMobilePresentation ? "max-w-3xl" : "max-w-2xl"}`}
