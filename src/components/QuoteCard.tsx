@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { motion } from "framer-motion";
 
 /** Largura a partir da qual consideramos "TV" para tipografia grande e centralizada */
@@ -8,7 +8,7 @@ const TV_BREAKPOINT_PX = 1920;
 import type { QuoteCard as QuoteCardType, ContentCategory } from "@/types/content";
 import { getAuthorCentury } from "@/data/authors";
 import { getShareCardDataUrl } from "@/lib/share-card-image";
-import { Cross, Flame, BookOpen, Bird, Scroll, Flag, Heart, Share2, Image as ImageIcon, MessageCircle, User } from "lucide-react";
+import { Cross, Flame, BookOpen, Bird, Scroll, Flag, Heart, Share2, Image as ImageIcon, MessageCircle, User, Loader2, X } from "lucide-react";
 
 const CATEGORY_LABELS: Record<ContentCategory, string> = {
   patristic: "Patrística",
@@ -91,8 +91,15 @@ export function QuoteCard({
     setTimeout(() => setShowReportToast(false), 1500);
   };
 
-  const [sharingImage, setSharingImage] = useState(false);
-  const [shareImageToast, setShareImageToast] = useState<"ok" | "error" | null>(null);
+  const [shareImageModalOpen, setShareImageModalOpen] = useState(false);
+  const [shareImageStatus, setShareImageStatus] = useState<"idle" | "generating" | "ready" | "error">("idle");
+  const [shareImageCanShare, setShareImageCanShare] = useState(false);
+  const [shareImageToast, setShareImageToast] = useState<"ok" | "error" | "ios" | null>(null);
+  const shareImageFileRef = useRef<File | null>(null);
+  const shareImageBlobUrlRef = useRef<string | null>(null);
+  const preGeneratedFileRef = useRef<File | null>(null);
+  const preGeneratedCardIdRef = useRef<string | null>(null);
+  const shareCardContainerRef = useRef<HTMLElement | null>(null);
 
   const handleShare = async () => {
     const title = `${card.author}${card.source ? ` · ${card.source}` : ""}`;
@@ -112,52 +119,157 @@ export function QuoteCard({
     }
   };
 
-  const handleShareImage = async () => {
-    if (sharingImage) return;
-    setSharingImage(true);
+  /** Primeiro clique: abre o modal e gera a imagem (ou usa pré-gerada). O share/download acontece no segundo clique. */
+  const handleShareImageClick = () => {
     setShareImageToast(null);
-    try {
-      const dataUrl = await getShareCardDataUrl(card);
-      let blob: Blob;
+    if (preGeneratedCardIdRef.current === card.id && preGeneratedFileRef.current) {
+      shareImageFileRef.current = preGeneratedFileRef.current;
+      const canShare =
+        typeof navigator !== "undefined" &&
+        !!navigator.share &&
+        !!navigator.canShare?.({ files: [preGeneratedFileRef.current] });
+      setShareImageCanShare(canShare);
+      setShareImageStatus("ready");
+      setShareImageModalOpen(true);
+      return;
+    }
+    setShareImageStatus("generating");
+    setShareImageModalOpen(true);
+    shareImageFileRef.current = null;
+    (async () => {
       try {
-        blob = await (await fetch(dataUrl)).blob();
+        const dataUrl = await getShareCardDataUrl(card);
+        let blob: Blob;
+        try {
+          blob = await (await fetch(dataUrl)).blob();
+        } catch {
+          const base64 = dataUrl.split(",")[1];
+          const binary = atob(base64 ?? "");
+          const bytes = new Uint8Array(binary.length);
+          for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+          blob = new Blob([bytes], { type: "image/png" });
+        }
+        const file = new File([blob], "sacrumscroll-card.png", { type: "image/png" });
+        shareImageFileRef.current = file;
+        preGeneratedFileRef.current = file;
+        preGeneratedCardIdRef.current = card.id;
+        const canShare =
+          typeof navigator !== "undefined" &&
+          !!navigator.share &&
+          !!navigator.canShare?.({ files: [file] });
+        setShareImageCanShare(canShare);
+        setShareImageStatus("ready");
       } catch {
-        const base64 = dataUrl.split(",")[1];
-        const binary = atob(base64 ?? "");
-        const bytes = new Uint8Array(binary.length);
-        for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
-        blob = new Blob([bytes], { type: "image/png" });
+        setShareImageStatus("error");
       }
-      const file = new File([blob], "sacrumscroll-card.png", { type: "image/png" });
-      if (typeof navigator !== "undefined" && navigator.share && navigator.canShare?.({ files: [file] })) {
-        await navigator.share({
-          title: "SacrumScroll",
-          text: `«${card.text}» — ${card.author}`,
-          files: [file],
-        });
-        setShareImageToast("ok");
-      } else {
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "sacrumscroll-card.png";
-        a.style.display = "none";
-        document.body.appendChild(a);
-        a.click();
-        setTimeout(() => {
-          document.body.removeChild(a);
-          URL.revokeObjectURL(url);
-        }, 200);
-        setShareImageToast("ok");
-      }
-      setTimeout(() => setShareImageToast(null), 2500);
-    } catch (e) {
-      setShareImageToast("error");
-      setTimeout(() => setShareImageToast(null), 3000);
-    } finally {
-      setSharingImage(false);
+    })();
+  };
+
+  const closeShareImageModal = () => {
+    setShareImageModalOpen(false);
+    setShareImageStatus("idle");
+    if (shareImageBlobUrlRef.current) {
+      URL.revokeObjectURL(shareImageBlobUrlRef.current);
+      shareImageBlobUrlRef.current = null;
     }
   };
+
+  /** Segundo clique (user gesture): compartilhar com Web Share API. */
+  const handleShareImageSecondClick = () => {
+    const file = shareImageFileRef.current;
+    if (!file) return;
+    try {
+      navigator.share({
+        title: "SacrumScroll",
+        text: `«${card.text}» — ${card.author}`,
+        files: [file],
+      });
+      setShareImageToast("ok");
+      setTimeout(() => setShareImageToast(null), 2500);
+    } catch {
+      // usuário cancelou
+    }
+    closeShareImageModal();
+  };
+
+  const isIOS = typeof navigator !== "undefined" && /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+  /** Segundo clique (user gesture): baixar imagem. Em iOS, fallback: abrir em nova aba e avisar. */
+  const handleDownloadImageClick = () => {
+    const file = shareImageFileRef.current;
+    if (!file) return;
+    const url = URL.createObjectURL(file);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "sacrumscroll-card.png";
+    a.style.display = "none";
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => {
+      document.body.removeChild(a);
+      if (isIOS) {
+        setShareImageToast("ios");
+        setTimeout(() => setShareImageToast(null), 4000);
+        window.open(url, "_blank");
+        setTimeout(() => URL.revokeObjectURL(url), 10000);
+      } else {
+        URL.revokeObjectURL(url);
+      }
+    }, 200);
+    setShareImageToast(isIOS ? "ios" : "ok");
+    if (!isIOS) setTimeout(() => setShareImageToast(null), 2500);
+    closeShareImageModal();
+  };
+
+  /** Pré-geração: quando o card fica visível por 1s, gera a imagem em background para o primeiro clique já mostrar "pronto". */
+  useEffect(() => {
+    const el = shareCardContainerRef.current;
+    if (!el || isPresentationMode) return;
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (!entry?.isIntersecting) {
+          if (timeoutId) {
+            clearTimeout(timeoutId);
+            timeoutId = null;
+          }
+          return;
+        }
+        timeoutId = setTimeout(() => {
+          timeoutId = null;
+          if (preGeneratedCardIdRef.current === card.id) return;
+          getShareCardDataUrl(card)
+            .then((dataUrl) =>
+              fetch(dataUrl)
+                .then((r) => r.blob())
+                .catch(() => {
+                  const base64 = dataUrl.split(",")[1];
+                  const binary = atob(base64 ?? "");
+                  const bytes = new Uint8Array(binary.length);
+                  for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+                  return new Blob([bytes], { type: "image/png" });
+                })
+            )
+            .then((blob) => {
+              preGeneratedFileRef.current = new File([blob], "sacrumscroll-card.png", {
+                type: "image/png",
+              });
+              preGeneratedCardIdRef.current = card.id;
+            })
+            .catch(() => {
+              // silencioso; no primeiro clique gera normalmente
+            });
+        }, 1000);
+      },
+      { threshold: 0.3, rootMargin: "50px" }
+    );
+    observer.observe(el);
+    return () => {
+      observer.disconnect();
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, [card.id, card, isPresentationMode]);
 
   useEffect(() => {
     if (!card.imageUrl) {
@@ -204,6 +316,9 @@ export function QuoteCard({
 
   return (
     <motion.article
+      ref={(el) => {
+        shareCardContainerRef.current = el;
+      }}
       layout
       initial={isPresentationMode ? false : { opacity: 0, y: 24 }}
       animate={isPresentationMode ? { opacity: 1 } : { opacity: 1, y: 0 }}
@@ -307,9 +422,8 @@ export function QuoteCard({
         </button>
         <button
           type="button"
-          onClick={handleShareImage}
-          disabled={sharingImage}
-          className="flex items-center justify-center p-1 text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] transition hover:scale-110 hover:drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] disabled:opacity-50"
+          onClick={handleShareImageClick}
+          className="flex items-center justify-center p-1 text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] transition hover:scale-110 hover:drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]"
           aria-label="Compartilhar como imagem"
         >
           <ImageIcon className="h-5 w-5" strokeWidth={2} />
@@ -365,14 +479,90 @@ export function QuoteCard({
           className={`absolute bottom-40 left-1/2 z-30 -translate-x-1/2 rounded-full border px-3 py-1.5 font-garamond text-xs shadow-lg sm:bottom-44 md:bottom-52 ${
             shareImageToast === "error"
               ? "border-red-900/40 bg-red-950/90 text-red-200"
-              : "border-pedra/20 bg-batina/90 text-pedra"
+              : shareImageToast === "ios"
+                ? "border-amber-900/40 bg-amber-950/90 text-amber-200"
+                : "border-pedra/20 bg-batina/90 text-pedra"
           }`}
           role="status"
           aria-live="polite"
         >
           {shareImageToast === "error"
             ? "Não foi possível gerar a imagem"
-            : "Imagem pronta para compartilhar"}
+            : shareImageToast === "ios"
+              ? "Se não baixou, abra a imagem e segure para salvar"
+              : "Imagem pronta para compartilhar"}
+        </div>
+      )}
+
+      {/* Modal compartilhar imagem em dois passos (user gesture no segundo clique) */}
+      {shareImageModalOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="share-image-modal-title"
+        >
+          <div className="relative w-full max-w-sm rounded-xl border border-pedra/20 bg-batina/95 p-6 shadow-xl backdrop-blur-sm">
+            <button
+              type="button"
+              onClick={closeShareImageModal}
+              className="absolute right-3 top-3 rounded p-1 text-pedra/70 transition hover:bg-pedra/10 hover:text-pedra"
+              aria-label="Fechar"
+            >
+              <X className="h-5 w-5" strokeWidth={2} />
+            </button>
+            {shareImageStatus === "generating" && (
+              <>
+                <p id="share-image-modal-title" className="mb-4 font-garamond text-lg text-pedra">
+                  Gerando imagem…
+                </p>
+                <div className="flex justify-center py-6">
+                  <Loader2 className="h-10 w-10 animate-spin text-dourado" strokeWidth={2} />
+                </div>
+              </>
+            )}
+            {shareImageStatus === "ready" && (
+              <>
+                <p id="share-image-modal-title" className="mb-4 font-garamond text-lg text-pedra">
+                  Imagem pronta
+                </p>
+                <div className="flex flex-col gap-3">
+                  {shareImageCanShare ? (
+                    <button
+                      type="button"
+                      onClick={handleShareImageSecondClick}
+                      className="flex items-center justify-center gap-2 rounded-lg border border-dourado/50 bg-dourado/20 px-4 py-3 font-garamond text-pedra transition hover:bg-dourado/30"
+                    >
+                      <Share2 className="h-5 w-5" strokeWidth={2} />
+                      Compartilhar
+                    </button>
+                  ) : null}
+                  <button
+                    type="button"
+                    onClick={handleDownloadImageClick}
+                    className="flex items-center justify-center gap-2 rounded-lg border border-pedra/30 bg-pedra/10 px-4 py-3 font-garamond text-pedra transition hover:bg-pedra/20"
+                  >
+                    <ImageIcon className="h-5 w-5" strokeWidth={2} />
+                    {shareImageCanShare ? "Baixar imagem" : "Baixar imagem"}
+                  </button>
+                </div>
+              </>
+            )}
+            {shareImageStatus === "error" && (
+              <>
+                <p id="share-image-modal-title" className="mb-4 font-garamond text-lg text-red-200">
+                  Não foi possível gerar a imagem
+                </p>
+                <button
+                  type="button"
+                  onClick={closeShareImageModal}
+                  className="w-full rounded-lg border border-pedra/30 bg-pedra/10 px-4 py-3 font-garamond text-pedra"
+                >
+                  Fechar
+                </button>
+              </>
+            )}
+          </div>
         </div>
       )}
 
