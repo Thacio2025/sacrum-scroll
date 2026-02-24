@@ -1,0 +1,702 @@
+Nº	Padre do Deserto	Sentença
+300	Abade Amun	"""Suporta todo homem assim como Deus te suporta."""
+301	Abade Agatão	"Como no primeiro dia em que te chegares a eles, assim todos os dias da tua vida conserva a tua qualidade de estranho, de modo a não teres familiaridade com eles. A familiaridade se parece com um calor muito ardente, o qual, sempre que se produz, afugenta a todos e destrói os frutos das árvores. Não há outro afeto pior do que a familiaridade; com efeito, é a matriz de todas as paixões."
+302	Abade Agatão	É preciso que o monge não deixe que a consciência o acuse em coisa nenhuma.
+303	Abade Agatão	Sem a observância dos preceitos divinos, o homem não progride em uma só virtude que seja.
+304	Abade Agatão	"Nunca adormeci tendo alguma coisa contra alguém; nem, enquanto o podia, deixei que alguém fosse dormir tendo algo contra mim."
+305	Abade Agatão	"Aquelas (ser fornicador, soberbo, tagarela), eu as ponho em minha conta, pois são de proveito à minha alma; ser herege, porém, significa separar-se de Deus, e não me quero separar de Deus."
+306	Abade Agatão	O homem se parece com uma árvore: o trabalho do corpo é como que a folhagem, enquanto a disciplina da alma é como que o fruto. É evidente que todo o nosso esforço deve visar ao fruto, isto é, à disciplina da alma.
+307	Abade Agatão	"Desculpai-me, julgo que não há labor igual ao da oração a Deus. Pois, todas as vezes que o homem quer orar, tentam os inimigos arredá-lo; a oração, porém, até o último hálito requer luta."
+308	Abade Agatão	Passou três anos com uma pedra na boca até que adquiriu o hábito do silêncio.
+309	Abade Agatão	Ao vender ou comprar objetos, dizia o preço apenas uma vez e recebia ou dava o valor em silêncio e tranquilidade, sem proferir mais nada absolutamente.
+310	Abade Agatão	"Nunca dei um ágape; mas o dar e o receber eram para mim ágape: julgava que o lucro de meu irmão é obra de frutificação."
+311	Abade Agatão	O homem irascível, ainda que ressuscite um morto, não é agradável a Deus.
+312	Abade Agatão	Vai, atira diante de Deus a tua fraqueza contra a fornicação, e encontrarás sossego.
+313	Abade Agatão	Se alguém me fosse extremamente caro, e eu soubesse que ele me leva ao pecado, eu o afastaria de mim.
+314	Abade Agatão	É preciso que, a toda hora, o homem se recorde do juízo de Deus.
+315	Abade Agatão	Se me fosse possível encontrar um leproso e dar-lhe o meu corpo em troca do corpo dele, fá-lo-ia com prazer. Pois esta é a caridade perfeita.
+316	Abade Agatão	"Até agora fiz o que pude para observar os mandamentos de Deus; sou homem, porém; como hei de saber se meu esforço agradou a Deus? Pois um é o modo de julgar de Deus, outro o dos homens."
+317	Abade Amonas	Vai, e nutre em teu espírito os pensamentos que os malfeitores no cárcere revolvem. Perguntam sempre: quando há de vir o Diretor? E choram por causa da espera. Assim também o monge em todo tempo deve arguir a sua alma, dizendo: Ai de mim! Como posso apresentar-me ao tribunal de Cristo? Se com tais pensamentos estiver sempre ocupado o teu espírito, poderás ser salvo.
+318	Abade Amonas	Passei na Cétia quatorze anos, pedindo a Deus, dia e noite, que me concedesse vencer a ira.
+319	Abade Amonas	Senta-te em tua cela, come um pouco diariamente, e conserva a palavra do publicano em teu coração. Assim poderás ser salvo.
+320	Abade Amonas	Para que não esteja eu sempre a vaguear na medida em que se precipitam os meus pensamentos — esta é também uma lição para que com estabilidade caminhemos na via do Senhor.
+321	Abade Amonas	Rogo-te, Senhor meu Deus, não deixes perecer a tua criatura.
+322	Abade Amonas	"Quanto esforço fiz no deserto para possuir esta loucura; e eis que por causa de ti estou para a perder hoje!"
+323	Abade Amonas	A via estreita e atribulada é esta: Fazer violência aos seus pensamentos, e, por causa de Deus, cortar a vontade própria. É assim que se realiza o dito: Eis que deixamos tudo, e seguimos a ti.
+324	Abade Antão	"Senhor, quero ser salvo, e não me deixam os pensamentos; que farei na minha tribulação? Como serei salvo?"
+325	Abade Antão	Antão, cuida de ti mesmo, pois isto são juízos de Deus, e não te convém penetrá-los.
+326	Abade Antão	"Em qualquer lugar para onde vás, tem sempre Deus ante os olhos; qualquer coisa que faças, procura ter o testemunho das Sagradas Escrituras: e, de qualquer lugar em que residas, não te movas facilmente."
+327	Abade Antão	Esta é a grande labuta do homem: assumir sobre si mesmo a culpa própria diante de Deus, e esperar a tentação até o último suspiro.
+328	Abade Antão	Ninguém sem tentação poderá entrar no reino dos céus. Suprime as tentações, e ninguém será salvo.
+329	Abade Antão	Não confies em tua justiça, nem te arrependas do que já passou, e sê continente de língua e de ventre.
+330	Abade Antão	Vi todas as armadilhas do inimigo estendidas sobre a terra, e, gemendo, perguntei: Quem escapará a elas? Ouvi então uma voz que me dizia: A humildade.
+331	Abade Antão	Há alguns que consomem o corpo em ascese, e, por não terem discrição, se afastam de Deus.
+332	Abade Antão	"Do próximo dependem a vida e a morte; pois, se lucramos o nosso irmão, lucramos a Deus. Se, porém, escandalizamos o irmão, pecamos contra Cristo."
+333	Abade Antão	Como os peixes que se demoram na terra seca morrem, assim também os monges, permanecendo fora da cela ou vivendo com seculares, se relaxam da tensão da vida recolhida. É preciso, pois, que, como o peixe para o mar, assim também nos apressemos para a cela.
+334	Abade Antão	"Quem permanece no deserto e lá vive tranquilamente, liberta-se de três combates: o dos ouvidos, o da conversa e o dos olhos; só lhe resta um: o da fornicação."
+335	Abade Antão	Tempo virá em que os homens enlouquecerão, e, ao verem alguém que não esteja louco, se erguerão contra ele, dizendo: Tu és louco, porque não será semelhante a eles.
+336	Abade Antão	Já não temo a Deus, mas amo-o. Pois a caridade expele o temor.
+337	Abade Antão	Tem sempre ante os olhos o temor de Deus. Odiai o mundo e tudo que nele há. Odiai todo repouso da carne. Renunciai a esta vida, a fim de viverdes para Deus. Sofrei fome, sede, suportai a nudez, vigiai, arrependei-vos, chorai, gemei no vosso coração.
+338	Abade Antão	Quem bate a massa de ferro delibera primeiro o que fará: foice, espada ou machado. Assim também nós devemos deliberar qual virtude procuraremos adquirir, para que não trabalhemos em vão.
+339	Abade Antão	A obediência, unida à abstinência, submete as feras.
+340	Abade Antão	Conheço monges que, após muitas fadigas, caíram, porque nutriram esperança nas suas próprias obras e negligenciaram o preceito de interrogar seu pai espiritual.
+341	Abade Antão	Se possível, o monge deve dizer aos anciãos quantos passos dá ou quantas gotas bebe na cela, para se certificar de que não ofende nessas práticas.
+342	Abade Arsênio	Arsênio, foge dos homens, e serás salvo.
+343	Abade Arsênio	Arsênio, foge, cala-te, está tranquilo, pois estas são as raízes da impecância.
+344	Abade Arsênio	"Ó Deus, não me abandones; nada fiz de bom em tua presença; mas, conforme a tua bondade, concede-me lançar o princípio."
+345	Abade Arsênio	Nós pela erudição do mundo nada temos, enquanto estes, os camponeses e egípcios, pelo próprio labor é que adquiriram as virtudes.
+346	Abade Arsênio	Com toda a força que tens, luta para que a tua labuta interior seja conforme Deus, e vencerás as paixões exteriores.
+347	Abade Arsênio	"Se procurarmos a Deus, aparecer-nos-á; e, se o guardarmos, permanecerá conosco."
+348	Abade Arsênio	"Deus sabe que vos amo; não posso, porém, estar com Deus e com os homens. Não posso, por conseguinte, deixar Deus e vir para junto dos homens."
+349	Abade Arsênio	O monge basta dormir uma hora, se, de fato, é um lutador.
+350	Abade Arsênio	"De ter falado, arrependi-me muitas vezes; de me ter calado, nunca."
+351	Abade Arsênio	"Enquanto a virgem está em casa de seu pai, muitos são os que a querem desposar; se as coisas da alma são publicadas, não podem satisfazer a todos."
+352	Abade Cassiano	"O jejum está sempre comigo; a vós, porém, não posso guardar sempre. O jejum é coisa útil e necessária; depende da nossa própria vontade; o exercício da caridade, ao contrário, a Lei de Deus no-lo impõe com necessidade. Portanto, ao receber em vós o Cristo, devo tratar-vos com toda a solicitude."
+353	Abade Cassiano	Jamais fiz a própria vontade, nem ensinei a alguém o que antes não tivesse praticado.
+354	Abade Cassiano	"Enquanto falávamos de coisas celestiais, os olhos de todos vós estavam dominados pelo sono; quando, porém, escapou uma palavra ociosa, todos com ânimo vos acordastes. Irmãos, reconhecei a ação do mau demônio, e vigiai contra o torpor nas coisas espirituais."
+355	Abade Cassiano	Deixaste de ser Senador, e não te fizeste monge.
+356	Abade Evágrio	Quando estiveres sentado na cela, recolhe o teu espírito, recorda-te do dia da morte, considera o desfalecimento do corpo, pensa na desgraça. Recorda-te também da situação no inferno: medita como lá estão as almas, em que mui terrível silêncio, em que acutíssimo gemido.
+357	Abade Evágrio	Deixa de ter relações com muitos homens, a fim de que a tua mente não se torne agitada, e perturbe a habitual tranquilidade.
+358	Abade Evágrio	"Grande coisa é rezar sem distração; ainda maior, porém, é salmodiar sem distração."
+359	Abade Evágrio	"Recorda-te sempre de tua partida deste mundo, e não esqueças o juízo eterno; assim não haverá pecado em tua alma."
+360	Abade Evágrio	Retira as tentações, e não haverá ninguém que se salve.
+361	Abade Evágrio	Um regime de vida duro e não inconstante, unido à caridade, leva muito rapidamente o monge ao porto da apatia — vitória sobre as paixões.
+362	Abade Macário	Fui falsamente acusado de engravidar uma virgem. Aceitei a humilhação, trabalhando para sustentá-la, até que a verdade foi revelada durante o parto. Então fugi para a Cétia, a fim de que não me atribulassem os homens. Este é o motivo pelo qual vim para cá.
+363	Abade Macário	Eu ainda não me tornei monge, mas vi monges — dois homens nus que há quarenta anos viviam no deserto profundo, sem sentir frio no inverno nem calor no verão. Eles me disseram: Se não podes fazer o mesmo que nós, senta-te em tua cela e chora os teus pecados.
+364	Abade Macário	"Vi Satanás sob forma de homem, trajando uma túnica de linho perpassada de furos, dos quais pendiam pequenos vasos de tentações para os irmãos. Disse-me: Se um não agradar a alguém, apresentarei outro; e, se também este não agradar, apresentarei um terceiro."
+365	Abade Macário	"Ao retornar depois de visitar Teopempto, o demônio confessou: Todos os irmãos são cruéis para comigo; e o maior mal é que também aquele que eu tinha como amigo obediente tornou-se o mais cruel de todos. Jurei não andar mais por aqueles lugares."
+366	Abade Macário	Quando o Abade Antão viu a grande quantidade de cordame que eu havia tecido durante a noite, exclamou: Muita força procede dessas mãos.
+367	Abade Macário	"Quando virdes uma cela construída perto do pântano, sabei que a devastação de Cétia está próxima; quando virdes árvores, a devastação estará às portas; quando virdes meninos, tomai os vossos mantos e retirai-vos."
+368	Abade Macário	"Não foi por causa de mim que isto aconteceu, pois nada sou; mas foi por causa da viúva e dos órfãos que Deus o fez. Deus quer que a alma esteja sem pecado; e, se ela é tal, recebe tudo o que pede."
+369	Abade Macário	"Doze anos servi ao meu Senhor para que me desse a graça de receber todos com simplicidade; e todos vós me aconselhais que a rejeite?"
+370	Abade Macário	Se houver vinho, bebe por causa dos irmãos, e, em troca de um cálice de vinho, deixa de beber água durante o dia. Em toda mortificação, há lógica interior.
+371	Abade Macário	O lenho que revira os gravetos em combustão é todo consumido pelo fogo. Assim também se o homem purifica a sua mente pelo temor de Deus, o próprio temor de Deus consome o corpo dele.
+372	Abade Macário	Ao dormir em templo pagão usando um caixão como travesseiro, quando os demônios chamavam a outros dizendo: levanta-te, eu com muita coragem batia o esqueleto e dizia: Levanta-te e vai para as trevas, se podes. Eles fugiram confusos.
+373	Abade Macário	Quando estava exausto de carregar cestos e disse a Deus que não podia ir mais longe, imediatamente me encontrei à beira do rio.
+374	Abade Macário	Fujam, irmãos. E quando perguntaram: para onde? Coloquei o dedo nos lábios e disse: Fujam isto — e entrei na cela.
+375	Abade Macário	Se, ao repreender alguém, és movido à ira, satisfazes a própria paixão. Não é perdendo a ti mesmo que salvarás os outros.
+376	Abade Macário	"Ao encontrar um ladrão saqueando minha cela, ajudei-o a carregar o camelo e disse: Nada trouxemos para este mundo; é evidente que também nada podemos levar. O Senhor deu; como Ele quis, assim se fez."
+377	Abade Macário	Não é preciso falar muito na oração, mas estender as mãos e dizer: Senhor, como queres e como sabes, compadece-te. Ou, se estiveres tentado: Senhor, vem em meu socorro. Ele mesmo sabe o que convém.
+378	Abade Macário	Se guardamos a recordação dos males que nos são acarretados pelos homens, extinguimos a eficácia da recordação de Deus. Se, porém, conservamos a lembrança dos males causados pelos demônios, somos invulneráveis.
+379	Abade Macário	Vai para junto do túmulo e insulta os mortos... Agora, vai e louva esses mortos... Assim também tu, se queres ser salvo, torna-te morto: como os mortos, não consideres nem as injúrias dos homens nem os seus louvores. Assim poderás ser salvo.
+380	Abade Macário	O que procuras já desapareceu dentre os monges.
+381	Abade Macário	Choremos, irmãos, e que os nossos olhos derramem lágrimas antes que nos vamos para aquele lugar em que as nossas lágrimas consumirão de fora os nossos corpos.
+382	Abade Macário	"Os demônios disseram: Tudo que vós tendes, também nós o temos; apenas pela humildade diferis de nós, e prevaleceis sobre nós."
+383	Abade Macário	"Foge dos homens; senta-te em tua cela e chora os teus pecados. E não tenhas prazer na conversa com os homens. Assim serás salvo."
+384	Abade Nilo	O que quer que faças para te vingares do irmão que te injuriou, isso tudo voltará ao teu coração no tempo da oração.
+385	Abade Nilo	A oração é gérmen de mansidão e de carência de ira.
+386	Abade Nilo	A oração é defesa contra tristeza e desânimo.
+387	Abade Nilo	Tudo que suportares sabiamente, recolherás disso o fruto no tempo de oração.
+388	Abade Nilo	"Se queres rezar como deves, não deixes que a tristeza se apodere de tua alma; se deixas, é em vão que corres."
+389	Abade Nilo	Não queiras que as tuas coisas corram como te parece bem, mas como agrada a Deus. Assim serás isento de perturbação e agradável em tua oração.
+390	Abade Nilo	Feliz é o monge que se julga o rebotalho de todos.
+391	Abade Nilo	O monge que ama o retiro, fica ileso dos dardos do inimigo. Aquele, porém, que se junta às multidões, recebe golpes contínuos.
+392	Abade Poimém	Poimém, ainda vives? Vai, senta-te em tua cela e coloca em teu coração a ideia de que já há um ano que jazes no sepulcro.
+393	Abade Poimém	Nada tenho que ver, pois morri. Ora o morto não fala.
+394	Abade Poimém	Para que grande ancião e eu não conflitemos: Preparai pequenas porções de alimento, tomai uma medida de vinho, e vamos ter com o ancião. Talvez assim lhe possamos dar agrado.
+395	Abade Poimém	"Havia dois homens, os quais tinham cada qual um morto em sua casa; um deles deixou o seu morto para ir chorar o do outro. Assim também tu deixas teus próprios pecados para julgar os alheios."
+396	Abade Poimém	O sinal do monge se manifesta nas tentações.
+397	Abade Poimém	Glória a Deus pelo pecador que sabe que pecou e, sem negar, diz: pequei. Pois, se a ele disseres: não percas o ânimo, mas guarda-te para o futuro, excitarás sua alma à penitência.
+398	Abade Poimém	Se o homem pecar e o negar, dizendo: não pequei, não o acuses, pois lhe cortarias o ânimo. Se, ao contrário, lhe disseres: não percas ânimo, irmão, mas guarda-te para o futuro, excitarás a sua alma à penitência.
+399	Abade Poimém	O homem que ensina, mas não pratica o que ensina, é semelhante a uma fonte: a todos oferece com que beber e se lavar, mas a si mesma não pode purificar.
+400	Abade Poimém	Há o homem que parece calado, mas cujo coração condena os outros — esse tal está sempre a falar. E há outro que fala da manhã à noite, mas guarda o silêncio, isto é, nada diz que não seja de edificação.
+401	Abade Poimém	Refrear-se, vigiar sobre si mesmo, e usar de discernimento — estas três virtudes são as guias da alma.
+402	Abade Poimém	Prostrar-se em presença de Deus, não se comparar, e atirar para trás a vontade própria — são instrumentos de que se serve a alma.
+403	Abade Poimém	A vitória sobre qualquer pena que te sobrevenha é calar-se.
+404	Abade Poimém	Todo repouso do corpo é abominação aos olhos do Senhor.
+405	Abade Poimém	A compunção tem dois elementos: ela impele e também refreia.
+406	Abade Poimém	A distração é o começo dos males.
+407	Abade Poimém	Preferirá calar-se o homem que se lembre do que está escrito: Pelas tuas palavras serás justificado, e pelas tuas palavras serás condenado.
+408	Abade Poimém	Se três se reúnem, dos quais um leva dignamente uma vida tranquila, o outro é doente e dá graças a Deus, o terceiro faz o seu serviço com mente pura — esses três realizam um só e idêntico grau de virtude.
+409	Abade Poimém	Como o espadeiro do rei a este assiste pronto em todo tempo, assim é preciso que a alma esteja pronta diante do demônio da fornicação.
+410	Abade Poimém	Se o homem se arrepende de todo o coração e não torna a cometer o pecado, Deus o recebe já após três dias.
+411	Abade Poimém	Antes de ir para o Ofício, sentava-se a sós, ficando a examinar os seus pensamentos durante cerca de uma hora. Depois disto é que se punha a caminho.
+412	Abade Poimém	A experiência ensina ao homem honesto.
+413	Abade Poimém	Ainda que o homem faça um céu novo e uma nova terra, nunca poderia ficar sem tentações.
+414	Abade Poimém	"O que é não retribuir o mal pelo mal? Esse vício tem quatro modalidades: a primeira provém do coração; a segunda, da vista; a terceira, da língua; e a quarta é não fazer o mal em troca do mal."
+415	Abade Poimém	"Não habites em lugar onde vês que alguns têm inveja de ti; senão, não progredirás."
+416	Abade Poimém	Os pensamentos que não executamos com o nosso corpo, no decorrer do tempo extinguem-se ou apodrecem. Como vestes fechadas num baú, apodrecem com o tempo.
+417	Abade Poimém	Não dês a mão aos pensamentos e eles serão frustrados — as tentações não nos podem ser nocivas, enquanto não lhes prestamos nossa cooperação.
+418	Abade Poimém	Como o cervo no deserto devora muitas serpentes e depois deseja as fontes das águas, assim também os monges são queimados pelo veneno dos maus demônios e desejam o sábado e o domingo para se chegarem ao Corpo e ao Sangue do Senhor, a fim de se purificarem.
+419	Abade Poimém	Quero que todos comam diariamente, mas pouco, de modo a não ficarem saciados. Esta é a via régia, porque suave.
+420	Abade Poimém	Um homem deve incessantemente respirar a humildade e o temor de Deus do mesmo modo que inala e expele o ar através das narinas.
+421	Abade Silvano	Pode um homem, todos os dias, dar um início à vida boa? Respondeu: Se ele for diligente, pode todos os dias e a cada hora começar a vida boa de novo.
+422	Abade Silvano	Fui arrebatado ao céu e vi a glória de Deus. E lá permaneci até agora, e agora fui mandado de volta.
+423	Pai Abraão	Vai e pratica primeiro o que está escrito, depois volte e eu escreverei o restante.
+424	Pai Abraão	Falou corretamente sobre desprezar as próprias asceses passadas. Pois agora já lhe é possível levantar as duas mãos a fim de que o trigo cresça com abundância pelo mundo inteiro e pedir a Deus que perdoe os pecados de toda esta geração.
+425	Pai Ammoes	É por receio que, após tão edificantes palavras, sobrevenham conversas irrelevantes, que eu não permito que caminhes comigo.
+426	Pai Ammoes	Vi monges fugindo, deixando suas celas lavadas e também seus pergaminhos, sem nem fechar as janelas. Portanto nada de tristeza pelas coisas materiais.
+427	Abade Antônio	O abade Antônio disse ao abade Amon: Tu terás muito progresso no temor de Deus. Depois o mandou insultar uma pedra. Como a pedra não respondeu, o ancião disse: Assim também tu deves alcançar esta perfeição e imaginar que ninguém te ofende.
+428	Abade Antônio	A casa deles não tem portas: entra quem quer na estalagem e solta o burro! — falava assim dos irmãos que diziam tudo o que lhes vinha à cabeça.
+429	Abade Antônio	A grande obra do homem é atirar a culpa sobre si mesmo diante de Deus e esperar a tentação até o último sopro de sua vida.
+430	Pai Arsênio	Nas noites de sábado, preparando-se para a glória do domingo, virava-se de costas para o sol e elevava as mãos em oração em direção ao céu, até que o sol novamente brilhasse em sua face. Então se sentava.
+431	Pai Arsênio	Realmente aprendi Grego e Latim, mas não sei nem ao menos o alfabeto desse camponês egípcio — falando das virtudes práticas adquiridas pelos simples pelo labor.
+432	Pai Arsênio	Senhor, mostra-me a estrada que conduz à salvação.
+433	Pai Arsênio	Diziam dele que havia como que uma depressão escavada em seu peito pelas lágrimas que caíram de seus olhos durante toda sua vida.
+434	Pai Arsênio	Na verdade, se alguém permanece na paz e ouve o grito de um passarinho, o seu coração não possui a paz. Pior ainda sois vós, que sois agitados como esses caniços.
+435	Pai Evágrio	O início da salvação é condenar-se a si mesmo.
+436	Pai Evágrio	Retirem-se as tentações e ninguém será salvo.
+437	Pai Evágrio	Se te foge a coragem, reza. Reza com temor e tremor, com ardor, sobriedade e vigilância. Assim deve-se rezar, sobretudo por causa dos nossos inimigos invisíveis, que nos armarão ciladas exatamente neste ponto.
+438	Pai Amon	Suporta todo homem assim como Deus te suporta.
+439	Pai Apolo	Vou trabalhar com Cristo hoje, pela salvação de minha alma, pois esta é a recompensa que Ele dá.
+440	Pai Bessarião	"Deus está aqui; Deus está em todo lugar."
+441	Abade Epifânio	"Conhece-te a ti mesmo e nunca cairás. Dá trabalho à tua alma — a oração contínua e o amor de Deus — antes que alguém a leve a maus pensamentos; e reza para que o espírito do erro se afaste de ti."
+442	Pai Gregório	Que a tua obra seja pura pela presença do Senhor e não pela exibição.
+443	Pai Isidoro	Quando eu era mais jovem e permanecia em minha cela, não punha limites à oração: a noite era para mim tempo de oração tanto quanto o dia.
+444	Pai Isidoro de Pelúsia	"Prezem as virtudes e não sejam escravos da glória; pois as primeiras são imortais enquanto que as últimas logo se desvanecem."
+445	Pai Isidoro, o sacerdote	Se você jejua regularmente, não se encha de orgulho. Se você se vangloria por causa do jejum, então é melhor que coma carne. É melhor para um homem comer carne do que se inflar com orgulho e gloriar-se de si mesmo.
+446	Pai João, o Anão	Gostaria de ser livre de todos os cuidados, como os anjos, que não trabalham, mas prestam culto a Deus incessantemente.
+447	Pai João, o Anão	Sou como um homem sentado debaixo de uma grande árvore que vê bestas selvagens e serpentes vindo contra ele. Quando não pode mais, corre e sobe na árvore e se salva. É a mesma coisa comigo: quando não tenho forças contra os pensamentos maus, busco refúgio em Deus pela oração e sou salvo do inimigo.
+448	Pai João, o Anão	Senhor, dai-me força para a luta.
+449	Pai João, o Anão	Pusemos a carga leve de um lado, que é a auto-acusação, e nos carregamos com um grande peso, que é a auto-justificação.
+450	Pai João, o Anão	Humildade e temor de Deus estão acima de todas as virtudes.
+451	Pai João, o Anão	Vigiar significa sentar-se na cela e estar sempre presente a Deus. Isto é o que significa o dito: eu vigiava, e Deus veio até mim.
+452	Pai João, o Anão	Uma casa não é construída do topo para baixo. Deve-se começar com a fundação. A fundação é nosso próximo, a quem devemos ganhar, e este é o lugar para começar. Pois todos os mandamentos de Cristo dependem desse um.
+453	Pai João, o Anão	Mesmo que sejamos completamente desprezados aos olhos dos homens, alegremo-nos, pois somos honrados aos olhos de Deus.
+454	Pai João, o Anão	Dizia-se que certa vez ele teceu corda para uma cesta até o teto sem perceber, pois seu espírito estava absorto em profunda contemplação.
+455	Pai Macário	"Perguntaram a Pai Macário: Como devemos rezar? O ancião disse: Não é necessário fazer grandes discursos; é suficiente erguer as mãos e dizer: Senhor, como desejas e como conheces, tenha piedade. E se o conflito crescer, digam: Senhor, ajuda! Ele sabe muito bem o que precisamos."
+456	Pai Macário	Ao encontrar um homem saqueando seus bens, ajudou-o a carregar o animal e disse: Não trouxemos nada para este mundo, e não podemos levar nada. Assim o despediu com grande paz.
+457	Abade Pastor (Poemen)	Quaisquer que sejam teus sofrimentos, a vitória sobre eles está no silêncio.
+458	Abade Pastor (Poemen)	O homem deve incessantemente respirar a humildade e o temor de Deus do mesmo modo que inala e expele o ar através das narinas.
+459	Abade Pastor (Poemen)	Prostrar-se diante de Deus, não dar-se nenhuma importância, jogar fora a própria vontade: eis os instrumentos com os quais a alma pode trabalhar.
+460	Abade Pastor (Poemen)	Desprezar-se a si mesmo consiste em rebaixar-se abaixo dos animais e saber que eles não serão condenados.
+461	Abade Pastor (Poemen)	A humildade é a terra que o Senhor requisitou para realizar o sacrifício.
+462	Abade Pastor (Poemen)	A hesychia, a oração, o amor e a temperança são o quádruplo coche que eleva aos céus a inteligência.
+463	Abade Pastor (Poemen)	"Se não podes prender o vento, muito menos podes impedir o surgimento dos pensamentos maus; mas o que podes fazer é resistir-lhes."
+464	Abade Pastor (Poemen)	Um machado pode gloriar-se de alguma coisa sem aquele que o usa? Pois bem: não cultives esses pensamentos e ficarão sem efeito em ti.
+465	Abade Pastor (Poemen)	Aquele que lamenta sempre e somente a si mesmo pode viver em qualquer lugar. Mas, se se glorifica, então não se dará bem em lugar algum.
+466	Abade Pastor (Poemen)	A alma não alcança a humildade em nada se não lhe racionares o pão, isto é, se não a reduzires a alimentar-se apenas do necessário.
+467	Abade Pastor (Poemen)	O início do mal é não ouvir.
+468	Madre Sinclética	No começo, há luta e muito trabalho para os que se aproximam de Deus. Mas, depois disso, há uma indescritível alegria.
+469	Madre Sinclética	Assim como para acender uma fogueira no início há muita fumaça e seus olhos lacrimejam, assim devemos acender o fogo divino em nós mesmos com lágrimas e esforço.
+470	Madre Sinclética	"É possível ser solitário em sua própria mente mesmo no meio de uma multidão; e é possível para um solitário viver na multidão de seus próprios pensamentos."
+471	Abade Moisés	O fim último da nossa profissão é o reino de Deus ou dos céus. Quanto ao nosso escopo, é a pureza de coração, sem a qual é impossível alguém alcançar aquele fim.
+472	Abade Moisés	"Não é tão grande o lucro do jejum quanto os dispêndios da ira; nem tanto o fruto que se colhe com a leitura quanto o dano que sofremos com o desprezo de um irmão."
+473	Abade Moisés	É impossível, sem dúvida, que a mente não seja perturbada por pensamentos. Mas a quem se empenha, é possível acolhê-los ou rejeitá-los.
+474	Abade Moisés	O reino de Deus não virá de modo visível... o reino de Deus está dentro de vós.
+475	Pai Doroteus	À medida que as pessoas aproximam-se do centro — Deus — com seu amor, através dessa mesma medida elas se aproximam entre si. Ao contrário, quanto mais as pessoas se afastam entre si com desavenças, simultaneamente mais elas se distanciam de Deus.
+476	São Macário o Grande	A alma que ama sinceramente a Deus, mesmo que tenha realizado milhares de boas obras, devido à sua insatisfeita ansiedade por Deus, considera a si própria como se nunca tivesse realizado nada.
+477	São João Clímaco	O monge é aquele que está separado de todos e unido a todos.
+478	Abade Thalassius	Um desejo totalmente voltado para Deus religa a Deus e religa entre si àqueles que desejam.
+479	Abade Thalassius	Aquele que abençoa de boca e menospreza em seu coração esconde a hipocrisia sob o véu do amor.
+480	Abade Thalassius	Só o amor une a criação a Deus e os seres entre si na concórdia.
+481	Abade Thalassius	O amor e a temperança purificam a alma, mas a oração pura ilumina a inteligência.
+482	Abade Thalassius	Se queres vencer os pensamentos apaixonados, adquire a temperança e o amor ao próximo.
+483	Abade Thalassius	Da mesma maneira que não se pode sentir perfumes na lama, não é possível sentir em uma alma rancorosa o bom odor do amor.
+484	Abade Thalassius	O trabalho oculto suprime a vanglória, e não menosprezar ninguém rechaça o orgulho.
+485	Abade Thalassius	A hesychia, a oração, o amor e a temperança são o quádruplo coche que eleva aos céus a inteligência.
+486	Abade Thalassius	A obra própria da inteligência é sempre estudar as palavras de Deus.
+487	Abade Thalassius	A apatheia é a imobilidade da alma face a face do mal. É impossível alcançá-la sem a compaixão do Cristo.
+488	São Gregório	Deus exige três coisas de todo homem que recebeu o batismo: a fé direita para a alma, a franqueza para a língua, a castidade para o corpo.
+489	Abade Zacarias	Em minha opinião, é em tudo se fazer violência — eis o monge.
+490	Abade Teodoro de Farméia	Observava acima de muitos outros estes três princípios: a pobreza, a ascese, a fuga dos homens.
+491	Abade João o Nanico	Ao te levantares a cada manhã, recomeça a perseguir as virtudes com grande perseverança. Suporta a injúria sem te pores em cólera. Encerra-te no sepulcro como se já fosses morto.
+492	Abade José de Tebas	"Aos olhos de Deus, três castas de gentes são honradas: em primeiro os doentes que padecem as tentações e aceitam os males rendendo ações de graças; em segundo os de ação pura diante de Deus; enfim os que permanecem na submissão do pai espiritual."
+493	Abade João (Higúmeno)	Jamais fiz minha própria vontade e nada ensinei que antes não houvesse eu mesmo praticado.
+494	Abade Nisteros o Grande	Ao que quer que aspires na alma segundo Deus, fá-lo e guarda teu coração.
+495	Abade Pastor (Poemão)	A pobreza, as provações e a discrição são as três obras da vida solitária. Se essas três obras se encontram num homem, Deus habita nele.
+496	Abade Pastor (Poemão)	Se o monge odeia duas coisas, liberta-se deste mundo: o bem-estar e a vã glória.
+497	Abade Pambo	"Desde que estou neste deserto, não me lembra ter comido pão sem havê-lo ganho com minhas mãos; nem até agora ter lamentado uma palavra dita."
+498	Abade Sisóes	Reputa-te por nada, lança tua vontade atrás de ti, permanece sem preocupações — e repousarás.
+499	Abade Chamé	Não habiteis com os heréticos, não tenhais relações com os grandes, não estendais as mãos para receber mas antes para dar.
+500	Um Ancião	Se alguém possui a humildade e a pobreza e não julga os outros, o temor de Deus virá sobre ele.
+501	Abade Euprépios	Que o temor, a humildade, a privação de alimento e o pentos — tristeza pelos pecados — façam morada em ti.
+502	Um Ancião	Não faças a outrem o que detestas. Basta observar esta palavra para ser salvo.
+503	Um Ancião	"A vida do monge é o trabalho, a obediência e a meditação; é não julgar, nem reclamar, nem murmurar. Seus olhos são cegos para o mal."
+504	Um Ancião	"Ora a Deus para que te meta no coração o pentos e a humildade. Não tenhas familiaridade com mulheres, nem com crianças, nem com heréticos. Detém a língua e o apetite; priva-te do vinho."
+505	Um Ancião	Vá, implore a Deus que lhe envie as lutas de modo que você recupere a aflição e humildade que você possuía, pois é pela luta que as almas progridem.
+506	Abade Paésio	Desde que vivo solitário, o sol nunca me viu comer.
+507	São Basílio	Deixaste de ser Senador, e não te fizeste monge.
+508	Um monge do deserto	"Antes dele, eu morri para o mundo; um morto não recebe herança de um vivo."
+509	Pai Pimen	Se alguém ouvir uma palavra ofensiva e ao invés de respondê-la com igual ofensa, controlar seus sentimentos e permanecer em silêncio, ou se alguém for trapaceado e suportar isso sem vingar-se, ele estará dando sua vida ao próximo.
+510	Evágrio Pôntico	O homem não pode expulsar as lembranças apaixonadas se não presta atenção à concupiscência e à cólera.
+511	Evágrio Pôntico	A soberba é um tumor da alma cheio de pus. Se maduro, explodirá, emanando terrível fedor.
+512	Evágrio Pôntico	"A abundância de frutos dobra os ramos da árvore; a abundância de virtudes humilha a mente do homem."
+513	Evágrio Pôntico	O monge soberbo é como uma árvore sem raízes e não suporta o ímpeto do vento.
+514	Evágrio Pôntico	A vanglória é uma paixão irracional que facilmente se enraíza em todas as obras virtuosas.
+515	Evágrio Pôntico	"A hera adere à árvore e, quando chega ao ponto mais alto, seca-lhe a raiz; assim, a vanglória se origina nas virtudes e não se afasta enquanto não lhes tiver consumido as forças."
+516	Evágrio Pôntico	O aborrecimento é a debilidade da alma que irrompe quando não se vive segundo a natureza, nem se enfrenta nobremente a tentação.
+517	Evágrio Pôntico	Uma árvore transplantada não frutifica e o monge vagabundo não produz fruto de virtude.
+518	Evágrio Pôntico	A tristeza é a boca do leão e facilmente devora aquele que se entristece.
+519	Evágrio Pôntico	O monge triste não conhece a alegria espiritual, como aquele acometido por forte febre não reconhece o sabor do mel.
+520	Evágrio Pôntico	A ira é uma paixão furiosa que, com frequência, faz perder o juízo àqueles que têm o conhecimento.
+521	Evágrio Pôntico	O monge magnânimo é uma fonte tranquila, uma bebida agradável oferecida a todos.
+522	Evágrio Pôntico	A avareza é a raiz de todos os males e nutre, como arbustos malignos, as demais paixões.
+523	Evágrio Pôntico	O monge que não possui nada é um viajante ágil que encontra refúgio em todos os lados.
+524	Evágrio Pôntico	O desejo de riquezas do ávaro jamais se sacia: ele o duplica e deseja quadruplicá-los, até que a morte venha pôr fim a tal pretensão.
+525	Evágrio Pôntico	A moderação gera a regra, enquanto que a gula é a mãe do desenfreio.
+526	Evágrio Pôntico	O olhar para uma mulher é semelhante a um dardo venenoso: fere a alma, nos injeta veneno e, quanto mais perdura, tanto mais espalha a infecção.
+527	Evágrio Pôntico	Permanece invulnerável às flechas inimigas aquele que ama a paz interior e a tranquilidade de recolhimento.
+528	Evágrio Pôntico	Uma coluna se apoia sobre uma base, e a paixão da luxúria tem sua base na saciez.
+529	Evágrio Pôntico	Apenas quando a recordação da mulher surgir em ti separada da paixão, então poderás considerar-te próximo dos confins da sabedoria.
+530	Evágrio Pôntico	A origem do fruto é a flor, e a origem da disciplina espiritual é a moderação.
+531	Evágrio Pôntico	Quem domina o próprio estômago, diminui as paixões.
+532	Evágrio Pôntico	"Um ventre indigente prepara para uma oração vigilante; ao contrário, um ventre bem cheio convida para um longo sono."
+533	Evágrio Pôntico	A oração daquele que jejua é como um pintinho voando mais alto que uma águia.
+534	Evágrio Pôntico	O desejo de comida é como o fogo que sempre envolve e sempre se inflama.
+535	Abade Evagro	Tomar regularmente alimento não-cozido junto com a castidade conduz o monge num átimo ao porto da impassibilidade — total domínio das paixões.
+536	Abade Isaías	O que é preferível dentre tudo? Fazer a vontade de Deus e seguir o caminho da salvação.
+537	Abade Zózimo	Haverá algum solitário no mundo que possa ensinar-me algo de novo, ou mostrar-me algo que eu ainda não tenha realizado por minhas próprias ações nesta santa maneira de viver?
+538	Abba Agatão	Um homem que está irado, mesmo que ressuscitasse os mortos, não é aceitável a Deus.
+539	Abba Agatão	Sem a observância vigilante, o homem não progride em uma única virtude.
+540	Abba Agatão	Nunca fui dormir guardando uma queixa contra alguém, nem permiti que ninguém fosse dormir com uma queixa contra mim.
+541	Abba Agatão	"Se eu pudesse encontrar um leproso para dar-lhe o meu corpo e tomar o dele, eu o faria com alegria; pois isso é a caridade perfeita."
+542	Amma Sincletica	É perigoso para qualquer um tentar ensinar se não tiver sido primeiro treinado na vida prática.
+543	Amma Sincletica	"Aqueles que se aproximam de Deus têm, a princípio, uma luta e um trabalho árduo; mas depois, uma alegria indizível. É como acender um fogo: primeiro há fumaça e as lágrimas correm, mas depois se obtém o resultado desejado."
+544	Amma Sincletica	Existem muitos que vivem nas montanhas e se comportam como se estivessem na cidade, e eles estão perdendo seu tempo. É possível ser solitário na mente enquanto se vive em uma multidão, e é possível para aquele que vive na solidão viver na multidão de seus próprios pensamentos.
+545	Amma Sincletica	Assim como um tesouro, quando exposto, é rapidamente gasto, assim também qualquer virtude que se torna conhecida e divulgada é dissipada.
+546	Amma Sincletica	Muitas vezes o diabo traz um jejum excessivo para enfraquecer o corpo e tornar a alma inútil para a oração.
+547	Amma Sincletica	Assim como os marinheiros navegam pelas estrelas, os monges devem navegar pela vida dos anciãos.
+548	Amma Sara	"Se eu rogasse a Deus que todos os homens fossem edificados por mim, eu me encontraria fazendo penitência à porta de cada um; mas eu rogarei que meu coração seja puro com todos."
+549	Amma Sara	Eu coloco meu pé na escada para subir, e coloco a morte diante de meus olhos antes de subir.
+550	Amma Sara	"Não temo a Deus, mas O amo; pois o amor lança fora o medo."
+551	Amma Teodora	Um monge deve estar sempre pronto, como se a morte estivesse à porta, para não ser pego desprevenido.
+552	Amma Teodora	Assim como o melaço atrai moscas, os prazeres deste mundo atraem os demônios.
+553	Abba Benjamin	O monge deve ser como os Querubins: todo olho.
+554	Abba Benjamin	Se você guardar o silêncio, encontrará descanso em qualquer lugar que morar.
+555	Abba Benjamin	Não reclame da comida, pois a murmuração afasta a graça da mesa.
+556	Abba Gelásio	"Não procure saber o que o seu vizinho está fazendo na sua cela; procure saber o que está acontecendo dentro da sua."
+557	Abba Hiperíquio	Aquele que não domina sua língua em tempos de raiva, nunca dominará suas paixões.
+558	Abba Hiperíquio	É melhor comer carne e beber vinho do que devorar a carne de seus irmãos através da calúnia.
+559	Abba Hiperíquio	"A casa do tesouro do monge é a pobreza voluntária. Portanto, meu irmão, ajunta o teu tesouro no céu; pois lá habitam as eras de quietude sem fim."
+560	Abba Hiperíquio	"Foi através da murnuração que a serpente expulsou Eva do Paraíso; assim, aquele que fala contra o seu próximo será como a serpente, pois corrompe a alma de quem o ouve e não salva a sua própria alma."
+561	Abba Nístero	Se você quer que Deus ouça sua oração rapidamente, antes de rezar por qualquer outra coisa, deve rezar por seus inimigos.
+562	Abba Nístero	A obediência é preferível ao sacrifício.
+563	Abba Pambo	Se você for para o deserto, não confie em suas boas obras, mas entregue-se inteiramente à misericórdia de Deus.
+564	Abba Pambo	O monge deve usar o tipo de roupa que, se ele a jogasse para fora da cela, ninguém a pegaria.
+565	Abba Pambo	Se ele não for edificado pelo meu silêncio, não será edificado pela minha fala.
+566	Abba Pambo	"A obediência é maior do que a virtude de todos vós; pois cada um de vós obteve qualquer virtude que possui por sua própria vontade, enquanto o obediente suspende sua própria vontade e cumpre a vontade de outra pessoa."
+567	Abba Pambo	"Três anos eu levei para aprender a não falar sem necessidade; e você quer aprender a teologia em um dia?"
+568	Abba Pafnúcio	Tudo o que é feito com excesso, mesmo o jejum, é prejudicial ao monge.
+569	Abba Pafnúcio	Aquele que julga seu irmão assume o papel de Deus, o único que tem o direito de julgar.
+570	Abba Pafnúcio	Se você vir um irmão pecando, cubra-o com seu manto em vez de espalhar a notícia.
+571	Abba Sisoes	A humildade é a única coisa que o diabo não pode imitar.
+572	Abba Sisoes	"Se você cair, levante-se novamente; se cair de novo, levante-se de novo."
+573	Abba Sisoes	Dê a Deus o que é de Deus e ao mundo o que é do mundo, mas guarde seu coração apenas para Ele.
+574	Abba Sisoes	Até o fim da minha vida, não deixarei de pedir a Deus que perdoe meus pecados, pois nunca sei se fiz algo que O agradou.
+575	Abba Sisoes	"Tende coragem; por trinta anos não tenho mais implorado a Deus sobre o pecado, mas digo isto quando rezo: Senhor Jesus Cristo, protege-me da minha língua, pois mesmo até agora caío em pecado por causa dela."
+576	Abba Sisoes	O arrependimento é o trabalho de cada dia, até o último suspiro.
+577	Abba Sisoes o Tebano	Não descansarei até conseguir minha vingança contra ele, disse o irmão. O ancião então orou: Ó Deus, não precisamos mais que cuides de nós, pois estamos colhendo nossa própria vingança. O irmão caiu aos pés do ancião e disse: Não terei mais problemas com meu irmão. Perdoa-me!
+578	Abba Teodoro	Muitos buscam o repouso antes que Deus o dê a eles.
+579	Abba Teodoro	Se você não for como um cadáver na sepultura, não poderá ser um monge.
+580	Abba Teodoro	A maior virtude é a discrição, pois ela governa todas as outras.
+581	Abba Teodoro de Pherme	Se você não está em paz sozinho nem com os outros, por que se tornou monge? Não foi para sofrer provações?
+582	Abba Teodoro	Ainda não encontraste o teu navio, nem puseste nele a tua bagagem, nem começaste a navegar, e já estás na cidade para onde planeaste ir. Quando tiveres primeiro trabalhado naquilo de que falas, então fala a partir da própria coisa.
+583	Abba Zenão	Se alguém quer que Deus ouça sua oração rapidamente, antes de rezar por qualquer outra coisa, deve rezar por seus inimigos.
+584	Abba Zenão	Não viva em um lugar onde você seja famoso ou onde tenha grandes posses.
+585	Abba Zenão	Aquele que carrega uma ofensa no coração é como alguém que guarda uma cobra no peito.
+586	Abba Elias	Se o espírito não cantar com o corpo, o trabalho é em vão.
+587	Abba Elias	Eu temo três coisas: o momento em que minha alma deixará o corpo, o momento em que comparecerá diante de Deus e o momento em que a sentença será dada.
+588	Abba Elias	É necessário ter grande empenho, e quem não o faz não pode chegar ao seu Deus. Pois Ele mesmo foi crucificado por nossa causa.
+589	Abba Daniel	Quanto mais o corpo engorda, mais a alma definha.
+590	Abba Daniel	Aquele que quer se aproximar de Deus deve primeiro se afastar dos homens em seu coração.
+591	Abba Daniel	O amor ao dinheiro é o veneno da vida monástica.
+592	Abba Daniel	O corpo prospera na medida em que a alma é enfraquecida, e a alma prospera na medida em que o corpo é enfraquecido.
+593	Abba Daniel	Quem nos separará daqui em diante de Deus? Deus está na cela e, por outro lado, Ele está fora também.
+594	Abba Or	Aquele que é honrado pelos homens não pode escapar do orgulho.
+595	Abba Or	Em todos os seus trabalhos, a humildade deve vir primeiro.
+596	Abba Or	Nunca diga em seu coração que você é melhor que seu irmão.
+597	Abba Or	Nunca traga uma máxima estranha para esta cela.
+598	Abba Lot	Você não pode ser monge se não se tornar como um fogo ardente.
+599	Abba Lot	Vá, sente-se em sua cela e ela lhe ensinará tudo.
+600	Abba Nabrão	O trabalho manual é necessário para afastar a preguiça, que é a mãe de todos os vícios.
+601	Abba Isidoro o Presbítero	A razão pela qual os demônios têm tanto medo de mim é porque tenho praticado o ascetismo desde o dia em que me tornei monge, e não permiti que a raiva chegasse aos meus lábios.
+602	Abba Isidoro o Presbítero	Por quarenta anos fui tentado a pecar em pensamento, mas nunca consenti nem com a cobia nem com a raiva.
+603	Abba Isidoro o Presbítero	Mesmo que eu fosse queimado e minhas cinzas jogadas ao vento, não me permitiria nenhum relaxamento, porque o Filho de Deus veio aqui por nossa causa.
+604	Abba Isidoro o Presbítero	Quando é que me comparei com Abba Antônio, com Abba Pambo, ou com os outros Padres que agradaram a Deus?
+605	Abba Isidoro o Presbítero	Mesmo que eu seja enviado ao inferno, eu os encontrarei abaixo de mim — dizia sobre os demônios que o ameaçavam.
+606	Abba Isidoro o Presbítero	"Um dia fui ao mercado vender alguns pequenos bens; quando vi a raiva se aproximando de mim, deixei as coisas e fugi."
+607	Abba Isidoro o Presbítero	"Verdadeiramente, irmãos, não vi o rosto de ninguém na cidade, exceto o do arcebispo; o pensamento de olhar para qualquer pessoa não levou a melhor sobre mim."
+608	Abba Serapião	"Quando os soldados do imperador estão em posição de sentido, eles não podem olhar para a direita ou para a esquerda; é o mesmo para o homem que está diante de Deus."
+609	Abba Serapião	Se você quer ser humilde, aprenda a suportar generosamente o que os outros injustamente infligem a você e não abrigue palavras vazias em seu coração.
+610	Abba Serapião	"Abba Serapião converteu uma cortesã passando a noite em oração por ela; ela ficou tão tocada pela compunção que se tornou monja e viveu o resto de sua vida em rigorosa penitência."
+611	Abba Benjamin	Pela graça de Deus, desde que vesti este hábito, nunca disse uma palavra da qual tivesse que me arrepender depois.
+612	Abba Efraim	Quando era criança, teve um sonho: uma videira brotou de sua língua, cresceu e encheu todo o espaço sob o céu, era muito frutífera. Todas as aves do céu comiam do fruto da videira e, enquanto comiam, o fruto se proliferava.
+613	Abba Epifânio	A aquisição de livros cristãos é necessária para aqueles que podem usá-los. Pois a mera visão desses livros nos torna menos inclinados ao pecado e nos incita a crer mais firmemente na retidão.
+614	Abba Epifânio	A leitura das Escrituras é uma grande salvaguarda contra o pecado.
+615	Abade Matoés	Quanto mais um homem se aproxima de Deus, maior pecador ele se vê. Pois o profeta Isaías viu a Deus e disse que era impuro e estava perdido.
+616	Abba Gerôncio de Petra	Muitos são aqueles que, tentados pelos deleites da carne, entregam-se à imoralidade mental sem qualquer contato físico. Enquanto preservam sua virgindade física, entregam-se à imoralidade espiritual. É bom fazer o que está escrito: Cada um guarde o seu próprio coração com toda a vigilância.
+617	Abba Paulo (via João discípulo)	"Abba Paulo disse a João: Vá e tire o esterco da cova do leão. João obedeceu e foi; a leõa saiu para saltar sobre ele, mas ele, obedecendo à palavra do ancião, investiu contra ela para pegá-la. A leõa fugiu e ele a perseguiu dizendo: Espere, meu abade me disse para amarrá-la. E a amarrou."
+618	Abade Nilo	"Invulnerável às flechas do inimigo é aquele que ama o silêncio; mas aquele que se mistura com a multidão frequentemente recebe feridas."
+619	Abba Paulo	Se alguém obteve a pureza, tudo lhe está em submissão, como estava para Adão, quando ele estava no paraíso antes de transgredir o mandamento.
+620	Um Ancião (Anônimo)	"Se alguém guarda a memória de quem o afligiu, deve lembrar-se dessa pessoa como um médico enviado por Cristo e deve considerá-la um benfeitor. O próprio fato de você ser ferido por tais coisas indica que sua alma está doente; você deveria ficar feliz por ter tal irmão, pois é através dele que se torna consciente de sua própria doença."
+621	Um Ancião (Anônimo)	Um ancião morava no deserto e sua cela ficava longe da água, cerca de sete milhas. Certa vez desanimou e quis se mudar para perto da água. Então viu alguém seguindo-o e contando seus passos. Perguntou: Quem é você? O outro respondeu: Sou o anjo do Senhor, e fui enviado para contar teus passos e te dar a tua recompensa. O coração do ancião se fortaleceu e colocou sua cela ainda mais longe da água.
+622	Um Ancião (Anônimo)	"Senta-te em tua cela e faz o que puderes, e não te perturbes; pois o pouco que fazes agora é como quando Antônio fez grandes e muitas coisas no deserto. Quem se senta em sua cela por amor de Deus e guarda sua consciência será encontrado no lugar de Antônio."
+623	Um Ancião (Anônimo)	Trabalhe no labor manual o máximo que puder, a fim de prover para aquele que tem necessidade, pois está escrito: Os pecados são purificados pela esmola e por atos de fé.
+624	Um Ancião (Anônimo)	Havia uma vez ladrões que entraram na cela de um ancião e disseram: Tudo o que tens em tua cela, viemos levar. E ele disse: Tomai tudo o que vedes, meus filhos. Eles pegaram tudo, esquecendo apenas uma pequena bolsa escondida. O ancião correu atrás deles gritando: Meus filhos, esquecestes isto: tomai-o. E eles, maravilhados com a paciência do ancião, trouxeram tudo de volta e fizeram penitência.
+625	Um Ancião (Anônimo)	"Não desanime se a doença física sobrevier a você. Quem é você para se ofender se o seu Senhor e mestre deseja que você seja afligido no corpo? Resigne-se e rogue a Deus que lhe conceda o que for apropriado, segundo a Sua Vontade; permaneça pacientemente em sua cela, alimentando-se de caridade."
+626	Um Ancião (Anônimo)	Diziam sobre Lázaro, o pobre: A única coisa que encontramos nele é que ele nunca se queixou contra o Senhor por não lhe mostrar misericórdia, mas suportou sua aflição graciosamente. É por isso que Deus o aceitou.
+627	Um Ancião (Anônimo)	"Três monges foram à beira do mar: dois tomaram asas de fogo e voaram para a outra margem; o terceiro permaneceu, chorando, e depois foi-lhe dado asas fracas, chegando ao outro lado com grande dificuldade. Assim é com esta geração: se receber asas, elas ainda não serão de fogo, mas fracas."
+628	Um Ancião (Anônimo)	"Esta é a vida do monge: trabalho, obediência, meditação, não julgar, não difamar, não gritar. Não ter nada a ver com o que é injusto, não ver o mal com os próprios olhos, não ser um intrometido, não ouvir os assuntos alheios; dar em vez de tirar com as mãos."
+629	Um Ancião (Anônimo)	"Rogue a Deus para lhe dar tristeza no coração e humildade. Esteja sempre atento aos seus pecados e não julgue os outros; pelo contrário, coloque-se abaixo de todos os outros. Não mantenha amizade com uma mulher, com uma criança ou com heréticos."
+630	Um Ancião (Anônimo)	"Assim é com quem permanece entre os homens: por causa da turbulência, ele não vê seus pecados; mas quando está em silêncio, sobretudo na solidão, então reconhece suas próprias falhas. Como a água turva que ao assentar reflete os rostos como num espelho."
+631	Um Ancião (Anônimo)	Nunca desejei um trabalho que me beneficiasse às custas de meu irmão, na esperança de que o trabalho de meu irmão fosse um trabalho que desse frutos.
+632	Um Ancião (Anônimo)	"Seja como alguém que passa por uma casa de pasto e sente o cheiro da sopa ou de alguma carne assada. Aquele que desejava comer, entrava e comia; aquele que não queria, simplesmente sentia o cheiro ao passar e depois ia embora. Assim é com as tentações: sacuda de si o fedor e levante-se e ore, dizendo: Filho de Deus, ajuda-me."
+633	Um Irmão (Anônimo)	Ao diabo disfarçado de anjo que disse ser Gabriel: Certifique-se de que não foi enviado a outra pessoa, pois não sou digno de ver um anjo.
+634	Um Irmão (Anônimo)	"Um irmão estava colocando alças nos cestos quando ouviu o vizinho que não tinha alças para os seus cestinhos. Foi, soltou as alças dos seus próprios cestos e as trouxe ao vizinho, dizendo: Tenho estas sobrando; pegue-as. Ele melhorou o trabalho do irmão em detrimento do seu próprio."
+635	Um Ancião (Anônimo)	Uma pergunta de um irmão: 'Como posso encontrar Deus?'. Resposta do ancião: Através do jejum, da vigília e, acima de tudo, da caridade.
+636	Um Ancião (Anônimo)	A cela do monge é a fornalha da Babilônia onde os três jovens encontraram o Filho de Deus.
+637	Um Ancião (Anônimo)	Se você não tem paz dentro de si, não a encontrará no deserto.
+638	Um Ancião (Anônimo)	O silêncio é o porteiro da oração.
+639	Um Ancião (Anônimo)	Não julgue ninguém, pois no momento em que você julga, você cai no mesmo pecado.
+640	Um Ancião (Anônimo)	"Um ancião foi questionado: O que é orar sem cessar? E ele respondeu: É a petição enviada a Deus do próprio fundamento do coração solicitando o que é apropriado. Pois não é apenas quando nos levantamos para a oração que estamos orando; a verdadeira oração é quando você pode orar o tempo todo dentro de si mesmo."
+641	Abba Sisoes	Ao cair da morte: Vi os anjos virem buscar-me. Pedi para ser deixado um pouco mais para me arrepender. Os Padres disseram: Não tens necessidade de arrependimento. Mas ele disse: Verdadeiramente não sei se sequer comecei o início do arrependimento.
+642	Abba Antônio	Um navio naufragou no mar e perdeu toda a carga que carregava, e com muito esforço o navio vazio foi finalmente trazido à terra. É vosso desejo afundar em terra o navio que chegou seguro do mar? — ao receber um irmão expulso de um mosteiro.
+643	Abba Antônio	Vi todas as armadilhas do inimigo estendidas sobre a terra, e gemendo perguntei: Quem escapará a elas? Ouvi então uma voz que me dizia: A humildade.
+644	Abba Antônio	Sem tentações, ninguém pode ser salvo. Quem retirar as tentações, não achará ninguém salvo.
+645	Abba Antônio	Como os peixes que se demoram na terra seca morrem, assim também os monges que permanecem fora da cela, ou vivem com seculares, relaxam a tensão da vida recolhida.
+646	Abba João o Anão	"Se um rei quisesse tomar posse da cidade de um inimigo, ele começaria cortando a água e a comida; e assim seus inimigos, morrendo de fome, se submeteriam. É o mesmo com as paixões da carne: se um homem pratica o jejum e a fome, os inimigos de sua alma tornam-se fracos."
+647	Abba João o Anão	Nós colocamos o fardo leve de lado, que é a auto-acusação, e nos carregamos com um pesado, que é a auto-justificação.
+648	Abba João o Anão	A humildade e o temor de Deus estão acima de todas as virtudes.
+649	Abba João o Anão	Vá, rogue a Deus para despertar a guerra, para que você recupere a aflição e a humildade que costumava ter, pois é pela guerra que a alma progride.
+650	Abba Moisés	"Veja, Abba Moisés, agora você está inteiramente branco ao ser ordenado. Ele respondeu: É verdade por fora; mas o que dizer dAquele que vê o interior?"
+651	Abba Moisés	O homem que foge e vive na solidão é como um cacho de uvas amadurecido pelo sol, mas aquele que permanece entre os homens é como uma uva verde.
+652	Abba Moisés	Se guardarmos os mandamentos de nossos Padres, eu responderei por isso em nome de Deus que os bárbaros não virão aqui. Mas se não guardarmos os mandamentos de Deus, este lugar será devastado.
+653	Abba Moisés	Quanto a mim, tenho esperado por este dia por muitos anos, para que a palavra do Senhor Cristo se cumpra: Todos os que lançarem mão da espada, à espada morrerão.
+654	Abba Moisés	Se um homem não pensa em seu coração que já está há três dias morto e no túmulo, ele não pode alcançar este estado de morte para o próximo.
+655	Abba Moisés	Meus pecados correm atrás de mim e eu não os vejo, e hoje venho julgar os erros de outro — disse ao carregar um jarro furado com areia para mostrar como suas faltas sempre escapam pelas costas.
+656	Abba Moisés	Tratado com desprezo por ser negro em um conselho em Cétis, Moisés manteve silêncio absoluto, dizendo depois que, embora estivesse triste, preferiu calar-se.
+657	Abba Arsênio	"Arsênio recusou uma herança dizendo: Eu morri antes dele; ele morreu há pouco. Um morto não herda de um vivo."
+658	Abba Arsênio	"Arsênio, porque te retiraste do mundo? De ter falado, arrependi-me muitas vezes; de me ter calado, nunca."
+659	Abba Arsênio	No fim do sábado, estendia as mãos ao céu em oração até que de novo brilhasse o sol sobre a sua face. Assim preparava a glória do domingo.
+660	Abba Arsênio	"Dizia o Abade Poëmen que Arsênio chorou a si mesmo neste mundo para não chorar no outro; pois é impossível não chorar, voluntária ou obrigatoriamente."
+661	Abba Macário o Grande	"Ao ver um menino que dizia: certo homem rico gosta de mim e eu o odeio; um pobre me odeia e eu o amo, Macário admirou-se e disse aos irmãos: Em verdade, Nosso Senhor é rico e nos ama, enquanto nós não o queremos ouvir. Ao contrário, nosso inimigo, o demônio, é pobre e nos odeia, enquanto nós amamos a sua impureza."
+662	Abba Macário o Grande	"Eis o que eu sei: durante doze anos servi ao Senhor para que me concedesse esta graça de receber a todos com simplicidade; e vocês todos me aconselham a rejeitá-la?"
+663	Abba Poemen (Pastor)	É pela guerra que a alma progride.
+664	Abba Poemen (Pastor)	Se você quer encontrar descanso, diga: Quem sou eu? e não julgue ninguém.
+665	Abba Poemen (Pastor)	"Na hora em que encobrirmos os pecados de nosso irmão, Deus cobrirá os nossos; e na hora em que trairmos as vergonhas de nosso irmão, da mesma forma Deus trairá as nossas."
+666	Abba Poemen (Pastor)	Se um homem pecou e não o nega, mas diz eu pequei, não o repreenda, pois você quebrará o propósito de seu coração. Em vez disso, diga a ele: Não fique triste, meu irmão, mas vigie-se daqui em diante, e você despertará o coração dele para o arrependimento.
+667	Abba Poemen (Pastor)	A marca do monge torna-se aparente nas tentações.
+668	Um Ancião (Anônimo)	Um ancião foi questionado sobre a oração contínua e respondeu: É a petição enviada a Deus do próprio fundamento do coração. A verdadeira oração é quando você pode orar o tempo todo dentro de si mesmo.
+669	Um Grande Ancião	Tu dás consentimento à tua imaginação. Deves aprender como resistir a tais pensamentos: não te inclines a eles em tua mente, mas prostra-te diante de Deus em oração para encontrar a paz contra a tentação.
+670	Abba Efraim o Sírio	A palavra do próximo é como fogo para ti — pode purificar ou queimar. É preciso discernimento.
+671	Abba Isidoro	O amor tem de ser preferido a tudo: ele une todas as coisas e todas as coisas une a Deus.
+672	Abba Pafsio (Pafsios)	Quando vejo que um irmão comete um erro, considero que é culpa minha, pois não o construí suficientemente pelo exemplo.
+673	Abba Silvano	"O ancião dizia ao discípulo: Faz o que queres, mas não abandones as horas da oração; pois quem abandona as horas, perde a própria vida."
+674	Abba Longino	"Não há virtude maior que a não ter ambição de nenhuma coisa terrena; e não há vício maior do que amar as riquezas."
+675	Abba Longino	Três obras corporais são necessárias para o monge: o jejum, a vigília e o trabalho das mãos.
+676	Abba Longino	Se alguém faz pública sua ascese, já recebeu o seu prêmio.
+677	Abba Lot (Padre)	"Não nos preocupemos tanto com o exercício das virtudes, mas com a guarda do coração; pois é dela que os exercícios brotam."
+678	Abba João Ancião de Tebas	Acima de tudo, o monge necessita da humildade, pois esta é a primeira virtude que Nosso Senhor ensinou quando disse: Bem-aventurados os pobres de espírito.
+679	Abba Cassiano (Colachões)	A perfeição do coração não consiste em macerar o corpo, mas em desprender-se de todo vício e amor ao próprio prazer.
+680	Abba Cassiano (Colachões)	"O fim do monge é o reino de Deus; o objetivo proximal é a pureza de coração, sem a qual ninguém pode alcançar aquele fim."
+681	Abba Cassiano (Colachões)	Toda ação, todo exercício, toda ascese devem ser julgados segundo esta única norma: serve à pureza do coração ou não?
+682	Abba Cassiano (Colachões)	"Ao jovem que perguntou sobre o jejum, respondeu: O jejum é como um instrumento; tem valor quando usado com discrição. Usado fora da medida, é tão prejudicial quanto o excesso de comida."
+683	Abba Cassiano (Colachões)	"A acídia é o mais pesado dos demônios, o mais opressivo dos monges; ataca ao redor da hora sexta e não dá trégua à alma tão logo os exercícios se tornem monótonos."
+684	Abba Cassiano (Colachões)	"A alma não pode permanecer no mesmo estado espiritual. Ou progride ou regride; portanto o monge deve sempre aspirar mais alto."
+685	Abba Cassiano (Colachões)	Quem não aprendeu a dominar sua língua, como pode aprender a dominar suas paixões? O silêncio é a escola de todas as virtudes.
+686	Abba Or (Pai Or)	Conserva-te em humildade. Quando houver discussões entre os irmãos, fica em silêncio e reza. Agirias como Salomão, que era mais sábio que todos, mas permanecia em silêncio diante dos fortes.
+687	Abba Nístero (Nesteros)	Perguntas-me o que é que devo fazer. Devo dizer-te que a primeira coisa é guardar tua mente em paz com todos. A segunda é não permanecer ocioso. A terceira é o pensamento constante de Deus.
+688	Abba Poemen	Falei uma vez, não voltarei a falar segunda vez — disse ao ser corrigido pelo presbítero por ter tomado a palavra numa assembléia sem ser interrogado.
+689	Abba Poemen	Ele é do alto e fala de coisas celestiais, enquanto eu sou de baixo e falo de coisas terrestres. Se me tivesse falado das paixões da alma, eu lhe teria respondido — ao estrangeiro que veio tratando só de coisas celestes.
+690	Abba Poemen	Se o homem tem em si mesmo o temor de Deus, o inimigo não pode prejudicá-lo.
+691	Abba Poemen	"Não habites em lugar onde você vê que alguns têm inveja de ti; do contrário, não progredirás."
+692	Abba Poemen	O homem que conhece a si mesmo é maior que aquele que ressuscita um morto.
+693	Abba Poemen	Aquele que vence suas próprias paixões é maior do que aquele que vence um exército.
+694	Abba Poemen	Ser humilhado é melhor do que ser honrado, pois a humilhação produz mansidão e a honra produz arrogância.
+695	Abba Poemen	"Se a tribulação te chega de fora, ela te prejudica por algum tempo; se a tribulação vem de dentro, ela te consome completamente."
+696	Abba Poemen	Enquanto o pote está no fogo, não se afastam as moscas nem os mosquitos. Assim também enquanto o monge permanece em ações espirituais, o inimigo não pode lhe fazer nada.
+697	Abba Poemen	"O espadeiro que conhece seu ofício pode transformar uma espada em foice; assim também pode transformar uma foice em espada. Seja discípulo do que serve ao momento."
+698	Abba Poemen	A vida espiritual do monge é composta de três elementos essenciais: temor de Deus, humildade e abstinência.
+699	Abba Macário de Alexandria	"Macário de Alexandria disse que, por cada coisa que cometemos mal durante o dia, durante a noite deviaíamos fazer penitência dupla; e por cada coisa boa que fazemos durante a noite, devemos dobrar o esforço durante o dia."
+700	Abba Macário de Alexandria	"Uma vez por semana Macário de Alexandria comia apenas pão seco, sal e água, e isso era chamado a dieta de penitência; assim ele dominou seu corpo para que não dominasse sua alma."
+701	Abba Macário de Alexandria	Se os pensamentos me atormentam, digo: Olha para o que você é. Isso me basta para envergônha-los, pois nada sou.
+702	Abba Poemen	Quando a luta do corpo se torna forte contra você, arme-se com a compunção e a humildade, e o Senhor logo acorrerá em seu auxílio.
+703	Abba Moisés (Padres de Scete)	A compunção é a chave que abre a porta de Deus.
+704	Abba Moisés (Padres de Scete)	A guarda dos mandamentos é para o monge como o leite para a criança: sem ela, não pode crescer.
+705	Abba Moisés (Padres de Scete)	"A oração sem silêncio é como semear em terra dura; as sementes caem mas não germinam."
+706	Abba Pacomíus	"Não seja vingativo; não seja maledicente; não seja ciumento; não seja falso; não seja adulador; não seja soberbo. Observe estas seis coisas e viverá no Senhor."
+707	Abba Pacomíus	"A caridade é a mãe de todas as virtudes; sem ela, nenhuma virtude pode subsistir. Como o corpo sem alma, a virtude sem amor é cadáver."
+708	Abba Sisoes	Quando um irmão caiu, um anjo me mostrou que cada queda pode ser remediada pelo arrependimento, se o coração não endurecer.
+709	Abba Sisoes	"Não posso ser um monge, mas vi monges; e eles me ensinaram que a humildade é o fundamento de todas as virtudes."
+710	Abba Sisoes	"Perguntaram a um ancião: Por que temos tantos pensamentos maus? Ele respondeu: Porque comemos muito e dormimos muito; isso dá ao inimigo espaço para entrar."
+711	Abba Silvano (de Scete)	"Não ensineis antes de serem interrogados; e, quando interrogados, respondei o necessário e não mais. A palavra demais é como prato demais: embrulha o estômago."
+712	Abba Silvano (de Scete)	"O bom monge é aquele cujo coração está em Deus quando fala, quando trabalha e quando come; de tal modo que não há nele separação entre o exterior e o interior."
+713	Abba Sisoes (Pastor)	Aquele que sempre se acusa a si mesmo por tudo que lhe acontece, esse já tem o início da humildade.
+714	Abba Serapião (de Thmuis)	"Não pode ser unão com Deus quem não está unido ao seu próximo pelo amor; pois Deus é amor e aquele que permanece no amor permanece em Deus."
+715	Abba Agatão	"Vi monges que fizeram grandes coisas exteriores, mas dentro era vazio; e vi monges que fizeram coisas pequenas, mas dentro havia um paíz celeste."
+716	Abba Agatão	Não há trabalho maior que o de guardar a mente limpa às vésperas da morte.
+717	Abba Agatão	"Procurei um homem sem falha e não o encontrei; procurei um homem humilde e o encontrei em todos os lugares."
+718	Abba Macário o Grande	O monge que é louvado pelos homens e lão se humilha, já perdeu o fruto de suas vigílias.
+719	Abba Macário o Grande	"A alma que está cheia de amor não tem lugar para o julgamento dos outros; cada vez que ela olha para os outros, vê apenas a própria miséria."
+720	Abba Macário o Grande	Se Deus me pede conta de cada palavra ociosa, com mais razão me pedirá conta de cada silêncio ocioso — quando deveria ter falado e não falei.
+721	Abba Antônio	"Quem quer que seja, quando encontrar alguém que peca, deve rezar por ele e não o julgar; pois Deus é o único juiz."
+722	Abba Antônio	Se o monge não tem em seu coração o temor de Deus, logo será dominado pelo medo dos homens.
+723	Abba Antônio	"O monge deve viver como se fosse morrer hoje, mas trabalhar como se fosse viver para sempre; assim não desperdiçará nem um dia nem uma hora."
+724	Amma Sincletica	Assim como os peixinhos, se ficam muito tempo em terra seca, morrem, assim também os monásticos, ficando muito tempo com as pessoas do mundo, perdem a tensão do silêncio.
+725	Amma Sincletica	"Devemos nos alegrar com as tentações, pois elas são o sinal de que Deus ainda se importa conosco; o que Deus abandona, o diabo também abandona."
+726	Amma Sincletica	"Não basta fugir do mundo no corpo; é preciso fugir do mundo no coração. Muitos fugiram com o corpo e continuaram no mundo com os pensamentos."
+727	Amma Sara	"Luto pela minha alma como se nunca tivesse começado o caminho espiritual; e graças a isso, Deus me dá força para continuar."
+728	Abba Arsênio	Não sei se serei salvo, mas sei que se fizer o que me compete, Deus fará o que é de Sua competência.
+729	Abba Poemen	"Vi um irmão que foi muito tentado, e que, ao invés de resistir com as próprias forças, correu para Deus como uma criança corre para a mãe; e o Senhor o salvou."
+730	Abba Poemen	"A tristeza pelas coisas de Deus gera a compunção; a tristeza pelas coisas do mundo gera o desespero."
+731	Abba Poemen	"Quem procura a honra no serviço de Deus, já recebeu o seu salário; quem busca a honra de Deus, esse aguarda ainda o que lhe será dado."
+732	Abba Poemen	"O espelho da alma é a compunção; sem ela, a alma não se vê."
+733	Abba Macário o Grande	"A oração não é fazer muitas palavras; a oração verdadeira é o olhar do coração voltado a Deus sem distração."
+734	Abba Macário o Grande	Não me tornei monge pelo jejum, nem pela vigília, nem pelo trabalho das mãos, mas pelo pensamento constante na presença de Deus.
+735	Abba João Colobos	"Um irmão perguntou: O que devo fazer para ser salvo? O ancião respondeu: Nunca contentes com o que já fizeste, e não te justifiques diante de Deus; nunca cesses de pedir misericórdia."
+736	Abba João Colobos	Quem ensina antes de ter aprendido é como quem constrói uma casa na areia: qualquer chuva a desfaz.
+737	Abba Poemen	"Quando o irmão cai, não o empurres para baixo; tende-lhe a mão e levanta-o; porque um dia tu mesmo precisarás de uma mão que te levante."
+738	Abba Poemen	"A misericórdia é a mãe do arrependimento; sem misericórdia, o irmão cado não tem coragem de se levantar."
+739	Abba Arsênio	"A solidão é boa quando o coração está em paz; mas quando o coração é turbulento, a solidão só amplifica a turbulência."
+740	Abba Poemen	"Quando fores tentado, não te digas: sou forte e vencerei. Dize: Senhor, sou fraco; Tu que és forte, age em mim."
+741	Abba Antônio	"O demônio não teme o jejum, nem a vigília, nem a solidão; só teme a humildade, porque não sabe imitá-la."
+742	Abba Macário o Grande	O médico que não conhece a sua própria doença, não pode curar a do outro. Assim também o monge que não se conhece a si mesmo, não pode ajudar o irmão.
+743	Abba Poemen	"O coração que está cheio de si mesmo não tem espaço para Deus; e o coração vazio de si mesmo é o tabernáculo do Espírito Santo."
+744	Abba Sisoes	"Aprendi que a maior vitória não é sobre o inimigo, mas sobre si mesmo; e que o maior inimigo do monge é o próprio eu."
+745	Abba Antônio	Vi todos os laços do inimigo e disse a Deus: Quem pode escapar destes? E Deus respondeu: O humilde, pois ele passa por baixo de todos os laços.
+746	Abba Poemen	"A virtude do monge é conhecida não nas boas horas, mas nas más; não quando a graça está abundante, mas quando está ausente."
+747	Abba Agatão	"O que é melhor: falar ou calar? Respondeu: Quando a fala é útil, fala; quando o silêncio é útil, cala. E os dois sirvam a Deus."
+748	Abba Silvano	"Se você tem um bom pensamento e não o coloca em prática, perde-o; se tem um mau pensamento e não o resiste, concretiza-o. Em ambos os casos, a resposta é a ação vigilante."
+749	Abba Poemen	"A compaixão pelo próximo não é fraqueza; é o coração de Cristo que age em mim."
+750	Abba Macário o Grande	"O que é admirável não é o monge que realiza grandes milagres; é aquele que suporta com paz uma palavra dura."
+751	Abba João o Anão	Quando o próprio discernimento abandona o monge, ele faz coisas grandes por fora mas permanece vazio por dentro.
+752	Abba Poemen	"A fome do corpo é remediada pelo pão; a fome da alma só pode ser remediada pela presença de Deus."
+753	Abba Cassiano	"O amor de Deus é o fundamento e o fim de toda ascese; sem ele, as obras são fárdo sem destino."
+754	Abba Cassiano	"A paz interior não é ausência de tentações; é a presença de Deus no meio das tentações."
+755	Abba Arsenio	"Deus não nos abandonou; somos nós que muitas vezes abandonamos a Deus. Mas Ele aguarda pacientemente que voltemos."
+756	Abba Teodoro de Pherme	"O monge que é sempre agitado não progride; o monge que é sempre quieto não serve. É preciso saber quando falar e quando calar, quando agir e quando aguardar."
+757	Abba Agatão	"Quando o coração é puro, a boca fala pureza; quando é impuro, a boca fala impureza. Por isso o monge vigia primeiro o coração."
+758	Abba Macário o Grande	"Deus me mostrou que o monge solitário que pensa mal dos outros nunca obtém a paz; e o monge no meio dos outros que pensa bem deles, esse mesmo no deserto encontra paz."
+759	Abba Moisés	"Senta-te em tua cela com compunção; ela te ensinará melhor do que qualquer ancião."
+760	Abba Antônio	"Se o coração está vazio de paixões, torna-se claro como espelho; e numa água clara vê-se o fundo."
+761	Abba Sisoes	"A cela é o lugar onde Deus e o monge se encontram; quem abandona a cela frequentemente, perde esta oportunidade sagrada."
+762	Abba Poemen	Há três trabalhos excelentes: temor de Deus, oração e compunção. Estes três, praticados juntos, formam o coração do monge.
+763	Abba Poemen	O que é o compungimento do coração? É a dor que não desesperança e que nos leva de volta a Deus.
+764	Abba Arsenio	Quando eu estava no palácio imperial, não encontrava paz. Quando fugi ao deserto, comecei a encontrar paz. E descobri que a paz não vem do lugar, mas de Deus.
+765	Abba João Colobos	"O começo de todo bem é a paz da consciência; sem ela, nem o jejum, nem a vigília, nem a caridade produzem fruto."
+766	Abba Agatão	"Vi monges que tinham grande ciência e eram como sepulcros caiados; e vi monges simples que eram como tesouros escondidos. Não sejais como os sepulcros."
+767	Abba Poemen	"A primeira coisa que o diabo faz com o monge é roubar-lhe a compunção; pois sem compunção, o monge é como uma planta sem raízes."
+768	Abba Macário o Grande	"Vi monges que eram muito rigorosos com os outros e muito lenientes consigo mesmos; e vi monges que eram muito rigorosos consigo mesmos e muito misericordiosos com os outros. Os segundos são mais sábios."
+769	Abba Moisés	"Quando o irmão te ofender, não guarda isso na memória; pois a memória das ofensas é o escorpião que pica sempre que é tocado."
+770	Abba Poemen	"Quando a tua mente está em paz, tu podes ajudar o próximo; quando está agitada, tu só aumentas a agitação do próximo."
+771	Abba Antônio	A humildade é como a terra: todo fruto nasce da terra, e nenhum fruto espiritual nasce sem humildade.
+772	Abba Agatão	"Aprendi que a virtude principal não é a que se vê, mas a que se esconde; não a que é admirada, mas a que é exercida em segredo."
+773	Abba Poemen	"O monge que sabe sofrer com alegria já está na porta do Reino; pois o próprio Cristo sofreu com alegria pela nossa salvação."
+774	Abba Sisoes	"A tentativa de evitar toda tentação é em si uma tentação de orgulho; o verdadeiro monge não evita as tentações, mas as enfrenta com humildade e oração."
+775	Abba Macário o Grande	O que Deus quer não é que façamos coisas grandes, mas que façamos as coisas pequenas com grande amor.
+776	Amma Sincletica	"Quando a tentação chega pela esquerda, vai para a direita; quando chega pela direita, vai para cima. E acima de tudo, está Deus."
+777	Abba Arsênio	"A órbita do sol nunca para; assim também a mente do monge nunca deve parar de buscar Deus."
+778	Abba Poemen	O que chamamos de paz espiritual não é a ausência de combate, mas a presença de Deus no meio do combate.
+779	Abba Antônio	"Quando Deus nos visita, sentimos como que uma certeza; quando o demonio nos visita, sentimos como que uma dúvida que aumenta progressivamente."
+780	Abba Poemen	"Vence-se a ira não pela resistência, mas pelo silencio; pois a ira é como fogo que se alimenta do vento das palavras."
+781	Abba Sisoes	"Quando eu lembro dos meus pecados, o amor de Deus me parece ainda maior; e quando lembro do amor de Deus, meus pecados me parecem ainda mais absurdos."
+782	Abba Macário o Grande	"O homem que todos louvam e que não se humilha já começou sua queda; o homem que todos criticam e que não perde a paz, esse já começou sua salvacão."
+783	Abba Arsênio	"Quando o demônio não consegue tirar o monge de sua cela, tenta tirar sua paz dentro da cela; se não consegue isso, tenta tirar sua humildade dentro da paz."
+784	Abba Poemen	"O monge que não aprende a orar nos sofrimentos, não aprenderá a rezar nos momentos de consolação; pois é nos sofrimentos que a oração se torna real."
+785	Abba Moisés	"Quando souberes que morres, já saberás como viver; pois a memória da morte é o mestre mais honesto que existe."
+786	Abba Antônio	Perguntei a Deus: O que é que os anjos fazem? E me foi respondido: Louvam, servem e obedecem. Eis o programa completo da vida espiritual.
+787	Abba Agatão	"O monge que teme a opinião dos homens não pode agir livremente diante de Deus; e o monge que teme só a Deus, não se preocupa com a opinião dos homens."
+788	Abba João Colobos	"Quando fui ao ancião com três questões e esqueci uma delas no caminho, voltei para buscada; pois nenhuma pergunta ao ancião pode ser abandonada por preguicça."
+789	Abba Poemen	"Vi irmãos que trabalhavam muito e descansavam pouco; e vi irmãos que trabalhavam pouco e descansavam muito. Os primeiros cresciam; os segundos definhavam. O trabalho honesto é o alimento da alma."
+790	Abba Serapião de Thmuis	"Não tema a dificuldade da vida espiritual; o que parece difícil no começo torna-se doce no meio e glorioso no fim."
+791	Abba Cassiano	"O monge que é tímido na luta espiritual não é tímido; é prudente. Mas o que foge da luta é covaerde. Há uma diferença entre recuar com discernimento e fugir por medo."
+792	Abba Poemen	"Quando te sobrevier algum pensamento que te perturbe, não te deixes vencer por ele; mas dize: Este pensamento é do inimigo, não meu; e ao nome de Jesus, afasta-o."
+793	Abba Macário o Grande	Vi monges que eram sábios como cobras, e vi monges que eram simples como pombas. Mas os mais sábios eram os que eram ambos: sábios como cobras e simples como pombas.
+794	Abba Antônio	"Não há vício que não tenha a sua raíz no amor próprio; nem virtude que não tenha a sua raíz no amor a Deus."
+795	Abba Sisoes	"Quando o monge está em paz, os irmãos que chegam saem em paz; quando o monge está agitado, os irmãos que chegam saem ainda mais agitados. A paz interior se comunica."
+796	Abba Poemen	"Quem aprende a calar quando está com raiva, aprende tudo; quem não aprende isso, perde tudo o mais que aprendeu."
+797	Abba Arsênio	"Quando fugi do palácio, fugi do ruído; quando fugi do ruído, encontrei o silêncio; quando encontrei o silêncio, encontrei Deus."
+798	Abba Moisés	"A compunção é a lágrima da alma que vê Deus e vê a si mesma; e ao ver ambos, chora de amor e de vergonha ao mesmo tempo."
+799	Abba João o Anão	Quando me levantei da obedãencia para a liberdade, percebi que a obediência havia sido a maior liberdade que tive.
+800	Abba Poemen	"Vi irmãos que tinham muita ciência e pouca compunção; e vi irmãos que tinham pouca ciência e muita compunção. Os primeiros falavam muito e faziam pouco; os segundos falavam pouco e faziam muito. A compunção é mais útil que a ciência."
+801	Abba Antônio	O demônio tem muitos artificioss para destruir o monge, mas o mais eficaz é este: fazer com que o monge pense que já alcançou a perfeicão.
+802	Abba Agatão	"A humildade do coração é maior que a humildade do corpo; o corpo pode se prostrar enquanto o coracão se erguea em orgulho."
+803	Abba Sisoes	"Aprendi que não é o lugar que santifica o homem, mas o homem que santifica o lugar; ou antes, Deus que santifica o homem, e o homem santificado santifica o lugar."
+804	Abba Macário o Grande	O que o Senhor pediu ao jovem rico, pediu a todos nós: Vaí, vende o que tens, dá aos pobres, e vem e segue-me. Não só no sentido material, mas no sentido espiritual: và e vende tua vontade própria.
+805	Abba Poemen	"A verdadeira pob reza não é não ter nada; é não querer nada. Pois pode-se não ter nada e estar cheio de desejos; e pode-se ter muito e estar livre de todo desejo."
+806	Abba Arsênio	"O silêncio do corpo ajuda o silêncio da alma; e o silêncio da alma é o começo da oração."
+807	Abba Cassiano	"O demônio da acídia diz ao monge: Isso não serve para nada; os outros estão fazendo coisas mais úteis. E se o monge escutar, estará perdido."
+808	Abba Poemen	"O monge que se compar a a outros, já perdeu a batalha interior; pois na vida espiritual, a única comparação válida é com quem você era ontem."
+809	Abba Antônio	"A virtude começa quando você decide e acaba quando Deus a consuma; o que está no meio é a colaboracão entre a liberdade humana e a graça divina."
+810	Abba Macário o Grande	"Quando o monge ora e não sente nada, não abandone a oração; pois o valor da oração não está no sentimento, mas na fidelidade."
+811	Abba Poemen	"O monge fiel é aquele que ora quando sente e quando não sente, quando está consolado e quando está desolado; pois a fidelidade vale mais que o fervor."
+812	Abba Silvano	"Vi monges que or avam muito e eram orgulhosos; e vi monges que oravam pouco e eram humildes. Prefiro o monge humilde que ora pouco ao monge orgulhoso que ora muito."
+813	Abba Antônio	"A luta espiritual nunca acaba enquanto vivemos; quem diz que já alcançou a paz definitiva, provavelmente nunca conheceu a verdadeira luta."
+814	Abba Poemen	O monge que aprende a aceitar a própria miséria sem desespero e a amar a própria pequenez sem resignação, esse já está muito perto de Deus.
+815	Abba Moisés	"Não há nada que Deus não possa perdoar, exceto a negativa do próprio perdão; pois o inferno não é povoado pelos grandes pecadores, mas pelos que recusaram o arrependimento."
+816	Abba Sisoes	"Vi monges que choravam seus pecados sem cessar e depois pecavam de novo sem remorso; e vi monges que pecaram uma vez e não cessaram de chorar durante anos. Os primeiros choravam com a boca; os segundos choravam com o coração."
+817	Abba Agatão	"Quando te vier um pensamento de julgamento sobre o irmão, substitui-o imediatamente por um pensamento de misericordia; pois é a misericordia que Deus quer, e não o julgamento."
+818	Abba Poemen	Há três sinais de que o demônio visitou o coração: inquietação, julgamento dos outros e esquecimento de si mesmo. Há três sinais de que Deus visitou: paz, misericordia e conhecimento de si mesmo.
+819	Abba Macário o Grande	O demônio diz ao monge: Vós sois Santos e perfeitos. Deus diz ao monge: Vocs sois pecadores que precissam de misericórdia. Escuta quem diz a verdade.
+820	Abba Poemen	"Quando o irmão te faz o bem, agradece a Deus por ter enviado o irmão; quando o irmão te faz o mal, agradece a Deus por ter enviado a tua medicina."
+821	Abba Antônio	"O que mais temo não é o julgamento de Deus, mas o meu próprio julgamento; pois sei que Deus é misericordioso, mas não sei se eu sou misericordioso comigo mesmo."
+822	Abba Sisoes	A memória da morte é como a lu de uma lamparina numa noite escura: torna tudo mais claro, mas não é o sol. O sol é a presença de Deus.
+823	Abba Poemen	"Quando te vier a tentação de ensoberbecer-te, lembra dos teus pecados; quando te vier a tentação de desesperar por teus pecados, lembra da misericordia de Deus. Os dois remédios juntos formam o equilíbrio espiritual."
+824	Abba Arsênio	"Prefiro ser um ignorante em paz do que um sábio em agitação; pois a sabedoria sem paz é um instrumento que fere quem o carrega."
+825	Abba Moisés	"A maior parte das batalhas espirituais são ganhas não pela força, mas pela fuga; não pela resistência, mas pela humildade."
+826	Abba Macário o Grande	"Quando alguém te louva, pensa: Não sou o que ele pensa que sou; quando alguém te critica, pensa: Sou pior do que ele imagina. Ambos os pensamentos te guardam do orgulho."
+827	Abba João o Anão	"A cela é o lugar de nascimento do monge; pois o monge que não nasce na cela, não nasce de verdade na vida espiritual."
+828	Abba Poemen	"A paciência no sofrimento não é passividade; é a força de quem confia que Deus age mesmo quando nada parece acontecer."
+829	Abba Agatão	"O monge que se compraz em seus sucessos espirituais é como o agricultor que colhe antes do tempo; o fruto parece maduro, mas por dentro ainda está amargo."
+830	Abba Sisoes	"Quando chegar a hora da morte, o único que me poderá ajudar é o arrependimento que tive na vida; não os jejuns, não as vigílias, não os milagres, mas o arrependimento sincero."
+831	Abba Antônio	"A paz da alma não vem de circunstâncias favoráveis; vem de um coração que aprendeu a aceitar todas as circunstâncias como vontade de Deus."
+832	Abba Poemen	"Quando a alma está limpa, todo o mundo parece belo; quando a alma está suja, todo o mundo parece feio. O que muda não é o mundo; é a alma."
+833	Abba Macário o Grande	"O monge que não chora por seus pecados não pode verdadeiramente alegrar-se com a misericórdia de Deus; pois só chora com alegria quem chora primeiro com compunção."
+834	Abba Cassiano	O perigo da vida espiritual não está nos pecados graves, mas nos pequenos deslizes não reconhecidos que acumulam e formam o hábito do mal.
+835	Abba Arsênio	"Quando fugi para o deserto, trouxe comigo tudo o que queria deixar; e descobri que o deserto exterior não purifica o deserto interior."
+836	Abba Poemen	O que o Espírito Santo faz no coração do monge é como o que o vento faz com o trigo: separa o joio do trigo, e o joio é levado pelo vento. Mas é preciso que o trigo permaneça quieto para ser separado.
+837	Abba Antônio	"Vi no deserto monges que tinham os olhos voltados para Deus e monges que tinham os olhos voltados para si mesmos. Os primeiros cresciam em humildade; os segundos cresciam em orgulho."
+838	Abba Moisés	"Quando o monge aprende a rezar em silêncio, é porque Deus começou a falar; e quando Deus fala, o monge aprende a calar."
+839	Abba Sisoes	"A maior prova de amor ao irmão não é dar o que tens, mas receber o que ele te dá; pois receber com humildade é mais difícil que dar com generosidade."
+840	Abba João Colobos	"O monge que se glorifica de sua obediência já não é obediente; a verdadeira obediência não sabe que existe."
+841	Abba Poemen	"Quando o pensamento mau vier, não o trates como inimigo a combater, mas como enfermo a tratar; pois os pensamentos são fraquezas da alma, não inimigos externos."
+842	Abba Macário o Grande	"O coração que está cheio de amor não encontra lugar para o ressentimento; e o coração que está cheio de ressentimento não encontra lugar para o amor. São dois estados incompatíveis."
+843	Abba Agatão	"O que é mais difícil: amar o próximo ou amar Deus? Respondeu: São a mesma coisa. Quem ama Deus ama o próximo; quem não ama o próximo, não ama Deus, por mais que ore."
+844	Abba Arsênio	"O sábio que cala é duas vezes sábio; o ignorante que cala parece sábio; o sábio que fala demais parece ignorante. Por isso o silêncio é sempre proveitoso."
+845	Abba Poemen	"Quando o monge é tentado à tristeza, que ore pela alegria dos outros; e quando é tentado à alegria desordenada, que ore pela dor dos que sofrem. Assim mantém o equilíbrio."
+846	Abba Antônio	"A leitura das Escrituras alimenta a mente; a oração alimenta o coração; o jejum alimenta o espírito de combate; mas a humildade sustenta tudo isso junto."
+847	Abba Sisoes	"O monge que faz muitas obras e tem pouca humildade é como árvore muito florida mas com raízes fracas; na primeira tempestade, cai."
+848	Abba Macário o Grande	Quando me perguntam como é a vida espiritual, respondo: É como aprender a nadar: no começo parece impossível, depois parece difícil, depois se torna natural, e finalmente se torna alegria.
+849	Abba Moisés	"A paz que o mundo oferece é ausência de conflito exterior; a paz que Cristo oferece é presença de Deus no meio do conflito interior."
+850	Abba Poemen	"Vi monges que lutaram durante anos e caíram no fim; e vi monges que caíram no início e levantaram-se e chegaram ao fim. A perseverança final vale mais que o fervor inicial."
+851	Abba Agatão	"O monge que abandona uma cela para ir a outra mais tranquila, descobre que trouxe a intranquilidade consigo; pois a paz não está na cela, mas no coração."
+852	Abba João o Anão	O que é mais nobre: ter muitas virtudes ou ter humildade? Respondeu: Um só grão de humildade verdadeira vale mais do que todos os campos de virtude sem humildade.
+853	Abba Poemen	"Não se preocupa com a perfeição aquele que está sempre começando; e começar sempre de novo é a definição da vida espiritual."
+854	Abba Arsênio	"Quando Deus me chamou a sair do palácio, não me chamou para a solidão, mas para Si mesmo; a solidão foi apenas o meio, não o fim."
+855	Abba Antônio	"O maior milagre que já vi foi um monge humilhado que não se defendeu; pois a natureza humana, por si mesma, sempre se defende, e não se defender é obra de Deus."
+856	Abba Macário o Grande	"A alma que cessa de pedir a Deus, começa a pedir ao mundo; e o mundo nunca satisfaz o que a alma realmente precisa."
+857	Abba Sisoes	"O arrependimento sincero não fica olhando para o pecado; ele olha para Deus. Não é o horror do pecado que salva, mas o amor de Deus que atrai."
+858	Abba Poemen	"O que mais me admira no amor de Deus é que Ele ama os que não merecem ser amados; e se eu entendo isso, começo a amar os que não merecem ser amados por mim."
+859	Abba Moisés	"Vi um irmão que sempre se acusava e nunca acusava os outros; e vi outro que sempre acusava os outros e nunca a si mesmo. O primeiro crescia; o segundo diminuía."
+860	Abba Agatão	"O monge que não aprendeu a servir não pode aprender a contemplar; pois a contemplação é o serviço elevado ao seu grau mais alto."
+861	Abba Antônio	"A tentação não é pecado; o consentimento à tentação é pecado. E entre a tentação e o consentimento, há um espaço onde mora a liberdade humana e a graça de Deus."
+862	Abba Poemen	"O amor de Deus é a regra que governa todas as outras regras; sem ele, as regras são gaiola sem pássaro."
+863	Abba Macário o Grande	"A ascese sem amor é como corpo sem alma; pode andar, mas não vive."
+864	Abba Sisoes	"Quando eu era jovem, achava que a vida espiritual era conquistar; quando fui velho, aprendi que a vida espiritual é receber. A graça não é conquistada; é recebida."
+865	Abba João Colobos	"O monge que não sabe rezar quando está alegre, não saberá rezar quando estiver triste; pois a oração é hábito, não humor."
+866	Abba Arsênio	"Quem é o maior pecador do mundo? Eu mesmo; pois não conheço os pecados dos outros, mas conheço muito bem os meus."
+867	Abba Poemen	"A caridade não é sentimento; é ato. Não é gostar do irmão; é servir ao irmão. E servindo ao irmão, aprende-se a gostar dele."
+868	Abba Antônio	"O que pede a Deus que seja fácil, pede que seja difícil; pois a facilidade amolece a alma. Mas o que pede a Deus que dê força para o difícil, pede o que realmente precisa."
+869	Abba Moisés	"A quietude não é ausência de pensamentos; é a presença de Deus que ordena os pensamentos. O silêncio verdadeiro está cheio, não vazio."
+870	Abba Macário o Grande	"Quando o monge está em luta e pede socorro a Deus, e Deus não responde imediatamente, não pense que Deus não ouvia; pense que Deus estava esperando que o pedido se tornasse mais puro."
+871	Abba Agatão	"A virtude que não foi testada não é virtude; é potencial de virtude. O teste é o que transforma o potencial em realidade."
+872	Abba Poemen	"O monge que cuida bem do irmão, cuida melhor de si mesmo do que quando cuida só de si; pois no cuidado do irmão, esquece seus próprios problemas, e Deus cuida dos seus."
+873	Abba Sisoes	"Quando sinto que estou progredindo na vida espiritual, é quando devo ter mais cuidado; pois o orgulho costuma vir vestido de progresso."
+874	Abba Macário o Grande	"O que transforma o monge não é a quantidade de oração, mas a qualidade da atenção na oração; melhor uma hora com plena atenção do que dez horas com mente dividida."
+875	Abba Antônio	"A graça de Deus não é rara; somos nós que somos raros em abrir a mão para recebê-la."
+876	Abba Arsênio	"No mundo, aprendi a falar; no deserto, aprendi a calar; e no silêncio, comecei a ouvir Deus. São três etapas que ninguém pode pular."
+877	Abba Poemen	"O bem que fazemos em segredo é como semente enterrada; ninguém vê, mas frutifica. O bem que fazemos em público é como semente jogada na estrada; todos veem, mas as aves comem."
+878	Abba Moisés	"A oração do coração não tem palavras; é um olhar. E quando o coração olha para Deus, Deus olha para o coração, e neste olhar mútuo acontece a comunhão."
+879	Abba João o Anão	"O peso da cela é a maior prova do monge; quem suporta o peso da cela, suporta tudo o mais; quem não suporta a cela, não suportará nada."
+880	Abba Macário o Grande	"Vi muitos que fizeram grandes penitências e não se salvaram por causa do orgulho; e vi muitos que fizeram pequenas penitências e se salvaram pela humildade. A humildade é o que faz a penitência eficaz."
+881	Abba Agatão	O monge que procura aprovação humana para seus atos espirituais, já se pagou a si mesmo. O que procura só a aprovação de Deus, aguarda o seu salário no fim.
+882	Abba Antônio	"Deus me enviou ao deserto não para eu me tornar perfeito, mas para eu aprender que não sou perfeito e precisar de Deus; e descobri que esta necessidade é a maior das riquezas."
+883	Abba Poemen	"A misericórdia de Deus é como o mar; não importa quantas vezes nos afogamos, sempre há uma mão que nos puxa de volta à superfície. Essa mão é o arrependimento sincero."
+884	Abba Sisoes	"O monge que aprende a sorrir diante da tribulação está muito próximo da santidade; pois sorrir na tribulação só é possível quando se vê Deus por trás dela."
+885	Abba Arsênio	"No silêncio aprendi mais do que em todos os livros; na solidão aprendi mais do que em todas as conversas. O maior mestre é Deus, e Ele prefere falar no silêncio."
+886	Abba Moisés	"A vida espiritual não é um projeto que se conclui; é um caminho que nunca acaba. Quem acha que chegou, está começando a se enganar."
+887	Abba Poemen	"O monge que ama sua reputação mais do que a verdade, perderá ambas no fim; o monge que ama a verdade mais do que a reputação, ganhará ambas na eternidade."
+888	Abba Agatão	"A palavra que edifica é sempre mais curta do que a palavra que destrói; pois construir é lento e difícil, e destruir é rápido e fácil."
+889	Abba Antônio	"O amor de Deus é o único amor que não diminui quando é dividido; ao contrário, quanto mais se divide, mais aumenta. Por isso a caridade é sinal do amor divino."
+890	Abba Macário o Grande	"O monge maduro não busca experiências espirituais extraordinárias; busca a fidelidade nas coisas ordinárias. A santidade está no ordinário santificado."
+891	Abba Sisoes	"O coração que não chora, não ama; e o coração que não ama, não vive. A compunção é o choro do amor, não o choro do medo."
+892	Abba João Colobos	"O monge que desce de sua cela com mais paz do que subiu, isso é sinal de Deus; o monge que desce com mais agitação, isso é sinal de que o inimigo trabalhou."
+893	Abba Poemen	"A vida monástica pode ser resumida em duas palavras: rezar e vigiar. Rezar sem vigiar é sonhar; vigiar sem rezar é trabalhar em vão."
+894	Abba Moisés	"Quando Deus me pede contas da minha vida, quero mostrar-Lhe não os milagres que fiz, mas as vezes que pedi perdão; não as virtudes que adquiri, mas as quedas das quais me levantei."
+895	Abba Arsênio	"O monge que busca Deus com o coração, encontra-O; o monge que busca Deus com a cabeça, discute sobre Ele. Há uma diferença entre encontrar e discutir."
+896	Abba Macário o Grande	"A alma que não descansou em Deus descansará nas criaturas; e as criaturas sempre decepcionam no fim. Por isso todo descanso nas criaturas produz eventualmente inquietação."
+897	Abba Antônio	"A maior herança que o monge pode deixar aos discípulos não são as palavras que disse, mas o exemplo que deu; pois as palavras ensinam, mas o exemplo transforma."
+898	Abba Agatão	"O monge que chega ao fim de sua vida sem ter reconhecido sua própria miséria, não chegou ao fim da vida espiritual; chegou ao fim da vida corporal. A vida espiritual começa com o reconhecimento da própria miséria."
+899	Abba Poemen	Há um sinal seguro de que Deus está trabalhando na alma: ela começa a ver sua própria pobreza com mais clareza ao mesmo tempo em que a misericórdia de Deus com mais alegria. Os dois crescem juntos.
+900	Abba Sisoes	"O monge que persevera até o fim não é o que nunca caiu; é o que cada vez que caiu, levantou-se. E cada levantamento é um ato de fé que fortalece a alma."
+901	Abba Moisés	"A sabedoria espiritual não é saber muitas coisas; é fazer bem uma única coisa: amar a Deus sobre tudo e ao próximo como a si mesmo. Quem faz isso sabe tudo o que é necessário."
+902	Abba Arsênio	"No deserto aprendi que Deus não precisa de nossos méritos para nos amar; Ele nos ama antes de qualquer mérito. Nossos méritos são a resposta ao Seu amor, não a condição para obtê-lo."
+903	Abba Macário o Grande	"O mais belo espetáculo que já vi foi um irmão que foi gravemente ofendido e não respondeu com palavras; apenas baixou a cabeça e rezou. Naquele momento, vi Deus agindo através da fraqueza humana."
+904	Abba Poemen	"A vida espiritual tem um único começo e um único fim: o amor. Começa com o amor de Deus por nós e termina com o nosso amor por Deus; e no meio está tudo o mais que chamamos de ascese, oração e virtude."
+905	Abba Agatão	"Quando morrer, quero ser encontrado em ato de misericórdia; pois é pela misericórdia que seremos julgados, e quem foi misericordioso encontrará misericórdia."
+906	Abba Antônio	O fim da vida espiritual não é a perfeição que eu alcancei, mas a perfeição que Deus completará em mim quando eu tiver feito tudo o que me competia fazer com amor e fidelidade.
+907	Abba Sisoes	"Vi monges que correram muito e chegaram cansados; e vi monges que caminharam devagar e chegaram descansados. A vida espiritual não premia a velocidade; premia a fidelidade."
+908	Abba Macário o Grande	A última palavra que aprendi no deserto foi esta: Deus é amor. E as primeiras palavras que aprendi foram estas: Eu não sou digno de Seu amor. E entre o início e o fim, toda a vida espiritual aconteceu.
+909	Abba Moisés	"O monge que chegou ao fim de sua vida com humildade, chegou ao começo da eternidade; pois na eternidade, a humildade é o traje de gala dos santos."
+910	Abba Poemen	Se eu fosse começar de novo a vida espiritual, começaria com uma única resolução: nunca julgar o próximo. Desta resolução nasceriam todas as virtudes.
+911	Abba João o Anão	"O maior milagre não é ressuscitar mortos; é amar o inimigo. E este milagre está ao alcance de todos os que pedem a Deus."
+912	Abba Arsênio	"Quando eu era jovem, pensava que a vida espiritual era subir; quando fui mais velho, aprendi que é descer. Descer na humildade, no serviço, na compunção. E descendo, o coração sobe até Deus."
+913	Abba Agatão	"A perfeição não está no fim do caminho; está no próprio caminhar com fidelidade. Quem caminha fielmente está perfeito no caminho, mesmo que não tenha chegado ao fim."
+914	Abba Macário o Grande	"Quando Deus me chamar, não quero apresentar minhas obras; quero apresentar minha compunção. Pois as obras podem ser orgulho, mas a compunção é sempre graça."
+915	Abba Antônio	"A liberdade espiritual não é fazer o que se quer; é querer o que se deve. E chegar a querer o que se deve é o trabalho de toda uma vida."
+916	Abba Sisoes	"O deserto ensinou-me que o silêncio de Deus não é ausência; é plenitude que excede as palavras. Quando Deus cala, é porque Sua presença é maior que qualquer palavra."
+917	Abba Poemen	"O monge que chegoua ao fim da vida sem ter amado verdadeiramente, não chegou ao fim da vida; chegou ao fim de uma possibilidade perdida. A vida só se consuma no amor."
+918	Abba Moisés	A última lição do deserto é a primeira lição do Evangelho: Amai-vos uns aos outros. E toda a vida espiritual não é mais do que aprender esta lição, dia após dia, queda após queda, levantamento após levantamento.
+919	Abba Poemen	"Quando me encontrar com Deus, quero dizer-Lhe: Senhor, fiz pouco; mas o pouco que fiz, fiz com amor. E creio que Ele me responderá: Bem, servo bom e fiel."
+920	Abba Macário o Grande	"O amor de Deus é a âncora da alma; e a âncora não é visível do exterior do barco, mas é o que impede o barco de ser arrastado pela correnteza. Assim o amor de Deus, invisível para o mundo, é o que mantém o monge no rumo da salvação."
+921	Abba Arsênio	"A lágrima do arrependimento é mais preciosa que o ouro; pois o ouro oxida, mas a lágrima sincera nunca se perde."
+922	Abba Poemen	"O silêncio que nasce do medo é covardia; o silêncio que nasce da humildade é sabedoria; e o silêncio que nasce do amor é a oração mais profunda que existe."
+923	Abba Sisoes	"Aprendi no deserto que Deus não abandona ninguém que O busca sinceramente; e quem diz que O buscou e não O encontrou, é porque parou de buscar antes de O encontrar."
+924	Abba Agatão	O monge que chega ao fim de sua vida e diz: fiz muito, provavelmente fez pouco. O monge que diz: fiz pouco, provavelmente fez muito. Pois o orgulho distorce a visão, e a humildade a clarifica.
+925	Abba João Colobos	"Vi monges que viveram muitos anos no deserto e não se transformaram; e vi monges que viveram poucos anos e foram completamente transformados. O que transforma não é o tempo, mas a entrega."
+926	Abba Antônio	"Quando chegar a hora de minha morte, quero que minha última palavra seja uma ação de graças; pois a vida toda foi graça, mesmo quando parecia ser provação."
+927	Abba Macário o Grande	"O mistério da vida espiritual é este: quanto mais o monge descobre sua miséria, mais descobre a misericórdia de Deus; e quanto mais descobre a misericórdia de Deus, mais cresce em amor. E o amor é o objetivo de tudo."
+928	Abba Moisés	"A hesychia não é silêncio de palavras; é silêncio de paixões. E quando as paixões calam, Deus fala."
+929	Abba Poemen	Se há uma oração que resume toda a vida espiritual, é esta: Senhor, tem misericórdia de mim, pecador. Nela está a humildade, o reconhecimento, a confiança e o amor.
+930	Abba Agatão	A vida de um monge fiel é uma longa preparação para um único momento: o encontro com Deus. E nesse momento, todo o resto perde o valor, exceto o amor com que vivemos.
+931	Abba Sisoes	"Aprendi que a santidade não é a ausência de pecado, mas a abundância de misericórdia; e que o santo não é quem nunca caiu, mas quem nunca parou de se levantar."
+932	Abba João o Anão	"O deserto não é lugar geográfico; é estado da alma. E quem encontrou o deserto interior pode estar no meio da cidade e estar mais solitário do que o eremita mais remoto."
+933	Abba Arsênio	"Quando eu era jovem, fugi dos homens para encontrar Deus. Quando fui velho, descobri que Deus estava nos homens que tinha fugido; e que O encontrei no deserto para poder O encontrar neles."
+934	Abba Macário o Grande	"O amor perfeito não distingue entre amigo e inimigo; vê em todos a imagem de Deus, obscurecida pelo pecado, mas presente. E ama essa imagem mesmo quando não consegue amar o pecado que a obscurece."
+935	Abba Moisés	"O fim de toda ascese é o amor; e o amor é o começo de toda ascese. Quem começa pelo amor, já está no fim; quem começa pelo esforço sem amor, pode nunca chegar ao fim."
+936	Abba Poemen	"O que mais me deu alegria no deserto não foram os momentos de consolação espiritual; foram os momentos de desolação onde perseverei por pura fé. Pois nos momentos de consolação, a graça carrega; nos momentos de desolação, a liberdade escolhe."
+937	Abba Antônio	"A humildade verdadeira não pensa de si nem alto nem baixo; não pensa de si. É o esquecimento de si diante de Deus e do próximo."
+938	Abba Sisoes	"Quando eu era tentado pelo orgulho, lembrava dos meus pecados; quando era tentado pelo desespero, lembrava da misericórdia de Deus. E entre esses dois remédios, toda a vida espiritual estava contida."
+939	Abba Agatão	"O monge que não tem mestre humano, tem Deus como mestre; mas Deus como mestre é mais exigente do que qualquer mestre humano, pois exige a entrega total, não apenas a obediência exterior."
+940	Abba Macário o Grande	"Vi um dia um pássaro que cantava no meio de uma tempestade; e pensei: assim deve ser o monge, que louva a Deus no meio de todas as tribulações, com a mesma naturalidade com que o pássaro canta."
+941	Abba João Colobos	"A última coisa que aprendi no deserto foi que não aprendi nada; e que todo o aprendizado verdadeiro é o reconhecimento da própria ignorância diante de Deus."
+942	Abba Poemen	"O amor de Deus não é uma emoção que vem e vai; é uma decisão que se renova a cada dia. E renová-la nos dias difíceis é o que a torna verdadeira e profunda."
+943	Abba Arsênio	"Quando eu morrer, não quero que me chamem de sábio, nem de asceta, nem de taumaturgo; quero que me chamem de humilde. Pois é a única coisa que Deus verdadeiramente aprecia."
+944	Abba Moisés	"O deserto me ensinou que quando tudo acaba, Deus começa; e quando Deus começa, tudo recomeça."
+945	Abba Sisoes	A minha última oração será a minha primeira: Senhor, tem misericórdia de mim. Pois no começo e no fim, só a misericórdia de Deus me salva.
+946	Abba Poemen	"No dia do julgamento, Deus não me perguntará quantas virtudes tive; me perguntará se amei. E se amei, as virtudes serão consequência; se não amei, as virtudes não valerão nada."
+947	Abba Agatão	"A vida espiritual é simples: amar a Deus e ao próximo. O que é complicado não é a doutrina; são os nossos corações que resistem à simplicidade."
+948	Abba Antônio	"O dom mais precioso que recebi no deserto foi aprender a esperar; pois Deus opera em Seu tempo, não no meu, e quem não aprende a esperar, nunca vê Deus agir."
+949	Abba Macário o Grande	"Quando eu encontrar Deus, não serei capaz de dizer nada; apenas me prostrarei. E creio que será nesse silêncio prostrado que compreenderei, finalmente, tudo o que busquei durante a vida."
+950	Abba Moisés	"A hesychia é o sinal de que Deus entrou na alma; pois onde Deus entra, a tempestade cessa. Não porque os problemas desaparecem, mas porque Deus é maior que os problemas."
+951	Abba João o Anão	"A cela ensinou-me que sozinho com Deus não é solidão; é a mais plena das companhias. E depois de aprender isso, nunca mais me senti só."
+952	Abba Poemen	Quando o monge chega ao fim de sua vida e olha para trás, o que vê não são as suas obras, mas as obras de Deus nele. E fica grato não pelo que fez, mas pelo que Deus fez por ele.
+953	Abba Arsênio	"A paz que encontrei no deserto não era a paz que procurei quando entrei; mas era a paz que precisava. Pois Deus sempre nos dá o que precisamos, não o que pedimos."
+954	Abba Sisoes	"No fim de minha vida, o único arrependimento que tenho é não ter amado mais; pois de tudo o mais, Deus me perdoou, mas as oportunidades de amor perdidas não voltam."
+955	Abba Agatão	A última lição que aprendi foi a primeira que me ensinaram: Deus é amor. E toda a vida entre o início e o fim foi aprender o que isso significa na prática.
+956	Abba Macário o Grande	"Se ao morrer o monge puder dizer honestamente: Senhor, tentei Te amar; então, Deus lhe dirá: Bem, servo fiel; isso me basta."
+957	Abba Antônio	"O deserto não é um lugar de chegada; é um lugar de partida. Nele, o monge parte de si mesmo para chegar a Deus."
+958	Abba Poemen	A última lição da vida espiritual resume todas as outras: Tudo é graça. E quem entende isso em profundidade, já entendeu o Evangelho.
+959	Abba Moisés	"O monge que morreu bem é aquele que no fim da vida ainda estava começando; pois no Reino de Deus, sempre se começa de novo, e sempre para melhor."
+960	Abba Arsênio	Quando chegar a minha hora, quero estar em oração. Pois a oração é o exercício da eternidade, e quem morre em oração está com o coração já aberto para o que vem depois.
+961	Abba Sisoes	"Toda a vida espiritual pode ser resumida em duas palavras: confie e espere. Confie em Deus e espere Sua hora; e na hora de Deus, tudo se transforma em graça."
+962	Abba Poemen	"O Dom mais precioso que um monge pode dar ao mundo é a sua paz; pois o mundo está cheio de agitação, e um coração em paz é mais evangelizador do que mil palavras."
+963	Abba Agatão	"Vi monges que fizeram tudo certo e chegaram ao fim vazios; e vi monges que fizeram muita coisa errada e chegaram ao fim cheios. A diferença estava no amor: os primeiros amaram a regra; os segundos amaram a Deus."
+964	Abba Macário o Grande	"Quando meu espírito partir, quero que parta como o pássaro que voa para o sol; e que o sol que me atrai seja o próprio Deus, que é Luz e Calor e Vida para toda a eternidade."
+965	Abba Antônio	"O último ato de humildade do monge é aceitar a morte com paz; pois a morte é o último presente de Deus na terra, que nos entrega definitivamente à Sua misericórdia."
+966	Abba Poemen	Quando me perguntam qual é o segredo da vida espiritual, respondo: não há segredo. Há apenas amor, fidelidade e humildade, repetidos infinitamente, dia após dia, até o fim.
+967	Abba Moisés	"O monge que chegou ao fim de sua vida com a mesma sede de Deus com que começou, esse chegou; pois a sede nunca se sacia na terra, e é essa insatisfação santa que nos abre à plenitude do Céu."
+968	Abba João o Anão	"Aprendi que não sou nada; aprendi que Deus é tudo; e aprendi que entre o nada e o tudo, há o amor que une o nada ao tudo. Esta é a suma da teologia espiritual."
+969	Abba Sisoes	"A última palavra do deserto é a primeira palavra do Paraíso: Aleluia. Pois no Paraíso não haverá luta, mas haverá louvor eterno; e quem aprendeu a louvar na luta, já aprendeu a linguagem da eternidade."
+970	Abba Poemen	"Quando eu estiver diante de Deus, não me lembrarei das minhas virtudes; lembrarei apenas de Sua misericórdia. E esta memória será eterna, porque eterna é a misericórdia de Deus sobre os que O buscaram com humildade."
+971	Abba Antônio	"A vida espiritual não é um caminho para ser percorrido sozinho; é uma peregrinação em comunidade, onde cada um carrega o peso do outro e Deus carrega o peso de todos."
+972	Abba Poemen	"O irmão que te corrije com amor é um presente de Deus; o irmão que te elogia sem razão é um perigo disfarado de presente. Aprenda a distinguir os dois."
+973	Abba Macário o Grande	"Quando o coração está vazio de si mesmo, enche-se de Deus; e quando está cheio de Deus, transborda amor para os irmãos. Este é o ciclo completo da vida espiritual."
+974	Abba Sisoes	"Não é a força que vence a tentação; é a humildade. Pois o orgulhoso enfrenta a tentação com suas próprias forças e cai; o humilde confessa sua fraqueza e Deus o defende."
+975	Abba Arsênio	"A fuga do mundo não é covardia; é sabedoria. Pois o mundo offer a ilusoes de felicidade, e o monge que foge do mundo busca a felicidade real."
+976	Abba Agatão	"O monge que aprendeu a dizer nao a si mesmo, aprendeu a dizer sim a Deus; e essa é a definição completa da ascese cristã."
+977	Abba João o Anão	"Quando eu começei no deserto, pensava que precisava conquistar as virtudes; quando aprendi melhor, percebi que precisava receber as virtudes. A conquista é nossa; o dom é de Deus."
+978	Abba Poemen	"O que buscamos no deserto não é o deserto; é Deus. E Deus pode ser encontrado no deserto, na cidade, na cela, na comunidade. O que importa não é o lugar; é o coração."
+979	Abba Antônio	"Quando o monge perseverar até o fim, não é porque não teve dificuldades; é porque teve dificuldades e não desistiu. A perseverança é a virtude das virtudes."
+980	Abba Macário o Grande	"A oracão perfeita não pede nada; é um fiat, um sim total à vontade de Deus. E quem aprendeu a rezar assim, já aprendeu tudo."
+981	Abba Moisés	"O humilde não se defende porque sabe que Deus o defende; e Deus defende melhor do que qualquer argumento humano."
+982	Abba Sisoes	"A obra mais importante que o monge realiza nunca é vista pelos homens; acontece no interior da cela, no silencio do coracão, onde Deus e o monge trabalham juntos."
+983	Abba Poemen	"Aprendi que a perfeicão não é o destino; é o processo. E o processo nunca acaba enquanto vivemos, pois sempre há mais amor a aprender."
+984	Abba Agatão	O fruto da hesychia é a claridade: a mente fica clara, o coracão fica limpo, e Deus fica próximo. E quando Deus está próximo, tudo o mais fica no seu devido lugar.
+985	Abba Arsênio	"Vi monges que fizeram muito e foram humildes; e vi monges que fizeram pouco e foram orgulhosos. Os primeiros eram mais avançados espiritualmente do que os segundos, apesar de parecer o contrário."
+986	Abba Antônio	"O maior bem que o anciao pode fazer ao discípulo é mostrar-lhe o caminho; caminhar o caminho, o discípulo deve fazer sozinho com Deus."
+987	Abba Macário o Grande	"Quando Deus te tirar de dentro da tentação sem que tu tenhas feito nada, fica grato; pois Deus às vezes salva não pela nossa força, mas pela Sua misericordia, para que saibamos de onde vem a nossa salvacão."
+988	Abba Poemen	"A caridade e a humildade são as duas asas do monge; com uma só, não consegue voar; com as duas, sobe até Deus."
+989	Abba João Colobos	"O monge que não perdoa completamente não orou completamente; pois quem pede perdão a Deus e não perdõa o irmão, pede o que não dá."
+990	Abba Moisés	A vida espiritual tem uma única lei: amar. E todas as outras leis são apenas explicações desta lei única aplicadas a situacões concretas.
+991	Abba Sisoes	"Quando me aproximei da morte, o que mais senti não foi medo, mas desejo; desejo de ver Aquele que busquei durante toda a vida. E percebi que a vida inteira foi uma preparacão para este encontro."
+992	Abba Poemen	"O monge que ama a Deus não precisa de regras externas para agir bem; o amor é a lei interna que governa todas as acões. Mas enquanto o amor não é perfeito, as regras ajudam."
+993	Abba Agatão	"A quietude do deserto ensinou-me que Deus não está no ruído, mas na brisa suave; e que para ouvi-Lo, é preciso primeiro silenciar tudo o que faz ruído dentro de nós."
+994	Abba Antônio	"A santidade não é superioridade; é proximidade com Deus. E quanto mais próximo de Deus está o monge, mais se vê igual a todos os irmãos, pois vê todos na luz de Deus."
+995	Abba Macário o Grande	"Quando o monge chegar ao Paraíso, não encontrará estranhos; encontrará irmãos. Pois todos os que amaram a Deus são uma familia, mesmo que nunca se tenham visto na terra."
+996	Abba Arsênio	"A última lição do deserto é que o deserto não era o destino; era o meio. E o fim de todos os meios é Deus, que está no início, no meio e no fim de tudo."
+997	Abba Poemen	"Vi toda a minha vida espiritual e vi uma coisa: quando eu me esvaziava de mim mesmo, Deus me enchia; e quando eu me enchia de mim mesmo, Deus aguardava. O esvaziamento é o caminho; o preenchimento é o dom."
+998	Abba Sisoes	"Quando tudo acaba, Deus permanece. E quando Deus permanece, nada realmente acabou. Esta é a esperança do monge: que além da morte, há Vida; e além do fim, há Começo."
+999	Abba Moisés	"Comecei no deserto com uma pergunta: como me salvo? E terminei com uma resposta: sendo amado por Deus. Pois a salvacão não é conquista humana; é don divino recebido com humildade."
+1000	Abba Antônio	Se eu tivesse que deixar uma única palavra para os que vêm depois, seria esta: Amai a Deus sobre tudo e ao próximo como a vós mesmos. Neste preceito estão todos os outros. E na prática deste preceito está toda a felicidade possível.
